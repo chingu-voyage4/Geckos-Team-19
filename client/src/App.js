@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Time from './Containers/time';
-import Weather from './Containers/weather';
+import Time from './containers/time';
+import Weather from './containers/weather';
 class App extends Component {
   render() {
     return (

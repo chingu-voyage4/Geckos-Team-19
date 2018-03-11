@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, TempWrap, List, ListTemp, ListBtn } from '../styles/--weather';
+import { Div, List, ListTemp, ListBtn, Icon } from '../styles/--weather';
 import icons from '../components/icons';
 
 
@@ -31,9 +31,10 @@ class Weather extends Component {
             .then(console.log(url))
             .then(response => {
                 this.setState({
-                    weather: (response.main.temp * 9 / 5 - 459.67).toFixed(1),
-                    displayTemp: (response.main.temp * 9 / 5 - 459.67).toFixed(1)
+                    weather: Math.round(response.main.temp * 9 / 5 - 459.67),
+                    displayTemp: Math.round(response.main.temp * 9 / 5 - 459.67)
                 })
+                console.log(response);
             })
             .catch(err => {
                 console.error(err)
@@ -88,20 +89,18 @@ class Weather extends Component {
     render() {
         return (
             <Div>
-                <TempWrap>
-                    <List>
-                        <li>
-                            {icons.icon.sunny}
-                        </li>
-                        <ListTemp>
-                            {this.state.displayTemp}
-                        </ListTemp>
-                        <ListBtn><TempButton
-                                onClick={this.handleClick}
-                                tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
-                        </ListBtn>
-                     </List>
-                </TempWrap>
+                <List>
+                    <Icon>
+                        {icons.icon.sunny}
+                    </Icon>
+                    <ListTemp>
+                        {this.state.displayTemp}
+                    </ListTemp>
+                    <ListBtn><TempButton
+                            onClick={this.handleClick}
+                            tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                    </ListBtn>
+                </List>
             </Div>
         );
     }

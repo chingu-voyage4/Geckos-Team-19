@@ -1,13 +1,22 @@
-import React from 'react';
+//styling for individual icons; imported to icons.js
 
 const sunny = {
-    position: 'absolute',
-    fontSize: '2.9em',
-    margin: 'auto',
-    width: '50%',
+    marginTop: 20,
+    paddingLeft: 10,
+    fontSize: 80,
     color: 'yellow',
-    top: '1rem',
-    left: '1.60rem',
-}
+  }
+const clearNight = {}
+const rain = {}
+const snow = {}
+const sleet = {}
+const wind = {}
+const fog = {}
+const cloudy = {}
+const partlyCloudyDay = {}
+const hail = {}
+const thunderstorm = {}
+const tornado = {}
+
 
 export { sunny };
