@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TempButton from '../Components/tempButton';
+import TempButton from '../components/tempButton';
 import { Div, TempWrap, List, ListTemp, ListBtn } from '../styles/--weather';
-import icons from '../Components/icons';
+import icons from '../components/icons';
 
 
 let url;
