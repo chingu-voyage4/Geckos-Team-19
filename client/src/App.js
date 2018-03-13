@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import Time from './containers/time';
-import Weather from './containers/weather';
+import CardTW from './components/cardTW'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-            <Time />
-            <Weather />
+        <div className="App">
+            <CardTW />
       </div>
     );
   }

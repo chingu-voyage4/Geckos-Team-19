@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, List, ListTemp, ListBtn, Icon } from '../styles/--weather';
+import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List } from '../styles/--weather';
 import icons from '../components/icons';
 
 
@@ -93,13 +93,18 @@ class Weather extends Component {
                     <Icon>
                         {icons.icon.sunny}
                     </Icon>
+                    <button>toggle placeholder</button>
                     <ListTemp>
-                        {this.state.displayTemp}
-                    </ListTemp>
-                    <ListBtn><TempButton
+                        <ItemTemp>
+                            {this.state.displayTemp}
+                        </ItemTemp>
+                        <ItemBtn>
+                        <TempButton
                             onClick={this.handleClick}
                             tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
-                    </ListBtn>
+                        </ItemBtn>
+                    </ListTemp>
+
                 </List>
             </Div>
         );

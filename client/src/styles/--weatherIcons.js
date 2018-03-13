@@ -2,7 +2,7 @@
 
 const sunny = {
     marginTop: 20,
-    paddingLeft: 10,
+    marginBottom: 20,
     fontSize: 80,
     color: 'yellow',
   }
