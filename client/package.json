@@ -22,5 +22,8 @@
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom"
+  },
+  "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.1.2"
   }
 }

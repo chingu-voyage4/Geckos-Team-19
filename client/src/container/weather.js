@@ -13,22 +13,22 @@ class Weather extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            lat: "....loading",
+            lat: "...loading",
             long: "...loading",
             weather: "...getting data",
             error: null,
             tempKind: false,
-            displayTemp: ""
+            displayTemp: "..."
         }
         this.handleClick = this.handleClick.bind(this);
-        
+
     }
 
     callApi() {
         // Call the API page
         fetch(url)
             .then(response => response.json())
-            .then(console.log(url))
+          //  .then(console.log(url))
             .then(response => {
                 this.setState({
                     weather: (response.main.temp * 9 / 5 - 459.67).toFixed(1),
@@ -42,10 +42,8 @@ class Weather extends Component {
     }
     onLocationChange() {
         url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.state.lat}&lon=${this.state.long}&APPID=${apiKey}`
-        if (this.state.long !== null || this.state.lat !== null) {
+        if (this.state.long !== "...loading" || this.state.lat !== "...loading") {
             this.callApi();
-        } else {
-            alert("wait for coordinates to load")
         }
     }
     componentDidMount() {
@@ -59,17 +57,19 @@ class Weather extends Component {
             },
         );
         setTimeout(() => {
+          //console.log(this.state.long);
+          //console.log(this.state.lat);
             this.onLocationChange();
-        }, 1000);
+        }, 5000);
     }
-   
-    
 
 
-  
+
+
+
 
     handleClick = (event) => {
-        
+
         this.setState(prevState => ({
             tempKind: !prevState.tempKind
         }));
@@ -84,7 +84,7 @@ class Weather extends Component {
         }
     }
 
- 
+
     render() {
         return (
             <Div>
