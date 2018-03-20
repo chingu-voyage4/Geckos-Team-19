@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Time from './container/time';
-import Weather from './container/weather';
+
+import Dashboard from './container/dashboard';
 import BackgroundImage from './container/backgroundImage'
 
 class App extends Component {
@@ -8,8 +8,7 @@ class App extends Component {
     return (
       <div className="App">
             <BackgroundImage/>
-            <Time />
-            <Weather />
+            <Dashboard />
       </div>
     );
   }

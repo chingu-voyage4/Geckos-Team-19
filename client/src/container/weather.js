@@ -60,7 +60,7 @@ class Weather extends Component {
           //console.log(this.state.long);
           //console.log(this.state.lat);
             this.onLocationChange();
-        }, 5000);
+        }, 7000);
     }
 
 
