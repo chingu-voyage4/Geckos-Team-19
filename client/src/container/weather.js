@@ -8,10 +8,7 @@ import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 
 
-let url;
-let apiKey = "50bb5384466ccb470dc659a13dca555a";
-let lon;
-let lat;
+
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
@@ -24,19 +21,16 @@ class Weather extends Component {
             
             error: null,
             tempKind: false,
-<<<<<<< HEAD:client/src/container/weather.js
-            displayTemp: "..."
-=======
-            displayTemp: "",
+            displayTemp: "...",
+          
             city: "",
             wind: "",
             humidity: ""
->>>>>>> e1bbfd900094305beefeb807324ada092caf75c9:client/src/Containers/weather.js
         }
         this.handleClick = this.handleClick.bind(this);
 
     }
-<<<<<<< HEAD:client/src/container/weather.js
+
 
     callApi() {
         // Call the API page
@@ -71,7 +65,6 @@ class Weather extends Component {
     }
    
     onLocationChange() {
-<<<<<<< HEAD:client/src/container/weather.js
         url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.state.lat}&lon=${this.state.long}&APPID=${apiKey}`
         if (this.state.long !== "...loading" || this.state.lat !== "...loading") {
             this.callApi();
@@ -116,6 +109,9 @@ class Weather extends Component {
 
 
 
+=======
+    
+>>>>>>> 104f7dba6425fe3361958fb3c3d02ae8a473b2a9:client/src/Containers/weather.js
     handleClick = (event) => {
 
         this.setState(prevState => ({
@@ -136,11 +132,15 @@ class Weather extends Component {
 
 =======
     
+<<<<<<< HEAD:client/src/container/weather.js
  
 >>>>>>> e1bbfd900094305beefeb807324ada092caf75c9:client/src/Containers/weather.js
+=======
+    componentDidMount() {
+        this.props.fetchWeather();
+    }
+>>>>>>> 104f7dba6425fe3361958fb3c3d02ae8a473b2a9:client/src/Containers/weather.js
     render() {
-        const WEATHER = this.props.fetchWeather();
-     
         return (
             <Div>
                 <List>
@@ -156,7 +156,7 @@ class Weather extends Component {
                     <button>toggle placeholder</button>
                     <ListTemp>
                         <ItemTemp>
-                            {store.getState().temp}
+                            {store.getState().temp.temp}
                         </ItemTemp>
                         <ItemBtn>
                         <TempButton

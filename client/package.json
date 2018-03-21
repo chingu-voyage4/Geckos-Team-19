@@ -29,10 +29,7 @@
     "test": "react-scripts test --env=jsdom"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "case-sensitive-paths-webpack-plugin": "^2.1.2"
-=======
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "redux-devtools": "^3.4.1"
->>>>>>> e1bbfd900094305beefeb807324ada092caf75c9
   }
 }

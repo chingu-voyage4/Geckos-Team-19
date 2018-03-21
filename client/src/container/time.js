@@ -4,7 +4,6 @@ import { Clock, ClockWrap, ClockButton, $Date } from '../styles/--time';
 import { onChangeTime } from '../actions/index';
 import reducers from '../reducers/index';
 import { store } from '../actions/store';
-import { fetchWeather } from '../actions/api';
 
 //add onChangeTime to ClockButton if you have the time
 
