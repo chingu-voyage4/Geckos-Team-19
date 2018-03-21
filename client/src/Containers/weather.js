@@ -8,10 +8,7 @@ import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 
 
-let url;
-let apiKey = "50bb5384466ccb470dc659a13dca555a";
-let lon;
-let lat;
+
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
@@ -32,45 +29,7 @@ class Weather extends Component {
         this.handleClick = this.handleClick.bind(this);
         
     }
-    coords(type) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                if (type === 'lon') {
-                    const lon = position.coords.longitude;
-                    return lon;
-                } else if (type === 'lat') {
-                    const lat = position.coords.latitude;
-                    return lat;
-                } else {
-                    return 'enter lon or lat';
-                }
-            })
-      
-    }
-   
-    onLocationChange() {
-        url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${apiKey}`
-        if (this.state.lon !== null || this.state.lat !== null) {
-            this.props.fetchWeather();
-        } else {
-            alert("wait for coordinates to load")
-        }
-    }
-    componentDidMount() {
-       
-         setTimeout(() => {
-             lon = this.coords('lon');
-             lat = this.coords('lat');
-        }, 1000);
-         
-
-    }
-   
     
-
-
-  
-
     handleClick = (event) => {
         
         this.setState(prevState => ({
@@ -88,10 +47,10 @@ class Weather extends Component {
     }
 
     
- 
+    componentDidMount() {
+        this.props.fetchWeather();
+    }
     render() {
-        const WEATHER = this.props.fetchWeather();
-     
         return (
             <Div>
                 <List>
@@ -107,7 +66,7 @@ class Weather extends Component {
                     <button>toggle placeholder</button>
                     <ListTemp>
                         <ItemTemp>
-                            {store.getState().temp}
+                            {store.getState().temp.temp}
                         </ItemTemp>
                         <ItemBtn>
                         <TempButton
