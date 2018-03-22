@@ -36,9 +36,9 @@ class Weather extends Component {
             // this.setState({
             //     displayTemp: this.state.temp
             // });
-            store.getState().temp.temp
+            store.getState().temp.tempC =  store.getState().temp.temp
         } else {
-            store.getState().temp.tempC = ((store.getState().temp.temp - 32) * 5 / 9).toFixed(1);
+            store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
 
@@ -68,7 +68,7 @@ class Weather extends Component {
                     <button>toggle placeholder</button>
                     <ListTemp>
                         <ItemTemp>
-                            {store.getState().temp.temp}
+                            {store.getState().temp.tempC}
                            
                         </ItemTemp>
                         <ItemBtn>
