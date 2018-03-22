@@ -44,7 +44,7 @@ class Weather extends Component {
 
     
     componentDidMount() {
-       setTimeout(function(){ alert("Hello"); }, 3000);
+       //setTimeout(function(){ alert("Hello"); }, 3000);
         navigator.geolocation.getCurrentPosition(
             (position) => {
                     this.props.fetchWeather(
@@ -79,10 +79,10 @@ class Weather extends Component {
                     </ListTemp>
 
                 </List>
-                <div>
+                {/* <div>
                   <p> lat = {lat} </p>
                   <p> lat = {lon} </p>
-                </div>
+                </div> */}
             </Div>
         );
     }
