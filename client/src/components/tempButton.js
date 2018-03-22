@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Button, Temp } from '../styles/--weather';
+import { Button } from '../styles/--weather';
 
 
 
@@ -13,7 +13,7 @@ class TempButton extends Component {
                 <Button
                     onClick={this.props.onClick}
                     tempkind={this.props.tempkind} >
-                    <Temp><i className={this.props.tempkind}></i></Temp>
+                    <i className={this.props.tempkind}></i>
                 </Button>
                     
                

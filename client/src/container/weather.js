@@ -1,109 +1,100 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, TempWrap, List, ListTemp, ListBtn } from '../styles/--weather';
+import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List } from '../styles/--weather';
 import icons from '../components/icons';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from '../actions/api';
+import { store } from '../actions/store';
 
 
-let url;
-let apiKey = "50bb5384466ccb470dc659a13dca555a";
+let lat;
+let lon;
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
 class Weather extends Component {
+
+
     constructor(props) {
         super(props);
         this.state = {
-            lat: "...loading",
-            long: "...loading",
-            weather: "...getting data",
             error: null,
             tempKind: false,
-            displayTemp: "..."
         }
         this.handleClick = this.handleClick.bind(this);
-
+        
     }
-
-    callApi() {
-        // Call the API page
-        fetch(url)
-            .then(response => response.json())
-          //  .then(console.log(url))
-            .then(response => {
-                this.setState({
-                    weather: (response.main.temp * 9 / 5 - 459.67).toFixed(1),
-                    displayTemp: (response.main.temp * 9 / 5 - 459.67).toFixed(1)
-                })
-            })
-            .catch(err => {
-                console.error(err)
-                return null
-            })
-    }
-    onLocationChange() {
-        url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.state.lat}&lon=${this.state.long}&APPID=${apiKey}`
-        if (this.state.long !== "...loading" || this.state.lat !== "...loading") {
-            this.callApi();
-        }
-    }
-    componentDidMount() {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                this.setState({
-                    lat: position.coords.latitude,
-                    long: position.coords.longitude,
-                    error: null,
-                });
-            },
-        );
-        setTimeout(() => {
-          //console.log(this.state.long);
-          //console.log(this.state.lat);
-            this.onLocationChange();
-        }, 5000);
-    }
-
-
-
-
-
+    
 
     handleClick = (event) => {
-
+        
         this.setState(prevState => ({
             tempKind: !prevState.tempKind
         }));
         if (this.state.tempKind) {
-            this.setState({
-                displayTemp: this.state.weather
-            });
+            // this.setState({
+            //     displayTemp: this.state.temp
+            // });
+            store.getState().temp.tempC =  store.getState().temp.temp
         } else {
-            this.setState({
-                displayTemp: ((this.state.weather - 32) * 5 / 9).toFixed(1)
-        })
+            store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
 
-
+    
+    componentDidMount() {
+       //setTimeout(function(){ alert("Hello"); }, 3000);
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                    this.props.fetchWeather(
+                    lon = position.coords.longitude, 
+                    lat = position.coords.latitude)
+            });
+    }
     render() {
         return (
             <Div>
-                <TempWrap>
-                    <List>
-                        <li>
-                            {icons.icon.sunny}
-                        </li>
-                        <ListTemp>
-                            {this.state.displayTemp}
-                        </ListTemp>
-                        <ListBtn><TempButton
-                                onClick={this.handleClick}
-                                tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
-                        </ListBtn>
-                     </List>
-                </TempWrap>
+                <List>
+                    <h3>{this.props.city}</h3>
+                    <Icon>
+                        {icons.icon.sunny}
+                    </Icon>
+                    <div >
+                        <p >Wind {this.state.wind}</p>
+                        <p >Main {this.state.main}</p>
+                        <p>Humidity {this.state.humidity}%</p>
+                    </div>
+                    <button>toggle placeholder</button>
+                    <ListTemp>
+                        <ItemTemp>
+                            {store.getState().temp.tempC}
+                           
+                        </ItemTemp>
+                        <ItemBtn>
+                        <TempButton
+                            onClick={this.handleClick}
+                            tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                        </ItemBtn>
+                    </ListTemp>
+
+                </List>
+                {/* <div>
+                  <p> lat = {lat} </p>
+                  <p> lat = {lon} </p>
+                </div> */}
             </Div>
         );
     }
 }
-export default Weather;
+
+function mapStateToProps(state) {
+    return {
+        temp: state.temp
+    };
+}
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Weather)

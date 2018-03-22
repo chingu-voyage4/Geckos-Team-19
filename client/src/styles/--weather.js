@@ -1,56 +1,66 @@
 
 import styled from 'styled-components';
 
-const Button = styled.button`
-border: 3px solid white;
-border-radius: 5px;
-width: 25px;
-font - weight: bolder;
-text - align: center;
-`
+//styling for Weather
+//container
 const Div = styled.div`
-position: absolute;
-margin: 10px;
-min-width: 100px;
-max-width: 5vw;
-min-height: 100px;
-max-height: 5vh;
-background: #aed9f2;
-border: #00a1ff solid 5px;
-border-radius: 10px;
+position: relative;
+min-width: 300px;
+max-width: 20vw;
+min-height: 300px;
+max-height: 20vh;
+background-color: rgba(0,0,0,0)
+border-radius: 50%;
 `
-const Temp = styled.div`
-font-size: 18px;
-margin-bottom: -.2rem;
-`
-const TempWrap = styled.div`
-
-`
+//ul temp display and temp button
 const List = styled.ul`
 list-style: none;
-left: 0;
+text-align: center;
+padding-left: 15px;
 `
-const ListTemp = styled.li`
-position: absolute;
-    bottom: 0px;
-    left: 10px;
-    width: 50%;
-    padding: 2px;
-    font-family: 'Bowlby One SC', cursive;
+//li icon size, position, anything that is not specific to the icon
+//might be overridden by the inline styling in --weatherIcons.js
+const Icon = styled.li`
 
 `
+//li temp display
+const ListTemp = styled.ul`
+list-style: none;
+font-family: 'Bowlby One SC', cursive;
+font-size: 40px;
+margin-left: -40px;
+`
+//li tempBtn display
+const ItemBtn = styled.li`
 
-const ListBtn = styled.li`
-position: absolute;
-bottom: 5px;
-right: 5px;
-width: 30%;
+`
+//li button icon
+const ItemTemp = styled.li`
+
+font-size: 40px;
+margin-top: 10px;
+padding-top: 10px;
+`
+
+//style for tempButton.js:
+//wrapper
+const Button = styled.button`
+border: 3px solid white;
+border-radius: 50%;
+width: 3rem;
+height: 3rem;
+margin: 10px;
 `
 
 
-export { Button };
-export { Div };
-export { TempWrap, Temp };
-export { List };
-export { ListTemp };
-export { ListBtn };
+//TW Card --wraps the Time and Weather into one card
+const TW = styled.div`
+border : none;
+background-color: rgba(0,0,0,.05);
+margin: auto;
+min-width: 30%;
+max-width: 300px;
+border-radius: 10px;
+`
+
+export { Button, Div, ItemTemp, List, ListTemp, ItemBtn, Icon, TW };

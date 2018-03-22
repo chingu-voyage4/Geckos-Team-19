@@ -7,15 +7,16 @@ class Time extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            time: new Date().toLocaleString()
+             //to switch to 24 hour format add hour12: false after minute
+            time: new Date().toLocaleString([], {hour: '2-digit', minute:'2-digit'}),
+            date: new Date().toDateString()
         };
     }
-
 
     componentDidMount() {
         this.intervalID = setInterval(
             () => this.tick(),
-            1000
+            10000
         );
     }
     componentWillUnmount() {
@@ -24,7 +25,9 @@ class Time extends React.Component {
 
     tick() {
         this.setState({
-            time: new Date().toLocaleString()
+            //to switch to 24 hour format add hour12: false after minute
+            time: new Date().toLocaleString([], {hour: '2-digit', minute:'2-digit' }),
+            date: new Date().toDateString()
         });
     }
 
@@ -32,6 +35,7 @@ class Time extends React.Component {
         return (
 
             <ClockWrap>
+                <Clock> { this.state.date} </Clock>
                 <Clock> {this.state.time} </Clock>
             </ClockWrap>
         );
@@ -40,4 +44,4 @@ class Time extends React.Component {
 
 
 
-export default Time;
+export default Time; 
