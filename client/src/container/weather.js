@@ -8,138 +8,50 @@ import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 
 
-
+let lat;
+let lon;
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
 class Weather extends Component {
+
+
     constructor(props) {
         super(props);
         this.state = {
-            lat: "...loading",
-            long: "...loading",
-            
             error: null,
             tempKind: false,
-            displayTemp: "...",
-          
-            city: "",
-            wind: "",
-            humidity: ""
         }
         this.handleClick = this.handleClick.bind(this);
-
+        
     }
-
-
-    callApi() {
-        // Call the API page
-        fetch(url)
-            .then(response => response.json())
-          //  .then(console.log(url))
-            .then(response => {
-                this.setState({
-                    weather: (response.main.temp * 9 / 5 - 459.67).toFixed(1),
-                    displayTemp: (response.main.temp * 9 / 5 - 459.67).toFixed(1)
-                })
-            })
-            .catch(err => {
-                console.error(err)
-                return null
-=======
-    coords(type) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                if (type === 'lon') {
-                    const lon = position.coords.longitude;
-                    return lon;
-                } else if (type === 'lat') {
-                    const lat = position.coords.latitude;
-                    return lat;
-                } else {
-                    return 'enter lon or lat';
-                }
->>>>>>> e1bbfd900094305beefeb807324ada092caf75c9:client/src/Containers/weather.js
-            })
-      
-    }
-   
-    onLocationChange() {
-        url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.state.lat}&lon=${this.state.long}&APPID=${apiKey}`
-        if (this.state.long !== "...loading" || this.state.lat !== "...loading") {
-            this.callApi();
-        }
-    }
-    componentDidMount() {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                this.setState({
-                    lat: position.coords.latitude,
-                    long: position.coords.longitude,
-                    error: null,
-                });
-            },
-        );
-        setTimeout(() => {
-          //console.log(this.state.long);
-          //console.log(this.state.lat);
-            this.onLocationChange();
-        }, 7000);
-=======
-        url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${apiKey}`
-        if (this.state.lon !== null || this.state.lat !== null) {
-            this.props.fetchWeather();
-        } else {
-            alert("wait for coordinates to load")
-        }
-    }
-    componentDidMount() {
-       
-         setTimeout(() => {
-             lon = this.coords('lon');
-             lat = this.coords('lat');
-        }, 1000);
-         
-
->>>>>>> e1bbfd900094305beefeb807324ada092caf75c9:client/src/Containers/weather.js
-    }
-
-
-
-
-
-
-=======
     
->>>>>>> 104f7dba6425fe3361958fb3c3d02ae8a473b2a9:client/src/Containers/weather.js
-    handleClick = (event) => {
 
+    handleClick = (event) => {
+        
         this.setState(prevState => ({
             tempKind: !prevState.tempKind
         }));
         if (this.state.tempKind) {
-            this.setState({
-                displayTemp: this.state.temp
-            });
+            // this.setState({
+            //     displayTemp: this.state.temp
+            // });
+            store.getState().temp.temp
         } else {
-            this.setState({
-                displayTemp: ((this.state.temp - 32) * 5 / 9).toFixed(1)
-        })
+            store.getState().temp.tempC = ((store.getState().temp.temp - 32) * 5 / 9).toFixed(1);
         }
     }
 
-<<<<<<< HEAD:client/src/container/weather.js
-
-=======
     
-<<<<<<< HEAD:client/src/container/weather.js
- 
->>>>>>> e1bbfd900094305beefeb807324ada092caf75c9:client/src/Containers/weather.js
-=======
     componentDidMount() {
-        this.props.fetchWeather();
+       setTimeout(function(){ alert("Hello"); }, 3000);
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                    this.props.fetchWeather(
+                    lon = position.coords.longitude, 
+                    lat = position.coords.latitude)
+            });
     }
->>>>>>> 104f7dba6425fe3361958fb3c3d02ae8a473b2a9:client/src/Containers/weather.js
     render() {
         return (
             <Div>
@@ -157,6 +69,7 @@ class Weather extends Component {
                     <ListTemp>
                         <ItemTemp>
                             {store.getState().temp.temp}
+                           
                         </ItemTemp>
                         <ItemBtn>
                         <TempButton
@@ -166,13 +79,14 @@ class Weather extends Component {
                     </ListTemp>
 
                 </List>
+                <div>
+                  <p> lat = {lat} </p>
+                  <p> lat = {lon} </p>
+                </div>
             </Div>
         );
     }
 }
-<<<<<<< HEAD:client/src/container/weather.js
-export default Weather;
-=======
 
 function mapStateToProps(state) {
     return {
@@ -184,4 +98,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Weather)
->>>>>>> e1bbfd900094305beefeb807324ada092caf75c9:client/src/Containers/weather.js
