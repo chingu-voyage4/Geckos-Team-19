@@ -5,7 +5,7 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case FETCH_WEATHER:
             return Object.assign({}, state, {
-                temp: action.payload.data.main.temp
+                temp: ((action.payload.data.main.temp - 273) * (9 / 5) + 32).toFixed(1)
             });
         default:
             return state

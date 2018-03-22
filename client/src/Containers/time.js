@@ -7,19 +7,21 @@ import { store } from '../actions/store';
 
 //add onChangeTime to ClockButton if you have the time
 
+
+
 class Time extends Component {
-    
+  
     render() {
         
         return (
 
             <ClockWrap>
                 <$Date>{store.getState().month.month + " " + store.getState().date.date + " " + store.getState().year.year} </$Date>
-                <Clock> <ClockButton >{store.getState().time[0].time ? store.getState().time[0].time : store.getState().time[1].time}</ClockButton> </Clock>
+                <Clock> <ClockButton  > { store.getState().time.time }</ClockButton> </Clock>
         </ClockWrap>
         );
     }
-    
+   
     
 }
 

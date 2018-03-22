@@ -16,40 +16,32 @@ class Weather extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            lat: "....loading",
-            long: "...loading",
-            
             error: null,
             tempKind: false,
-            displayTemp: "",
-            city: "",
-            wind: "",
-            humidity: ""
         }
         this.handleClick = this.handleClick.bind(this);
         
     }
     
     handleClick = (event) => {
-        
         this.setState(prevState => ({
             tempKind: !prevState.tempKind
         }));
         if (this.state.tempKind) {
-            this.setState({
-                displayTemp: this.state.temp
-            });
+            store.getState().temp.temp
         } else {
-            this.setState({
-                displayTemp: ((this.state.temp - 32) * 5 / 9).toFixed(1)
-        })
+            store.getState().temp.temp = ((store.getState().temp.temp) - 32) * (5 / 9).toFixed(1);
         }
     }
 
     
     componentDidMount() {
-        this.props.fetchWeather();
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                this.props.fetchWeather(position.coords.longitude, position.coords.latitude)
+            });
     }
+   
     render() {
         return (
             <Div>
@@ -59,11 +51,11 @@ class Weather extends Component {
                         {icons.icon.sunny}
                     </Icon>
                     <div >
-                        <p >Wind {this.state.wind}</p>
-                        <p >Main {this.state.main}</p>
-                        <p>Humidity {this.state.humidity}%</p>
+                        <p >Wind {store.getState().wind.wind}</p>
+                        <p >Main {store.getState().main.main}</p>
+                        <p>Humidity {store.getState().humidity.humidity}%</p>
                     </div>
-                    <button>toggle placeholder</button>
+                    <button>3 day view placeholder</button>
                     <ListTemp>
                         <ItemTemp>
                             {store.getState().temp.temp}
