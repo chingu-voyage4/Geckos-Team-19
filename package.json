@@ -23,5 +23,8 @@
     "nodemon": "^1.15.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
+  },
+  "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.1.2"
   }
 }

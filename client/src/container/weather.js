@@ -8,11 +8,14 @@ import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 
 
-
+let lat;
+let lon;
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
 class Weather extends Component {
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -23,25 +26,32 @@ class Weather extends Component {
         
     }
     
+
     handleClick = (event) => {
+        
         this.setState(prevState => ({
             tempKind: !prevState.tempKind
         }));
         if (this.state.tempKind) {
-            store.getState().temp.temp
+            // this.setState({
+            //     displayTemp: this.state.temp
+            // });
+            store.getState().temp.tempC =  store.getState().temp.temp
         } else {
-            store.getState().temp.temp = ((store.getState().temp.temp) - 32) * (5 / 9).toFixed(1);
+            store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
 
     
     componentDidMount() {
+       //setTimeout(function(){ alert("Hello"); }, 3000);
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                this.props.fetchWeather(position.coords.longitude, position.coords.latitude)
+                    this.props.fetchWeather(
+                    lon = position.coords.longitude, 
+                    lat = position.coords.latitude)
             });
     }
-   
     render() {
         return (
             <Div>
@@ -51,14 +61,15 @@ class Weather extends Component {
                         {icons.icon.sunny}
                     </Icon>
                     <div >
-                        <p >Wind {store.getState().wind.wind}</p>
-                        <p >Main {store.getState().main.main}</p>
-                        <p>Humidity {store.getState().humidity.humidity}%</p>
+                        <p >Wind {this.state.wind}</p>
+                        <p >Main {this.state.main}</p>
+                        <p>Humidity {this.state.humidity}%</p>
                     </div>
-                    <button>3 day view placeholder</button>
+                    <button>toggle placeholder</button>
                     <ListTemp>
                         <ItemTemp>
-                            {store.getState().temp.temp}
+                            {store.getState().temp.tempC}
+                           
                         </ItemTemp>
                         <ItemBtn>
                         <TempButton
@@ -68,6 +79,10 @@ class Weather extends Component {
                     </ListTemp>
 
                 </List>
+                {/* <div>
+                  <p> lat = {lat} </p>
+                  <p> lat = {lon} </p>
+                </div> */}
             </Div>
         );
     }

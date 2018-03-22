@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import CardTW from './components/cardTW';
-import SearchBar from '../src/containers/searchbar';
+import BackgroundImage from './container/backgroundImage';
+
 
 class App extends Component {
   render() {
-    return (
+      return (
         <div>
-            <SearchBar />
-            <CardTW />
+              <CardTW />
+              <BackgroundImage />
         </div>
     );
   }

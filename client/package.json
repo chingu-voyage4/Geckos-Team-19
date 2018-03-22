@@ -29,6 +29,7 @@
     "test": "react-scripts test --env=jsdom"
   },
   "devDependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "redux-devtools": "^3.4.1"
   }
 }

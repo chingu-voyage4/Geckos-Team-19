@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Time from '../containers/time';
-import Weather from '../containers/weather';
+import Time from '../container/time';
+import Weather from '../container/weather';
 import { TW } from '../styles/--weather';
 
  
