@@ -2,13 +2,18 @@
 import styled from 'styled-components';
 
 const ClockWrap = styled.div`
-width: 100%;
-padding: 5px;
+min-width: 300px;
+max-width: 20vw;
+max-height: 20vh;
+background-color: rgba(0, 0, 0, .3);
+border-radius: 5px;
+color: white;
 `
 
-const Clock = styled.p`
-fonst-size: 45px;
+const Clock = styled.h2`
+fonst-size: 30px;
 font-weight: 100;
+text-align: center;
 `
 const $Date = styled.h1`
 font-family: Hevetica, sans-serif;

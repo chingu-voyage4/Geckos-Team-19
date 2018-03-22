@@ -56,14 +56,14 @@ class Weather extends Component {
         return (
             <Div>
                 <List>
-                    <h3>{this.props.city}</h3>
+                    <h3>{store.getState().city.city}</h3>
                     <Icon>
                         {icons.icon.sunny}
                     </Icon>
                     <div >
-                        <p >Wind {this.state.wind}</p>
-                        <p >Main {this.state.main}</p>
-                        <p>Humidity {this.state.humidity}%</p>
+                        <p >Wind {store.getState().wind.wind}mph</p>
+                        <p >{store.getState().main.main}</p>
+                        <p>Humidity {store.getState().humidity.humidity}%</p>
                     </div>
                     <button>toggle placeholder</button>
                     <ListTemp>

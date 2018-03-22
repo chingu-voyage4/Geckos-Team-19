@@ -8,15 +8,20 @@ position: relative;
 min-width: 300px;
 max-width: 20vw;
 min-height: 300px;
-max-height: 20vh;
-background-color: rgba(0,0,0,0)
-border-radius: 50%;
+max-height: 100vh;
+background-color: rgba(0,0,0,0.3);
+padding-top: 3px;
+border-radius: 5px;
+margin-top: 2px;
 `
 //ul temp display and temp button
 const List = styled.ul`
 list-style: none;
 text-align: center;
 padding-left: 15px;
+color: white;
+font-size: 20px;
+font-weight: bolder;
 `
 //li icon size, position, anything that is not specific to the icon
 //might be overridden by the inline styling in --weatherIcons.js
