@@ -7,12 +7,15 @@ import WeatherReducer from './reducer_weather';
 import TempReducer from './reducer_temp';
 
 const reducers = combineReducers({
-    weather: WeatherReducer,
+    main: WeatherReducer,
     time: TimeReducer,
     date: DateReducer,
     month: MonthReducer,
     year: YearReducer,
-    temp: TempReducer
+    temp: TempReducer,
+    wind: WeatherReducer,
+    humidity: WeatherReducer,
+    city: WeatherReducer
 });
 
 
