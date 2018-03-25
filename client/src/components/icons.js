@@ -1,23 +1,20 @@
 import React from 'react';
-import 'weather-icons/css/weather-icons.css';
-import { sunny } from '../styles/--weatherIcons';
-
-
-
+import { Yellow, Blue, Grey, White } from '../styles/--weatherIcons';
 //displayed in weather.js
 const icon = {
-    sunny: <i className='wi wi-day-sunny' style={sunny}></i>,
-    clearNight: <i className='wi wi-night-clear'></i>,
-    rain: <i className='wi-rain'></i>,
-    snow: <i className='wi-snow'></i>,
-    sleet: <i className='wi-sleet'></i>,
-    wind: <i className='wi-strong-wind'></i>,
-    fog: <i className='wi-fog'></i>,
-    cloudy: <i className='wi-cloudy'></i>,
-    partlyCloudyDay: <i className='wi-day-cloudy'></i>,
-    hail: <i className='wi-hail'></i>,
-    thunderstorm: <i className='wi-storm-showers'></i>,
-    tornado: <i className='wi-tornado'></i>
+    sunny: <i className='wi wi-day-sunny' style={{color: 'yellow'}}></i>,
+    clearNight: <White className='wi wi-night-clear'></White>,
+    rain: <Blue className='wi-rain'></Blue>,
+    snow: <White className='wi-snow'></White>,
+    sleet: <White className='wi-sleet' ></White>,
+    wind: <Grey className='wi-strong-wind'></Grey>,
+    fog: <Grey className='wi-fog'></Grey>,
+    cloudy: <i className='wi wi-cloudy' style={{color: 'white'}}></i>,
+    partlyCloudyDay: <White className='wi-day-cloudy'></White>,
+    hail: <White className='wi-hail'></White>,
+    thunderstorm: <Grey className='wi-storm-showers'></Grey>,
+    tornado: <Grey className='wi-tornado'></Grey>
 }
 
-export default { icon }; 
+export {icon}
+

@@ -26,8 +26,10 @@ font-weight: bolder;
 //li icon size, position, anything that is not specific to the icon
 //might be overridden by the inline styling in --weatherIcons.js
 const Icon = styled.li`
+margin - top: 20px;
+margin - bottom: 20px;
+font - size: 80px;`
 
-`
 //li temp display
 const ListTemp = styled.ul`
 list-style: none;

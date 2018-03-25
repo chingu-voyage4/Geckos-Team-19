@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
 import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List } from '../styles/--weather';
-import icons from '../components/icons';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 
-
+// eslint-disable-next-line
 let lat;
+// eslint-disable-next-line
 let lon;
 
 //put a timeout on a function that renders the display of the weather
@@ -41,7 +41,7 @@ class Weather extends Component {
             store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
-
+  
     
     componentDidMount() {
        //setTimeout(function(){ alert("Hello"); }, 3000);
@@ -51,14 +51,16 @@ class Weather extends Component {
                     lon = position.coords.longitude, 
                     lat = position.coords.latitude)
             });
+        console.log(store.getState());
+        
     }
     render() {
         return (
             <Div>
                 <List>
                     <h3>{store.getState().city.city}</h3>
-                    <Icon>
-                        {icons.icon.sunny}
+                    <Icon className={store.getState().icon.icon.props.className} style = { store.getState().icon.icon.props.style } >
+                        
                     </Icon>
                     <div >
                         <p >Wind {store.getState().wind.wind}mph</p>

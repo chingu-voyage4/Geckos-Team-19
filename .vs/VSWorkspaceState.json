@@ -6,11 +6,10 @@
     "\\client\\src\\actions",
     "\\client\\src\\components",
     "\\client\\src\\container",
-    "\\client\\src\\Containers",
     "\\client\\src\\reducers",
     "\\client\\src\\styles",
     "\\config"
   ],
-  "SelectedNode": "\\client\\src\\styles\\--weatherIcons.js",
+  "SelectedNode": "\\client\\src\\container\\weather.js",
   "PreviewInSolutionExplorer": false
 }
