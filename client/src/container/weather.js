@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List } from '../styles/--weather';
+import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem } from '../styles/--weather';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
@@ -58,15 +58,15 @@ class Weather extends Component {
         return (
             <Div>
                 <List>
-                    <h3>{store.getState().city.city}</h3>
-                    <Icon className={store.getState().icon.icon.props.className} style = { store.getState().icon.icon.props.style } >
-                        
+                    <h3>{store.getState().main.city}</h3>
+                    <Icon>
+                        {store.getState().icon.icon}
                     </Icon>
-                    <div >
-                        <p >Wind {store.getState().wind.wind}mph</p>
-                        <p >{store.getState().main.main}</p>
-                        <p>Humidity {store.getState().humidity.humidity}%</p>
-                    </div>
+                    <InfoList>
+                        <InfoItem >Wind {store.getState().main.wind}mph</InfoItem>
+                        <InfoItem >{store.getState().main.main}</InfoItem>
+                        <InfoItem >Humidity {store.getState().main.humidity}%</InfoItem>
+                    </InfoList>
                     <button>toggle placeholder</button>
                     <ListTemp>
                         <ItemTemp>
@@ -81,10 +81,7 @@ class Weather extends Component {
                     </ListTemp>
 
                 </List>
-                {/* <div>
-                  <p> lat = {lat} </p>
-                  <p> lat = {lon} </p>
-                </div> */}
+               
             </Div>
         );
     }

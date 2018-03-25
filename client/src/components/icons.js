@@ -9,11 +9,12 @@ const icon = {
     sleet: <White className='wi-sleet' ></White>,
     wind: <Grey className='wi-strong-wind'></Grey>,
     fog: <Grey className='wi-fog'></Grey>,
-    cloudy: <i className='wi wi-cloudy' style={{color: 'white'}}></i>,
+    cloudy: <i className='wi-cloudy' style={{color: 'white'}}></i>,
     partlyCloudyDay: <White className='wi-day-cloudy'></White>,
     hail: <White className='wi-hail'></White>,
     thunderstorm: <Grey className='wi-storm-showers'></Grey>,
-    tornado: <Grey className='wi-tornado'></Grey>
+    tornado: <Grey className='wi-tornado'></Grey>,
+    mist: <i className='wi wi-mist'></i>
 }
 
 export {icon}

@@ -23,7 +23,6 @@ function onLocationChange() {
 
 export function fetchWeather(lon, lat) {
     url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}`;
-    console.log(url);
     const request = axios.get(url);
     console.log('Request:', request)
     return {
