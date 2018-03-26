@@ -1,11 +1,13 @@
 import { FETCH_WEATHER } from '../actions/api';
 
+
 let initialState = {
     wind: null,
     humidity: null,
     main: null,
     city: null
 };
+
 export default function (state = initialState, action) {
     switch (action.type) {
         case FETCH_WEATHER:
@@ -17,5 +19,6 @@ export default function (state = initialState, action) {
             });
         default:
             return state
+            });
     }
 }
