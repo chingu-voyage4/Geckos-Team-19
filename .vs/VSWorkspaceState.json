@@ -8,9 +8,9 @@
     "\\client\\src\\container",
     "\\client\\src\\reducers",
     "\\client\\src\\styles",
-    "\\client\\src\\styles\\weather-icons",
-    "\\client\\src\\styles\\weather-icons\\css"
+    "\\config",
+    "\\models"
   ],
-  "SelectedNode": "\\client\\src\\container\\weather.js",
+  "SelectedNode": "\\client\\src\\container\\locationSearch.js",
   "PreviewInSolutionExplorer": false
 }
