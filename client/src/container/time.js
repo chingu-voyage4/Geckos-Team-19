@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, ClockWrap, $Date } from '../styles/--time';
+import { Clock, ClockWrap, D } from '../styles/--time';
 
 
 
@@ -35,7 +35,7 @@ class Time extends React.Component {
         return (
 
             <ClockWrap>
-                <$Date> { this.state.date} </$Date>
+                <D> { this.state.date} </D>
                 <Clock> {this.state.time} </Clock>
             </ClockWrap>
         );

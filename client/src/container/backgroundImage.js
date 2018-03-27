@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Body} from '../styles/--background'
+
 
 let backgroundStyle =  document.body.style
 

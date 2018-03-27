@@ -15,7 +15,7 @@ fonst-size: 30px;
 font-weight: 100;
 text-align: center;
 `
-const $Date = styled.h1`
+const D = styled.h1`
 font-family: Hevetica, sans-serif;
 text-align: center;
 `
@@ -27,4 +27,4 @@ background-color: rgba(0,0,0,0);
 border: none;
 outline: none;
 `
-export { Clock, ClockWrap, ClockButton, $Date };
+export { Clock, ClockWrap, ClockButton, D };

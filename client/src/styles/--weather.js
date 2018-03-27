@@ -4,7 +4,7 @@ import styled from 'styled-components';
 //styling for Weather
 //container
 const Div = styled.div`
-position: relative;
+
 min-width: 300px;
 max-width: 20vw;
 min-height: 300px;
@@ -18,7 +18,6 @@ margin-top: 2px;
 const List = styled.ul`
 list-style: none;
 text-align: center;
-padding-left: 15px;
 color: white;
 font-size: 20px;
 font-weight: bolder;
@@ -26,10 +25,27 @@ font-weight: bolder;
 //li icon size, position, anything that is not specific to the icon
 //might be overridden by the inline styling in --weatherIcons.js
 const Icon = styled.li`
-
+margin - top: 20px;
+margin - bottom: 20px;
+font-size: 3rem;
+color: white;
+`
+const InfoList = styled.ul`
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: center;
+`
+const InfoItem = styled.li`
+   display: inline;
+   padding: .2em 1em;
+   color: white;
+   font-size: 15px;
+   padding: 5px;
 `
 //li temp display
 const ListTemp = styled.ul`
+overflow: hidden;
 list-style: none;
 font-family: 'Bowlby One SC', cursive;
 font-size: 40px;
@@ -62,10 +78,10 @@ margin: 10px;
 const TW = styled.div`
 border : none;
 background-color: rgba(0,0,0,.05);
-margin: auto;
+
 min-width: 30%;
 max-width: 300px;
 border-radius: 10px;
 `
 
-export { Button, Div, ItemTemp, List, ListTemp, ItemBtn, Icon, TW };
+export { Button, Div, ItemTemp, List, ListTemp, ItemBtn, Icon, TW, InfoList, InfoItem };

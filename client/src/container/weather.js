@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List } from '../styles/--weather';
-import icons from '../components/icons';
+import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem } from '../styles/--weather';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
+import '../styles/weather-icons/css/weather-icons.css';
 
-
+// eslint-disable-next-line
 let lat;
+// eslint-disable-next-line
 let lon;
 
 //put a timeout on a function that renders the display of the weather
@@ -41,7 +42,7 @@ class Weather extends Component {
             store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
-
+  
     
     componentDidMount() {
        //setTimeout(function(){ alert("Hello"); }, 3000);
@@ -51,20 +52,21 @@ class Weather extends Component {
                     lon = position.coords.longitude, 
                     lat = position.coords.latitude)
             });
+        
     }
     render() {
         return (
             <Div>
                 <List>
-                    <h3>{store.getState().city.city}</h3>
+                    <h3>{store.getState().main.city}</h3>
                     <Icon>
-                        {icons.icon.sunny}
+                        <i className={store.getState().main.icon}></i>
                     </Icon>
-                    <div >
-                        <p >Wind {store.getState().wind.wind}mph</p>
-                        <p >{store.getState().main.main}</p>
-                        <p>Humidity {store.getState().humidity.humidity}%</p>
-                    </div>
+                    <InfoList>
+                        <InfoItem >Wind {store.getState().main.wind}mph</InfoItem>
+                        <InfoItem >{store.getState().main.main}</InfoItem>
+                        <InfoItem >Humidity {store.getState().main.humidity}%</InfoItem>
+                    </InfoList>
                     <button>toggle placeholder</button>
                     <ListTemp>
                         <ItemTemp>
@@ -74,15 +76,12 @@ class Weather extends Component {
                         <ItemBtn>
                         <TempButton
                             onClick={this.handleClick}
-                            tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                            className={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
                         </ItemBtn>
                     </ListTemp>
 
                 </List>
-                {/* <div>
-                  <p> lat = {lat} </p>
-                  <p> lat = {lon} </p>
-                </div> */}
+               
             </Div>
         );
     }
