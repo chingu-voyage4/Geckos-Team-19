@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
+import '../styles/weather-icons/css/weather-icons.css';
 
 // eslint-disable-next-line
 let lat;
@@ -51,7 +52,6 @@ class Weather extends Component {
                     lon = position.coords.longitude, 
                     lat = position.coords.latitude)
             });
-        console.log(store.getState());
         
     }
     render() {
@@ -60,7 +60,7 @@ class Weather extends Component {
                 <List>
                     <h3>{store.getState().main.city}</h3>
                     <Icon>
-                        {store.getState().icon.icon}
+                        <i className={store.getState().main.icon}></i>
                     </Icon>
                     <InfoList>
                         <InfoItem >Wind {store.getState().main.wind}mph</InfoItem>
@@ -76,7 +76,7 @@ class Weather extends Component {
                         <ItemBtn>
                         <TempButton
                             onClick={this.handleClick}
-                            tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                            className={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
                         </ItemBtn>
                     </ListTemp>
 

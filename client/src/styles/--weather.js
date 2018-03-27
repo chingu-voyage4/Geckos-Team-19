@@ -27,7 +27,7 @@ font-weight: bolder;
 const Icon = styled.li`
 margin - top: 20px;
 margin - bottom: 20px;
-font - size: 80px;
+font-size: 3rem;
 color: white;
 `
 const InfoList = styled.ul`
@@ -41,6 +41,7 @@ const InfoItem = styled.li`
    padding: .2em 1em;
    color: white;
    font-size: 15px;
+   padding: 5px;
 `
 //li temp display
 const ListTemp = styled.ul`
