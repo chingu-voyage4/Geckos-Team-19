@@ -8,7 +8,8 @@
     "\\client\\src\\container",
     "\\client\\src\\reducers",
     "\\client\\src\\styles",
-    "\\config"
+    "\\client\\src\\styles\\weather-icons",
+    "\\client\\src\\styles\\weather-icons\\css"
   ],
   "SelectedNode": "\\client\\src\\container\\weather.js",
   "PreviewInSolutionExplorer": false
