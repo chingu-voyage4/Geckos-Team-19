@@ -1,5 +1,5 @@
 import { FETCH_WEATHER } from '../actions/api';
-import { FETCH_ZIP } from '../actions/zip';
+
 
 export function getIcon(action) {
     var prefix = 'wi wi-';

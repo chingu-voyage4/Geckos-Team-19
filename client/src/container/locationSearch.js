@@ -23,10 +23,31 @@ class Input extends Component {
     onChange = (event) => {
         this.setState({ zip: event.target.value });
     }
+    //validate zip code; CA and US
+    isValidZip = (postalCode, countryCode) => {
+        let postalCodeRegex;
+    switch (countryCode) {
+        case "US":
+            postalCodeRegex = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/;
+            break;
+        case "CA":
+            postalCodeRegex = /^([A-Z][0-9][A-Z])\s*([0-9][A-Z][0-9])$/;
+            break;
+        default:
+            postalCodeRegex = /^(?:[A-Z0-9]+([- ]?[A-Z0-9]+)*)?$/;
+    }
+    return postalCodeRegex.test(postalCode);
+    }
 
+
+    //click event to pass info to <Input />
     handleClick = (event) => {
-        event.preventDefault();
-        this.props.fetchZip(this.state.zip);
+        if (this.isValidZip(this.state.zip, store.getState().input.country)) {
+            event.preventDefault();
+            this.props.fetchZip(this.state.zip);
+        } else {
+            alert("Please enter a valid zip code");
+        }
        
     }
 

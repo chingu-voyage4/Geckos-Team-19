@@ -89,7 +89,7 @@ class Weather extends Component {
 
                 </Div>
             )
-        };
+        }
     }
 }
 

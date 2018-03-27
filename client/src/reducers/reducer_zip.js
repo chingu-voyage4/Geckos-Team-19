@@ -17,6 +17,7 @@ export default function (state = initialState, action) {
                 humidity: action.payload.data.main.humidity,
                 main: action.payload.data.weather[0].main,
                 city: action.payload.data.name,
+                country: action.payload.data.sys.country,
                 icon: getIcon(action.payload.data.weather[0]),
                 temp: (action.payload.data.main.temp * 9 / 5 - 459.67).toFixed(0),
                 tempC: (action.payload.data.main.temp * 9 / 5 - 459.67).toFixed(0)
