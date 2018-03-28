@@ -81,7 +81,7 @@ class Weather extends Component {
                             <ItemBtn>
                                 <TempButton
                                     onClick={this.handleClick}
-                                    className={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                                    tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
                             </ItemBtn>
                         </ListTemp>
 

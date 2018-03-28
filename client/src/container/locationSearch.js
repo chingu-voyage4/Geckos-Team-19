@@ -24,11 +24,24 @@ class Input extends Component {
         this.setState({ zip: event.target.value });
     }
 
-    handleClick = (event) => {
+    handleClick1 = (event) => {
         event.preventDefault();
         this.props.fetchZip(this.state.zip);
        
     }
+
+    handleClick2 = (event) => {
+        console.log(this.state.tempKind);
+        this.setState(prevState => ({
+            tempKind: !prevState.tempKind
+        }));
+        if (this.state.tempKind) {
+            store.getState().temp.tempC =  store.getState().temp.temp
+        } else {
+            store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
+        }
+    }
+  
 
     render() {
         return (
@@ -37,7 +50,7 @@ class Input extends Component {
                     <input
                         placeholder="zip code"
                         onChange={this.onChange}></input>
-                    <ZipButton onClick={this.handleClick} />
+                    <ZipButton onClick={this.handleClick1} />
                     </div>
                 <List>
                     <h3>{store.getState().input.city}</h3>
@@ -57,8 +70,9 @@ class Input extends Component {
                         </ItemTemp>
                         <ItemBtn>
                             <TempButton
-                                onClick={this.handleClick}
-                                className={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                                onClick={this.handleClick2}
+                                tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'}
+                               />
                         </ItemBtn>
                     </ListTemp>
 
