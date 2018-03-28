@@ -4,6 +4,7 @@ import MonthReducer from './reducer_month';
 import YearReducer from './reducer_year';
 import WeatherReducer from './reducer_weather';
 import TempReducer from './reducer_temp';
+import ZipReducer from './reducer_zip';
 
 
 const reducers = combineReducers({
@@ -12,7 +13,8 @@ const reducers = combineReducers({
     month: MonthReducer,
     year: YearReducer,
     temp: TempReducer,
-    icon: WeatherReducer
+    icon: WeatherReducer,
+    input: ZipReducer
 });
 
 

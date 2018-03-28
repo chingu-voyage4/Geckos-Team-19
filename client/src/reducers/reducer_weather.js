@@ -1,6 +1,7 @@
 import { FETCH_WEATHER } from '../actions/api';
 
-function getIcon(action) {
+
+export function getIcon(action) {
     var prefix = 'wi wi-';
     var code = action.id;
     var icon = action.icon;
