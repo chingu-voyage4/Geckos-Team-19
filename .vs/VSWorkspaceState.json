@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\src",
+    "\\client\\src\\actions",
+    "\\client\\src\\components",
+    "\\client\\src\\container",
+    "\\client\\src\\reducers",
+    "\\client\\src\\styles",
+    "\\config",
+    "\\models"
+  ],
+  "SelectedNode": "\\client\\src\\actions\\zip.js",
+  "PreviewInSolutionExplorer": false
+}

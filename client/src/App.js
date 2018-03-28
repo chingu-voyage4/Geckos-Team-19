@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import Time from './Containers/time';
-import Weather from './Containers/weather';
+import CardTW from './components/cardTW';
+import BackgroundImage from './container/backgroundImage';
+
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-            <Time />
-            <Weather />
-      </div>
+      return (
+        <div>
+              <CardTW />
+              <BackgroundImage />
+        </div>
     );
   }
 }

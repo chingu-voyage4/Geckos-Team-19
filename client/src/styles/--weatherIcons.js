@@ -1,13 +1,18 @@
-import React from 'react';
+//styling for individual icons; imported to icons.js
+import styled from 'styled-components';
 
-const sunny = {
-    position: 'absolute',
-    fontSize: '2.9em',
-    margin: 'auto',
-    width: '50%',
-    color: 'yellow',
-    top: '1rem',
-    left: '1.60rem',
-}
 
-export { sunny };
+const Yellow = styled.div`
+    color: yellow;`
+const Blue = styled.div`
+    color: blue;
+`
+const Grey = styled.div`
+    color: grey;
+`
+const White = styled.div`
+    color: white;
+`
+
+
+export { Yellow, Blue, Grey, White };

@@ -1,56 +1,97 @@
 
 import styled from 'styled-components';
 
-const Button = styled.button`
-border: 3px solid white;
-border-radius: 5px;
-width: 25px;
-font - weight: bolder;
-text - align: center;
-`
+//styling for Weather
+//container
 const Div = styled.div`
-position: absolute;
-margin: 10px;
-min-width: 100px;
-max-width: 5vw;
-min-height: 100px;
-max-height: 5vh;
-background: #aed9f2;
-border: #00a1ff solid 5px;
-border-radius: 10px;
+
+min-width: 300px;
+max-width: 20vw;
+min-height: 300px;
+max-height: 100vh;
+background-color: rgba(0,0,0,0.3);
+padding-top: 3px;
+border-radius: 5px;
+margin-top: 2px;
 `
-const Temp = styled.div`
-font-size: 18px;
-margin-bottom: -.2rem;
+const InputBar = styled.input`
+width: auto;
+height: 3vh;
+border-radius: 5px;
+padding: 5px;
 `
-const TempWrap = styled.div`
+const InputButton = styled.div`
 
 `
+//ul temp display and temp button
 const List = styled.ul`
 list-style: none;
-left: 0;
+text-align: center;
+color: white;
+font-size: 20px;
+font-weight: bolder;
 `
-const ListTemp = styled.li`
-position: absolute;
-    bottom: 0px;
-    left: 10px;
-    width: 50%;
-    padding: 2px;
-    font-family: 'Bowlby One SC', cursive;
+//li icon size, position, anything that is not specific to the icon
+//might be overridden by the inline styling in --weatherIcons.js
+const Icon = styled.li`
+margin - top: 20px;
+margin - bottom: 20px;
+font-size: 3rem;
+color: white;
+`
+const InfoList = styled.ul`
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: center;
+`
+const InfoItem = styled.li`
+   display: inline;
+   padding: .2em 1em;
+   color: white;
+   font-size: 15px;
+   padding: 5px;
+`
+//li temp display
+const ListTemp = styled.ul`
+overflow: hidden;
+list-style: none;
+font-family: 'Helvetica', cursive;
+font-size: 40px;
+margin-left: -40px;
+`
+//li tempBtn display
+const ItemBtn = styled.li`
 
 `
+//li button icon
+const ItemTemp = styled.li`
+font-size: 40px;
+margin-top: 10px;
+padding-top: 10px;
+`
 
-const ListBtn = styled.li`
-position: absolute;
-bottom: 5px;
-right: 5px;
-width: 30%;
+//style for tempButton.js:
+//wrapper
+const Button = styled.button`
+border: 3px solid white;
+border-radius: 50%;
+width: 3rem;
+height: 3rem;
+margin: 10px;
+text-align: center;
+font-size: 40px;
 `
 
 
-export { Button };
-export { Div };
-export { TempWrap, Temp };
-export { List };
-export { ListTemp };
-export { ListBtn };
+//TW Card --wraps the Time and Weather into one card
+const TW = styled.div`
+border : none;
+background-color: rgba(0,0,0,.05);
+
+min-width: 30%;
+max-width: 300px;
+border-radius: 10px;
+`
+
+export { Button, Div, ItemTemp, List, ListTemp, ItemBtn, Icon, TW, InfoList, InfoItem, InputBar, InputButton };
