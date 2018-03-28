@@ -14,6 +14,15 @@ padding-top: 3px;
 border-radius: 5px;
 margin-top: 2px;
 `
+const InputBar = styled.input`
+width: auto;
+height: 3vh;
+border-radius: 5px;
+padding: 5px;
+`
+const InputButton = styled.div`
+
+`
 //ul temp display and temp button
 const List = styled.ul`
 list-style: none;
@@ -47,7 +56,7 @@ const InfoItem = styled.li`
 const ListTemp = styled.ul`
 overflow: hidden;
 list-style: none;
-font-family: 'Bowlby One SC', cursive;
+font-family: 'Helvetica', cursive;
 font-size: 40px;
 margin-left: -40px;
 `
@@ -57,7 +66,6 @@ const ItemBtn = styled.li`
 `
 //li button icon
 const ItemTemp = styled.li`
-
 font-size: 40px;
 margin-top: 10px;
 padding-top: 10px;
@@ -71,6 +79,8 @@ border-radius: 50%;
 width: 3rem;
 height: 3rem;
 margin: 10px;
+text-align: center;
+font-size: 40px;
 `
 
 
@@ -84,4 +94,4 @@ max-width: 300px;
 border-radius: 10px;
 `
 
-export { Button, Div, ItemTemp, List, ListTemp, ItemBtn, Icon, TW, InfoList, InfoItem };
+export { Button, Div, ItemTemp, List, ListTemp, ItemBtn, Icon, TW, InfoList, InfoItem, InputBar, InputButton };

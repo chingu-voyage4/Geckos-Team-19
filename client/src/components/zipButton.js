@@ -11,6 +11,7 @@ class ZipButton extends Component {
         return (
             <div>
                 <button
+                    style={{ borderRadius: '5px'}}
                     onClick={this.props.onClick}
                     tempkind={this.props.tempkind} >
                     <i className={this.props.tempkind}></i>

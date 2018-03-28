@@ -8,11 +8,6 @@ import { store } from '../actions/store';
 import Input from '../container/locationSearch';
 import '../styles/weather-icons/css/weather-icons.css';
 
-// eslint-disable-next-line
-let lat = null;
-// eslint-disable-next-line
-let lon = null;
-
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
 class Weather extends Component {
@@ -23,13 +18,14 @@ class Weather extends Component {
         this.state = {
             error: null,
             tempKind: false,
+           
         }
-        this.handleClick = this.handleClick.bind(this);
+        this.handleTempChange = this.handleTempChange.bind(this);
         
     }
     
 
-    handleClick = (event) => {
+    handleTempChange = (event) => {
         
         this.setState(prevState => ({
             tempKind: !prevState.tempKind
@@ -43,23 +39,33 @@ class Weather extends Component {
             store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
-  
-    
-    componentDidMount() {
 
-       //setTimeout(function(){ alert("Hello"); }, 3000);
+    componentDidMount() {
+        let options = {
+            enableHighAccuracy: true,
+            timeout: 3000,
+            maximumAge: Infinity
+        }
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                    this.props.fetchWeather(
-                    lon = position.coords.longitude, 
-                    lat = position.coords.latitude)
-            });
-        
+                this.props.fetchWeather(
+                    position.coords.longitude,
+                    position.coords.latitude);
+                this.setState({ error: false });
+            },
+            (err) => {
+                this.setState({ error: true });
+            },
+            options
+        );
+
     }
+    
+
     render() {
-        if (lon === null || lat === null) {
+        if (this.state.error === true) {
             return <Input />
-        } else {
+        } else if (this.state.error === false) {
             return (
                 <Div>
                     <List>
@@ -80,8 +86,8 @@ class Weather extends Component {
                             </ItemTemp>
                             <ItemBtn>
                                 <TempButton
-                                    onClick={this.handleClick}
-                                    className={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                                    onClick={this.handleTempChange}
+                                    tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
                             </ItemBtn>
                         </ListTemp>
 
@@ -89,6 +95,8 @@ class Weather extends Component {
 
                 </Div>
             )
+        } else {
+            return null;
         }
     }
 }
