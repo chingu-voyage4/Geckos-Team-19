@@ -40,7 +40,7 @@ padding-bottom:15px;
 const InputBar = styled.input`
 width: auto;
 height: 3vh;
-border-radius: 5px;
+// border-radius: 5px;
 padding: 5px;
 box-shadow: 1px 1px 2px rgba(0,0,0,.4);
 outline: 0;
@@ -57,13 +57,20 @@ const InputButton = styled.button`
 font-family: 'Helvetica', sans-serif;
 font-size:13px;
 letter-spacing:.6px;
-// margin-left:5px;
-// margin-right: 5px;
 padding:8px 7px;
-border-radius:5px;
 box-shadow:1px 1px 2px rgba(0,0,0,.4);
 background-color:rgba(0,0,0,0);
 border:1px white solid;
+outline:none;
+cursor:pointer;
+transition: .2s all;
+
+&:hover{
+    ${InputButton}{
+        background-color:rgba(0,0,0,.8);
+        color:white;
+    }
+}
 `
 
 //_____________________ul temp display and temp button_____________________________

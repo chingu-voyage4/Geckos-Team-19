@@ -45,7 +45,7 @@ class Weather extends Component {
     componentDidMount() {
         let options = {
             enableHighAccuracy: true,
-            timeout: 15000,
+            timeout: 3000,
             maximumAge: Infinity
         }
         navigator.geolocation.getCurrentPosition(
