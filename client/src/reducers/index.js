@@ -5,6 +5,7 @@ import YearReducer from './reducer_year';
 import WeatherReducer from './reducer_weather';
 import TempReducer from './reducer_temp';
 import ZipReducer from './reducer_zip';
+import todos from './reducer_todos';
 
 
 const reducers = combineReducers({
@@ -14,7 +15,8 @@ const reducers = combineReducers({
     year: YearReducer,
     temp: TempReducer,
     icon: WeatherReducer,
-    input: ZipReducer
+    input: ZipReducer,
+    todos:todos
 });
 
 
