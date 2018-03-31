@@ -4,7 +4,7 @@ import { fetchZip } from '../actions/zip';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { store } from '../actions/store';
-import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, InputBar, InputButton } from '../styles/--weather';
+import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, InputBar, InputButton, CityName, FlexInput, FlexInfo, ReturnedState, FlexTemp } from '../styles/--weather';
 import TempButton from '../components/tempButton';
 
 
@@ -27,7 +27,7 @@ class Input extends Component {
         this.setState({ zip: event.target.value });
     }
     //validate zip code; CA and US
-    isValidZip = (postalCode, countryCode) => {
+    isValidZip = (postalCode, countryCode,) => {
         let postalCodeRegex;
     switch (countryCode) {
         case "US":
@@ -41,6 +41,25 @@ class Input extends Component {
     }
     return postalCodeRegex.test(postalCode);
     }
+
+    
+    //click event to pass info to <Input />
+    handleClick = (event) => {
+        if (this.isValidZip(this.state.zip, store.getState().input.country) && (this.state.zip != '')){
+            event.preventDefault();
+            this.props.fetchZip(this.state.zip);
+            //add show state so information shows onClick of zip button
+            this.setState({ show: true });
+            console.log("yes zip");
+        } else if (this.state.zip === '') {
+            alert("please enter a zip code");
+        } else {
+            alert("Please enter a valid zip code");
+        }
+       
+    }
+
+
     //handle temp change event
     handleTempChange = (event) => {
 
@@ -51,75 +70,73 @@ class Input extends Component {
             // this.setState({
             //     displayTemp: this.state.temp
             // });
-            store.getState().input.temp = store.getState().input.temp
+            store.getState().input.tempC = store.getState().input.temp
         } else {
-            store.getState().input.temp = ((store.getState().input.temp - 32) * 5 / 9).toFixed(0);
+            store.getState().input.tempC = ((store.getState().input.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
 
 
-    //click event to pass info to <Input />
-    handleClick = (event) => {
-        if (this.isValidZip(this.state.zip, store.getState().input.country)) {
-            event.preventDefault();
-            this.props.fetchZip(this.state.zip);
-            //add show state so information shows onClick of zip button
-            this.setState({ show: true });
-        } else if (this.state.zip === '') {
-            event.reload(false);
-        } else {
-            alert("Please enter a valid zip code");
-        }
-       
-    }
   
     render() {
         if (this.state.show === false) {
             return (
                 <div style={{ textAlign: "center" }}>
+                <FlexInput>
                     <InputBar
                         placeholder="zip code"
                         onChange={this.onChange}></InputBar>
-                    <InputButton>
+                  
                         <ZipButton onClick={this.handleClick} />
-                    </InputButton>
+                 </FlexInput>
                 </div>)
         } else {
             return (
                 <Div>
-                    <div style={{ textAlign: "center" }}>
-                        <InputBar
-                            placeholder="zip code"
-                            onChange={this.onChange}></InputBar>
-                        <InputButton>
+                    <div style={{ width:"auto" }}>
+                       <FlexInput>
+                          <InputBar
+                              placeholder="zip code"
+                              onChange={this.onChange}></InputBar>
                             <ZipButton onClick={this.handleClick} />
-                        </InputButton>
+                           </FlexInput>
+                       <CityName>{store.getState().input.city}</CityName>
                     </div>
+                   
+                    
                     <List>
-                        <h3>{store.getState().input.city}</h3>
-                        <Icon>
+                   
+                        
+                        <FlexInfo>
+                            <ListTemp>
+                                <FlexTemp>
+                                    <ItemTemp>
+                                        {store.getState().input.tempC}
+                                   </ItemTemp>
+                         
+                                        <TempButton
+                                            onClick={this.handleTempChange}
+                                            tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                                
+                                </FlexTemp>
+                            </ListTemp>
+                               
+                                <InfoList>
+                                    <InfoItem >wind:<ReturnedState> {store.getState().input.wind}mph </ReturnedState></InfoItem>
+                                    <InfoItem >conditions: <ReturnedState>{store.getState().input.main}</ReturnedState></InfoItem>
+                                    <InfoItem >humidity:<ReturnedState> {store.getState().input.humidity}%</ReturnedState></InfoItem>
+                                </InfoList>
+                            </FlexInfo>
+
+
+                            <Icon>
                             <i className={store.getState().input.icon}></i>
-                        </Icon>
-                        <InfoList>
-                            <InfoItem >Wind {store.getState().input.wind}mph</InfoItem>
-                            <InfoItem >{store.getState().input.main}</InfoItem>
-                            <InfoItem >Humidity {store.getState().input.humidity}%</InfoItem>
-                        </InfoList>
-                        <button>toggle placeholder</button>
-                        <ListTemp>
-                            <ItemTemp>
-                                {store.getState().input.temp}
-
-                            </ItemTemp>
-                            <ItemBtn>
-                                <TempButton
-                                    onClick={this.handleTempChange}
-                                    tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
-                            </ItemBtn>
-                        </ListTemp>
-
+                            </Icon>
+                        {/* <button>toggle placeholder</button> */}
+                        
+                       
                     </List>
-
+               
                 </Div>
             )
         }

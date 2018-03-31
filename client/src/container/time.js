@@ -1,6 +1,6 @@
 import React from 'react';
-import { Clock, ClockWrap, D } from '../styles/--time';
-
+import { Clock, ClockWrap, D, TimeSettingsWrap, SettingsButton } from '../styles/--time';
+import FontAwesome from 'react-fontawesome';
 
 
 class Time extends React.Component {
@@ -9,8 +9,7 @@ class Time extends React.Component {
         this.state = {
              //to switch to 24 hour format add hour12: false after minute
             time: new Date().toLocaleString([], {hour: '2-digit', minute:'2-digit'}),
-            date: new Date().toDateString()
-        };
+            date: new Date().toLocaleString([], {month: 'short',  day  : '2-digit'})        };
     }
 
     componentDidMount() {
@@ -27,7 +26,7 @@ class Time extends React.Component {
         this.setState({
             //to switch to 24 hour format add hour12: false after minute
             time: new Date().toLocaleString([], {hour: '2-digit', minute:'2-digit' }),
-            date: new Date().toDateString()
+            date: new Date().toLocaleString([], {month: 'short',  day  : '2-digit'})
         });
     }
 
@@ -36,7 +35,11 @@ class Time extends React.Component {
 
             <ClockWrap>
                 <D> { this.state.date} </D>
-                <Clock> {this.state.time} </Clock>
+           
+                <TimeSettingsWrap>
+                    <SettingsButton><i className="fa fa-gears fa-1x"></i></SettingsButton>
+                    <Clock> {this.state.time} </Clock>
+                 </TimeSettingsWrap>
             </ClockWrap>
         );
     }
