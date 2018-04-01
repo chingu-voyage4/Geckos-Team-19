@@ -4,7 +4,7 @@ import { fetchZip } from '../actions/zip';
 const API_KEY = "50bb5384466ccb470dc659a13dca555a";
 let url; 
 export const FETCH_WEATHER = 'FETCH_WEATHER';
-export const FETCH_F = "FETCH_F";
+
 
 
 
