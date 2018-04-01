@@ -46,7 +46,7 @@ class Input extends Component {
     
     //click event to pass info to <Input />
     handleClick = (event) => {
-        if (this.isValidZip(this.state.zip, store.getState().input.country) && (this.state.zip != '')){
+        if (this.isValidZip(this.state.zip, store.getState().input.country) && (this.state.zip !== '')){
             event.preventDefault();
             this.props.fetchZip(this.state.zip);
             //add show state so information shows onClick of zip button
