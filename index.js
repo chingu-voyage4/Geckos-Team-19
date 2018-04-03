@@ -1,28 +1,47 @@
+require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-const keys = require('./config/keys');
-require('./models/User');
-require('./services/passport');
-
-mongoose.connect(keys.mongoURI);
-
 const app = express();
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const errorHandler = require('./handlers/error');
+const authRoutes = require('./routes/auth');
+const todoRoutes = require('./routes/todos');
+const { loginRequired, ensureCorrectUser } = require('./middleware/auth');
+const db = require('./models');
+const PORT = 8081;
 
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(cors());
+app.use(bodyParser.json());
 
-// app.get('/', (req, res) => {
-//   res.send({ bye: 'buddy' });
-// });
-require('./routes/authRoutes')(app);
+app.use('/api/auth', authRoutes);
+app.use('/api/users/:id/todos',
+loginRequired,
+ensureCorrectUser,
+ todoRoutes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+//all my routes here - they will come later!
+app.get('/api/todos',loginRequired, async function(req,res,next){
+    try{
+        let todos = await db.Todo.find()
+        .sort({createAt:'desc'})
+        .populate('user',{
+            username:true,
+            profileImageUrl:true
+        });
+        return res.status(200).json(todos);
+    }catch(err){
+        return next(err);
+    }
+})
+app.use(function(req,res,next){
+    let err = new Error('NOT Found')
+    err.status = 404;
+    next(err);
+
+});
+
+app.use(errorHandler);
+
+app.listen(PORT, function(){
+    console.log(`Server is starting on ${PORT}`)
+})
