@@ -5,12 +5,12 @@
     "\\client\\src",
     "\\client\\src\\actions",
     "\\client\\src\\components",
+    "\\client\\src\\constants",
     "\\client\\src\\container",
     "\\client\\src\\reducers",
     "\\client\\src\\styles",
-    "\\config",
-    "\\models"
+    "\\client\\src\\styles\\default-image"
   ],
-  "SelectedNode": "\\client\\src\\actions\\zip.js",
+  "SelectedNode": "\\client\\src\\container\\citySearch.js",
   "PreviewInSolutionExplorer": false
 }

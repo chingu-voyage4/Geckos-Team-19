@@ -7,6 +7,7 @@ import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 import Input from '../container/locationSearch';
 import '../styles/weather-icons/css/weather-icons.css';
+import SimpleForm from '../container/citySearch';
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
@@ -41,7 +42,7 @@ class Weather extends Component {
             store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
-
+ 
     componentDidMount() {
         let options = {
             enableHighAccuracy: true,
@@ -65,12 +66,9 @@ class Weather extends Component {
     
 
     render() {
-        if (this.state.error === true) {
-            return <Input />
-        } else if (this.state.error === false) {
+        if (this.state.error === false || store.getState().main.humidity > 0) {
             return (
-                <Div>
-                    
+                <Div >
                        <div>
                         <CityName>{store.getState().main.city}</CityName>
                     </div>
@@ -103,7 +101,9 @@ class Weather extends Component {
 
                 </Div>
             )
-        } else {
+      } else if (this.state.error === true) {
+            return <SimpleForm />
+      } else {
             return null;
         }
     }

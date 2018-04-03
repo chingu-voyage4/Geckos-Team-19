@@ -1,5 +1,13 @@
 import React, {Component} from 'react'
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from '../actions/api';
+import { store } from '../actions/store';
+import Weather from '../container/weather';
+import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, CityName, FlexInfo, FlexInput, ReturnedState, FlexTemp } from '../styles/--weather';
+import TempButton from '../components/tempButton';
+
 
 /* eslint-disable react/prop-types */
 const renderSuggestion = ({ formattedSuggestion }) => (
@@ -60,23 +68,15 @@ class SimpleForm extends Component {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        console.log('Geocode Success', { lat, lng }); // eslint-disable-line no-console
+        
         this.setState({
           geocodeResults: this.renderGeocodeSuccess(lat, lng),
-          lat:lat,
-          lng:lng,
-          loading: false,
+          lat: lat,
+          lng: lng,
+          loading: false
         });
-        console.log(this.state.lat)
-        console.log(this.state.lng)
       })
-      .catch(error => {
-        console.log('Geocode Error', error); // eslint-disable-line no-console
-        this.setState({
-          geocodeResults: this.renderGeocodeFailure(error),
-          loading: false,
-        });
-      });
+      
   }
 
   handleChange(address) {
@@ -86,20 +86,15 @@ class SimpleForm extends Component {
     });
   }
 
-  renderGeocodeFailure(err) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        <strong>Error!</strong> {err}
-      </div>
-    );
-  }
+
 
   renderGeocodeSuccess(lat, lng) {
-    return (
-      <div className="alert alert-success" role="alert">
-        <p> {this.state.address} </p>
-        <p> lat is {lat}, lng is {lng} </p>
-      </div>
+      this.props.fetchWeather(lng, lat);
+      console.log(store.getState())
+      return (
+          <div className="alert alert-success" role="alert">
+              <Weather />
+          </div>
     );
   }
 
@@ -108,12 +103,6 @@ class SimpleForm extends Component {
       type: 'text',
       value: this.state.address,
       onChange: this.handleChange,
-      onBlur: () => {
-        console.log('Blur event!'); // eslint-disable-line no-console
-      },
-      onFocus: () => {
-        console.log('Focused!'); // eslint-disable-line no-console
-      },
       autoFocus: true,
       placeholder: 'Search Places',
       name: 'Demo__input',
@@ -144,7 +133,19 @@ class SimpleForm extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+    return {
+        lat: state.lat,
+        lng: state.lng,
+        geocodeResults: state.geocodeResults,
+        loading: state.loading,
+        
+    };
+}
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ fetchWeather }, dispatch);
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(SimpleForm)
 
-export default SimpleForm

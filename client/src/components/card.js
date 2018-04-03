@@ -13,7 +13,7 @@ class Card extends Component {
     }
     render() {
         const { todo } = this.props;
-        let cardTodo = _.map(todo,(todo,i)=>{
+        let cardTodo = _.map(todo, (todo, i) => {
            return(
             <TodoStyle>
                     <Todo
