@@ -12,6 +12,7 @@ max-height: 100vh;
 padding-top: 3px;
 border-radius: 5px;
 margin-top: 2px;
+
 `
 
 const CityName = styled.h3`
@@ -36,6 +37,30 @@ align-items:center;
 margin-top:12px;
 padding-bottom:15px;
 `
+
+const CityName = styled.h3`
+text-transform:uppercase;
+color:white;
+font-family:'Helvetica', sans-serif;
+font-size:40px;
+letter-spacing:4px;
+border-bottom:2px white solid;
+padding: 12px;
+margin:0;
+color:rgba(0,0,0,.8);
+text-align:center;
+`
+
+
+const FlexInput = styled.div`
+display:flex;
+width:100%;
+justify-content:center;
+align-items:center;
+margin-top:12px;
+padding-bottom:15px;
+`
+
 
 const InputBar = styled.input`
 width: auto;
@@ -195,9 +220,11 @@ box-shadow:1px 1px 3px rgba(0,0,0,.3);
 
 //TW Card --wraps the Time and Weather into one card
 const TW = styled.div`
+
 border : none;
 background-color: rgba(255,255,255,0.4);
 margin-left:30px;
+
 margin-top:20px;
 min-width: 30%;
 max-width: auto;

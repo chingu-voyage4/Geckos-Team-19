@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { store } from '../actions/store';
 import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, InputBar, InputButton, CityName, FlexInput, FlexInfo, ReturnedState, FlexTemp } from '../styles/--weather';
 import TempButton from '../components/tempButton';
+import SimpleForm from './citySearch';
 
 
 class Input extends Component {
@@ -82,18 +83,27 @@ class Input extends Component {
         if (this.state.show === false) {
             return (
                 <div style={{ textAlign: "center" }}>
-                <FlexInput>
+
+                {/* <FlexInput>
+
+
                     <InputBar
                         placeholder="zip code"
                         onChange={this.onChange}></InputBar>
                   
                         <ZipButton onClick={this.handleClick} />
-                 </FlexInput>
+
+                 </FlexInput> */}
+                 <SimpleForm/>
                 </div>)
         } else {
             return (
                 <Div>
-                    <div style={{ width:"auto" }}>
+
+                    <SimpleForm/>
+                    {/* <div style={{ width:"auto" }}>
+
+
                        <FlexInput>
                           <InputBar
                               placeholder="zip code"
@@ -132,10 +142,12 @@ class Input extends Component {
                             <Icon>
                             <i className={store.getState().input.icon}></i>
                             </Icon>
-                        {/* <button>toggle placeholder</button> */}
+
+                        {/* <button>toggle placeholder</button> 
                         
                        
-                    </List>
+                    </List> */}
+
                
                 </Div>
             )
