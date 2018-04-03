@@ -68,7 +68,9 @@ class Weather extends Component {
     render() {
         if (this.state.error === false || store.getState().main.humidity > 0) {
             return (
+
                 <Div >
+
                        <div>
                         <CityName>{store.getState().main.city}</CityName>
                     </div>

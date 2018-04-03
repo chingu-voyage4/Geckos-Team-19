@@ -83,20 +83,27 @@ class Input extends Component {
         if (this.state.show === false) {
             return (
                 <div style={{ textAlign: "center" }}>
+
                 {/* <FlexInput>
+
+
                     <InputBar
                         placeholder="zip code"
                         onChange={this.onChange}></InputBar>
                   
                         <ZipButton onClick={this.handleClick} />
+
                  </FlexInput> */}
                  <SimpleForm/>
                 </div>)
         } else {
             return (
                 <Div>
+
                     <SimpleForm/>
                     {/* <div style={{ width:"auto" }}>
+
+
                        <FlexInput>
                           <InputBar
                               placeholder="zip code"
@@ -135,10 +142,12 @@ class Input extends Component {
                             <Icon>
                             <i className={store.getState().input.icon}></i>
                             </Icon>
+
                         {/* <button>toggle placeholder</button> 
                         
                        
                     </List> */}
+
                
                 </Div>
             )

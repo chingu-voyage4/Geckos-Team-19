@@ -6,13 +6,13 @@ import styled from 'styled-components';
 // border:1px red solid;
 display:flex;
 justify-content:center;
-// align-items:center;
-width:100%;
+align-items:center;
 `
 
 const ClockWrap = styled.div`
-
-width:100%;
+min-width: 300px;
+max-width: 20vw;
+max-height: 20vh;
 // background-color: rgba(225,225,225,0.4);
 // border-radius: 5px;
 color: rgba(0,0,0,.8);
@@ -62,7 +62,6 @@ box-shadow:2px 2px 3px rgba(0,0,0,.5);
 const D = styled.h1`
 font-family: 'Helvetica', sans-serif;
 text-align: center;
-width:100%;
 // border:1px red solid;
 font-size:1.5rem;
 font-weight:100;
