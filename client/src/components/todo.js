@@ -36,7 +36,7 @@ handleDelete(e){
    let {text,connectDragSource,id} = this.props;
     return connectDragSource(
         <div className="card" >
-        <p>{text} <span id={id} onClick={this.handleDelete.bind(this)}> <i className="fa fa-times"></i></span></p> 
+        <p>{text}<i id={id} onClick={this.handleDelete.bind(this)} className="fa fa-trash"></i></p> 
         </div>
     )
     };

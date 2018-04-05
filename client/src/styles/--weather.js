@@ -15,20 +15,6 @@ margin-top: 2px;
 
 `
 
-const CityName = styled.h3`
-text-transform:uppercase;
-color:white;
-font-family:'Helvetica', sans-serif;
-font-size:40px;
-letter-spacing:4px;
-border-bottom:2px white solid;
-padding: 12px;
-margin:0;
-color:rgba(0,0,0,.8);
-text-align:center;
-`
-
-
 const FlexInput = styled.div`
 display:flex;
 width:100%;
@@ -52,30 +38,13 @@ text-align:center;
 `
 
 
-const FlexInput = styled.div`
-display:flex;
-width:100%;
-justify-content:center;
-align-items:center;
-margin-top:12px;
-padding-bottom:15px;
-`
 
-
-const InputBar = styled.input`
-width: auto;
-height: 3vh;
-// border-radius: 5px;
-padding: 5px;
-box-shadow: 1px 1px 2px rgba(0,0,0,.4);
-outline: 0;
-font-family: 'Helvetica', sans-serif;
-font-size:12px;
-color:rgba(0,0,0,.8);
+const InputBar = styled.div`
+width: 30%;
 // margin-right: 5px;
 // margin-left:5px;
 background-color:rgba(0,0,0,0);
-border:1px white solid;
+// border:1px white solid;
 
 `
 const InputButton = styled.button`
@@ -218,18 +187,4 @@ box-shadow:1px 1px 3px rgba(0,0,0,.3);
 `
 
 
-//TW Card --wraps the Time and Weather into one card
-const TW = styled.div`
-
-border : none;
-background-color: rgba(255,255,255,0.4);
-margin-left:30px;
-
-margin-top:20px;
-min-width: 30%;
-max-width: auto;
-border-radius: 10px;
-box-shadow:1px 1px 5px rgba(0,0,0,0.4)
-`
-
-export { Button, Div, ItemTemp, List, ListTemp, ItemBtn, Icon, TW, InfoList, InfoItem, InputBar, InputButton, CityName, FlexInput, FlexInfo,ReturnedState, FlexTemp};
+export { Button, Div, ItemTemp, List, ListTemp, ItemBtn, Icon, InfoList, InfoItem, InputBar, InputButton, CityName, FlexInput, FlexInfo,ReturnedState, FlexTemp};

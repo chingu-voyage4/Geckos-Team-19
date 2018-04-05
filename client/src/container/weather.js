@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
-import Input from '../container/locationSearch';
+// import Input from '../container/locationSearch';
 import '../styles/weather-icons/css/weather-icons.css';
 import SimpleForm from '../container/citySearch';
 

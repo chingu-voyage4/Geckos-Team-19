@@ -5,33 +5,26 @@ import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 import Weather from '../container/weather';
-import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, CityName, FlexInfo, FlexInput, ReturnedState, FlexTemp } from '../styles/--weather';
+import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, CityName, FlexInfo, FlexInput, ReturnedState, FlexTemp, InputBar } from '../styles/--weather';
 import TempButton from '../components/tempButton';
 
 
 /* eslint-disable react/prop-types */
 const renderSuggestion = ({ formattedSuggestion }) => (
-  <div className="Demo__suggestion-item">
-    <i className="fa fa-map-marker Demo__suggestion-icon" />
+  <div >
+    <i  />
     <strong>{formattedSuggestion.mainText}</strong>{' '}
-    <small className="text-muted">{formattedSuggestion.secondaryText}</small>
+    <small >{formattedSuggestion.secondaryText}</small>
   </div>
 );
 /* eslint-enable react/prop-types */
 
-const renderFooter = () => (
-  <div className="Demo__dropdown-footer">
-    <div>
-   
-    </div>
-  </div>
-);
 
-const cssClasses = {
-  root: 'form-group',
-  input: 'Demo__search-input',
-  autocompleteContainer: 'Demo__autocomplete-container',
-};
+// const cssClasses = {
+//   root: 'form-group',
+//   input: 'Demo__search-input',
+//   autocompleteContainer: 'Demo__autocomplete-container',
+// };
 
 const shouldFetchSuggestions = ({ value }) => value.length > 2;
 
@@ -99,23 +92,41 @@ class SimpleForm extends Component {
   }
 
   render() {
+    const myStyles = {
+      root: { position: 'relative' },
+      input: { width: '100%',
+               borderRadius:10,
+               outline:0,
+           
+               },
+      autocompleteContainer: { transition:".2s all`",
+                               zIndex:1 },
+      autocompleteItem: { color: 'black',
+                          backgroundColor: 'white' },
+      autocompleteItemActive: { color: 'white',
+                                backgroundColor: 'black' }
+    }
+   
+
+    
     const inputProps = {
       type: 'text',
       value: this.state.address,
       onChange: this.handleChange,
       autoFocus: true,
       placeholder: 'Search Places',
-      name: 'Demo__input',
-      id: 'my-input-id',
+      border:'5px red solid !important',
     };
 
     return (
-      <div>
-        <PlacesAutocomplete
+      <InputBar>
+     
+        <PlacesAutocomplete 
+          styles={myStyles}
           renderSuggestion={renderSuggestion}
-          renderFooter={renderFooter}
+          // renderFooter={renderFooter}
           inputProps={inputProps}
-          classNames={cssClasses}
+          // classNames={cssClasses}
           onSelect={this.handleSelect}
           onEnterKeyDown={this.handleSelect}
           onError={onError}
@@ -127,9 +138,9 @@ class SimpleForm extends Component {
           </div>
         )}
         {this.state.geocodeResults && (
-          <div className="geocoding-results">{this.state.geocodeResults}</div>
+          <div>{this.state.geocodeResults}</div>
         )}
-      </div>
+      </InputBar>
     );
   }
 }

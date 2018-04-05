@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import CardTW from './components/cardTW';
-import BackgroundImage from './container/backgroundImage';
+import Time from './container/time';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -9,7 +8,9 @@ import { DragDropContext} from 'react-dnd';
 import Board from '../src/components/board';
 import _ from 'lodash';
 import {WholeBoard} from './styles/--board';
-import {AppWrap} from './styles/--main';
+import {AppWrap, Background} from './styles/--main';
+import Weather from './container/weather';
+
 
 class App extends Component {
   render() {
@@ -20,17 +21,22 @@ class App extends Component {
     let b2 = _.filter(todos,(todos)=>{return todos.pos === 2 })
    
       return (
+        <Background >
         <AppWrap>
-             
-        <BackgroundImage />
+          
+          <Time/>
+
+        <Weather />  
+   
         <WholeBoard>
          <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='0'  todo={b0}/>
          <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='1'  todo={b1} />
          <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
 
        </WholeBoard>
-       <CardTW />
+ 
         </AppWrap>
+        </Background>
     );
   }
 }

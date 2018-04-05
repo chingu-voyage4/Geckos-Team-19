@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { fetchZip } from '../actions/zip';
 
 const API_KEY = "50bb5384466ccb470dc659a13dca555a";
 let url; 
