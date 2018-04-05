@@ -18,8 +18,8 @@ app.use('/api/users/:id/todos',
 loginRequired,
 ensureCorrectUser,
  todoRoutes);
+ 
 
-//all my routes here - they will come later!
 app.get('/api/todos',loginRequired, async function(req,res,next){
     try{
         let todos = await db.Todo.find()

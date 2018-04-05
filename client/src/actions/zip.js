@@ -8,7 +8,7 @@ export const FETCH_F = "FETCH_F";
 
 
 export function fetchZip(zip) {
-    url = `http://api.openweathermap.org/data/2.5/weather?zip=${zip}&APPID=${API_KEY}`;
+    url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&APPID=${API_KEY}`;
     const request = axios.get(url);
     return {
         type: 'FETCH_ZIP',

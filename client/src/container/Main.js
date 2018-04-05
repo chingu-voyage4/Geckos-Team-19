@@ -1,23 +1,33 @@
 import React, { Component } from 'react';
-import CardTW from './components/cardTW';
-import BackgroundImage from './container/backgroundImage';
+import CardTW from '../components/cardTW';
+import { Link } from 'react-router-dom'
+import BackgroundImage from './backgroundImage';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import HTML5Backend from 'react-dnd-html5-backend';
-import * as TodoActions from '../src/actions/index'
+import * as TodoActions from '../actions'
 import { DragDropContext} from 'react-dnd';
-import Board from '../src/components/board';
+import Board from '../components/board';
 import _ from 'lodash'
 
 
-class App extends Component {
+class Main extends Component {
   render() {
-    let { todos } = this.props;
+    let { todos, currentUser } = this.props;
+    console.log(this.props)
     let { moveTodo } = this.props.actions
     let b0 = _.filter(todos,(todos)=>{return todos.pos === 0 })
     let b1 = _.filter(todos,(todos)=>{return todos.pos === 1 })
     let b2 = _.filter(todos,(todos)=>{return todos.pos === 2 })
-   
+    if(!currentUser.isAuthenticated){
+      return(
+        <div>
+          <Link to='/signin' >signin</Link>
+           <span> or </span>
+          <Link to='/signup' >signup</Link>
+        </div>
+      )
+    }
       return (
         <div>
               <CardTW />
@@ -38,5 +48,5 @@ const mapDispatchToProps= dispatch =>({
  actions: bindActionCreators(TodoActions, dispatch) 
 })
       
-export default _.flow(connect(mapStateToProps,mapDispatchToProps),DragDropContext(HTML5Backend))(App);
+export default _.flow(connect(mapStateToProps,mapDispatchToProps),DragDropContext(HTML5Backend))(Main);
 
