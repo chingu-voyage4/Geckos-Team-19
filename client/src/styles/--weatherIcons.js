@@ -1,22 +1,18 @@
 //styling for individual icons; imported to icons.js
-
-const sunny = {
-    marginTop: 20,
-    marginBottom: 20,
-    fontSize: 80,
-    color: 'yellow',
-  }
-const clearNight = {}
-const rain = {}
-const snow = {}
-const sleet = {}
-const wind = {}
-const fog = {}
-const cloudy = {}
-const partlyCloudyDay = {}
-const hail = {}
-const thunderstorm = {}
-const tornado = {}
+import styled from 'styled-components';
 
 
-export { sunny };
+const Yellow = styled.div`
+    color: yellow;`
+const Blue = styled.div`
+    color: blue;
+`
+const Grey = styled.div`
+    color: grey;
+`
+const White = styled.div`
+    color: white;
+`
+
+
+export { Yellow, Blue, Grey, White };

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List } from '../styles/--weather';
-import icons from '../components/icons';
+import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, CityName, FlexInfo, FlexInput, ReturnedState, FlexTemp } from '../styles/--weather';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
-
-
-let lat;
-let lon;
+// import Input from '../container/locationSearch';
+import '../styles/weather-icons/css/weather-icons.css';
+import SimpleForm from '../container/citySearch';
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
@@ -21,13 +19,16 @@ class Weather extends Component {
         this.state = {
             error: null,
             tempKind: false,
+           
         }
-        this.handleClick = this.handleClick.bind(this);
+        this.handleTempChange = this.handleTempChange.bind(this);
         
     }
+
+   
     
 
-    handleClick = (event) => {
+    handleTempChange = (event) => {
         
         this.setState(prevState => ({
             tempKind: !prevState.tempKind
@@ -41,50 +42,72 @@ class Weather extends Component {
             store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
-
-    
+ 
     componentDidMount() {
-       //setTimeout(function(){ alert("Hello"); }, 3000);
+        let options = {
+            enableHighAccuracy: true,
+            timeout: 3000,
+            maximumAge: Infinity
+        }
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                    this.props.fetchWeather(
-                    lon = position.coords.longitude, 
-                    lat = position.coords.latitude)
-            });
-    }
-    render() {
-        return (
-            <Div>
-                <List>
-                    <h3>{this.props.city}</h3>
-                    <Icon>
-                        {icons.icon.sunny}
-                    </Icon>
-                    <div >
-                        <p >Wind {this.state.wind}</p>
-                        <p >Main {this.state.main}</p>
-                        <p>Humidity {this.state.humidity}%</p>
-                    </div>
-                    <button>toggle placeholder</button>
-                    <ListTemp>
-                        <ItemTemp>
-                            {store.getState().temp.tempC}
-                           
-                        </ItemTemp>
-                        <ItemBtn>
-                        <TempButton
-                            onClick={this.handleClick}
-                            tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
-                        </ItemBtn>
-                    </ListTemp>
-
-                </List>
-                {/* <div>
-                  <p> lat = {lat} </p>
-                  <p> lat = {lon} </p>
-                </div> */}
-            </Div>
+                this.props.fetchWeather(
+                    position.coords.longitude,
+                    position.coords.latitude);
+                this.setState({ error: false });
+            },
+            (err) => {
+                this.setState({ error: true });
+            },
+            options
         );
+
+    }
+    
+
+    render() {
+        if (this.state.error === false || store.getState().main.humidity > 0) {
+            return (
+
+                <Div >
+
+                       <div>
+                        <CityName>{store.getState().main.city}</CityName>
+                    </div>
+                    <List>
+                    <FlexInfo>
+                        <ListTemp>
+                            <FlexTemp>
+                          <ItemTemp>
+                            {store.getState().temp.tempC}
+                          </ItemTemp>
+                          <TempButton
+                             onClick={this.handleTempChange}
+                             tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                        </FlexTemp>
+                     </ListTemp>
+
+                        <InfoList>
+                            <InfoItem >wind: <ReturnedState>  {store.getState().main.wind}mph</ReturnedState></InfoItem>
+                            <InfoItem >conditions: <ReturnedState> {store.getState().main.main}</ReturnedState></InfoItem>
+                            <InfoItem >humidity: <ReturnedState> {store.getState().main.humidity}%</ReturnedState> </InfoItem>
+                        </InfoList>
+                    </FlexInfo>
+           
+    
+                       
+                        <Icon>
+                            <i className={store.getState().main.icon}></i>
+                        </Icon>
+                    </List>
+
+                </Div>
+            )
+      } else if (this.state.error === true) {
+            return <SimpleForm />
+      } else {
+            return null;
+        }
     }
 }
 

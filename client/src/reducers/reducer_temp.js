@@ -1,5 +1,6 @@
 import { FETCH_WEATHER } from '../actions/api';
 
+
 let initialState = { temp: null, tempC: null };
 export default function (state = initialState, action) {
     switch (action.type) {

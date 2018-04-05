@@ -3,13 +3,14 @@
     "",
     "\\client",
     "\\client\\src",
+    "\\client\\src\\actions",
     "\\client\\src\\components",
-    "\\client\\src\\Containers",
+    "\\client\\src\\constants",
+    "\\client\\src\\container",
+    "\\client\\src\\reducers",
     "\\client\\src\\styles",
-    "\\config",
-    "\\models",
-    "\\services"
+    "\\client\\src\\styles\\default-image"
   ],
-  "SelectedNode": "\\client\\src\\Containers\\weather.js",
+  "SelectedNode": "\\client\\src\\container\\citySearch.js",
   "PreviewInSolutionExplorer": false
 }
