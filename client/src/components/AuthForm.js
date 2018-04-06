@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 
 class AuthForm extends Component {
     constructor(props){
@@ -29,7 +29,7 @@ class AuthForm extends Component {
     render() {
         const{ email, username} = this.state;
         const {heading, buttonText, signUp, errors, history, removeError} = this.props;
-
+    
         history.listen(() =>{
             removeError();
         })
@@ -72,6 +72,7 @@ class AuthForm extends Component {
                             onChange={this.handleChange}
                             value={username}
                              />
+                            
                         </div>
                     )}
                     <button type="submit" className='btn btn-primary btn-block btn-lg' onClick={this.handleSubmit}>

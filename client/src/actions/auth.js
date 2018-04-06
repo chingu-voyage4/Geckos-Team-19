@@ -32,7 +32,7 @@ export function authUser(type, userData){
             })
             .catch(err =>{
                 console.log(err)
-                addError(err.message);
+                dispatch(addError(err.message));
                 reject();
             })
             
