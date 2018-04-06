@@ -14,7 +14,6 @@ import _ from 'lodash'
 class Main extends Component {
   render() {
     let { todos, currentUser } = this.props;
-    console.log(this.props)
     let { moveTodo } = this.props.actions
     let b0 = _.filter(todos,(todos)=>{return todos.pos === 0 })
     let b1 = _.filter(todos,(todos)=>{return todos.pos === 1 })
