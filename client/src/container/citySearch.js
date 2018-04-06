@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 import Weather from '../container/weather';
-import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, CityName, FlexInfo, FlexInput, ReturnedState, FlexTemp, InputBar } from '../styles/--weather';
+import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, CityName, FlexInfo,  FlexInput, ReturnedState, FlexTemp, InputBar } from '../styles/--weather';
 import TempButton from '../components/tempButton';
 
 
@@ -38,7 +38,7 @@ const onError = (status, clearSuggestions) => {
   clearSuggestions();
 };
 
-class SimpleForm extends Component {
+class CitySearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -94,7 +94,7 @@ class SimpleForm extends Component {
   render() {
     const myStyles = {
       root: { position: 'relative' },
-      input: { width: '100%',
+      input: { width: '150',
                borderRadius:10,
                outline:0,
            
@@ -104,7 +104,7 @@ class SimpleForm extends Component {
       autocompleteItem: { color: 'black',
                           backgroundColor: 'white' },
       autocompleteItemActive: { color: 'white',
-                                backgroundColor: 'black' }
+                                backgroundColor: 'darkgray' }
     }
    
 
@@ -115,7 +115,6 @@ class SimpleForm extends Component {
       onChange: this.handleChange,
       autoFocus: true,
       placeholder: 'Search Places',
-      border:'5px red solid !important',
     };
 
     return (
@@ -158,5 +157,5 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({ fetchWeather }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SimpleForm)
+export default connect(mapStateToProps, mapDispatchToProps)(CitySearch )
 

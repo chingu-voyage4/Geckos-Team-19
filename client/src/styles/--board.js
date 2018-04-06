@@ -4,7 +4,7 @@ const BoardWrap = styled.div`
 display:flex;
 background-color:rgba(255,255,255,0.4);
 flex-direction:column;
-//  border:1px green solid;
+// border:1px green solid;
 border-radius:10px;
 width:90%;
 height:auto;
@@ -16,11 +16,10 @@ box-shadow:1px 1px 5px rgba(0,0,0,0.4);
 `
 
 const WholeBoard = styled.div`
- border:1px purple solid;
+//  border:1px purple solid;
 display:flex;
 width:100%;
 justify-content:center;
- margin-top:100px;
 `
 
 const TodoStyle = styled.div`
@@ -34,11 +33,15 @@ border-radius:5px;
 text-align:center;
 box-shadow:1px 1px 5px rgba(0,0,0,0.4);
 font-family:Helvetica;
+overflow-wrap: break-word;
+}
 `
 
 const InputStyle = styled.input`
-width:70%;
+width:100%;
 margin:auto 3px;
+overflow-wrap: break-word;
+}
 `
 
 const AddItemBtn = styled.button`
