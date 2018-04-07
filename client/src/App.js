@@ -24,7 +24,8 @@ class App extends Component {
        
       
         <AppWrap>
-          {/* <Background > */}
+          <BackgroundImage/>
+          <Background >
           <Time/>
 
         <Weather />  
@@ -35,9 +36,9 @@ class App extends Component {
          <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
 
        </WholeBoard>
-       <BackgroundImage/>
+       
            
-        {/* </Background> */}
+        </Background>
         </AppWrap>
  
     );
