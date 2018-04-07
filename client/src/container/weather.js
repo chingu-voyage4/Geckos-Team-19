@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, ItemTemp,CityNameInputWrap,TempBtnWrap, ItemBtn, Icon, List, InfoList, InfoItem, CityName,  ReturnedState, FlexTemp, ListItem, MiddleWeather } from '../styles/--weather';
+import { Div, ItemTemp,CityNameInputWrap,TempBtnWrap, Icon, List, InfoList, InfoItem, CityName,  ReturnedState, FlexTemp, ListItem, MiddleWeather } from '../styles/--weather';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
