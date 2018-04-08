@@ -64,6 +64,7 @@ let initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case FETCH_WEATHER:
+            console.log(action)
             return Object.assign({}, state, {
                 wind: action.payload.data.wind.speed,
                 humidity: action.payload.data.main.humidity,

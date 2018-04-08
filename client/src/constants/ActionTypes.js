@@ -5,3 +5,7 @@ export const COMPLETE_TODO = 'COMPLETE_TODO'
 export const COMPLETE_ALL = 'COMPLETE_ALL'
 export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
 export const MOVE_TODO = 'MOVE_TODO'
+export const  ADD_ERROR = 'ADD_ERROR';
+export const REMOVE_ERROR = "REMOVE_ERROR";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const REMOVE_TODO = 'REMOVE_TODO'
