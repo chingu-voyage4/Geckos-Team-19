@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import Todo from './todo';
-
+import {TodoStyle} from './../styles/--board'
 
 
 class Card extends Component {
@@ -13,15 +13,16 @@ class Card extends Component {
     }
     render() {
         const { todo } = this.props;
-        let cardTodo = _.map(todo,(todo,i)=>{
+        let cardTodo = _.map(todo, (todo, i) => {
            return(
+            <TodoStyle key={i}>
                     <Todo
                     actions={this.props.actions}
                     text={todo.text}
                     index={i}
                     id={todo.id}
-                    key={i}
                     />
+            </TodoStyle>
                     )
                 })
                 

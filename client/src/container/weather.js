@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem } from '../styles/--weather';
+import { Div, ItemTemp,CityNameInputWrap,TempBtnWrap, ItemBtn, Icon, List, InfoList, InfoItem, CityName,  ReturnedState, FlexTemp, ListItem, MiddleWeather } from '../styles/--weather';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
-import Input from '../container/locationSearch';
+// import Input from '../container/locationSearch';
 import '../styles/weather-icons/css/weather-icons.css';
+import CitySearch from '../container/citySearch';
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
@@ -23,6 +24,8 @@ class Weather extends Component {
         this.handleTempChange = this.handleTempChange.bind(this);
         
     }
+
+   
     
 
     handleTempChange = (event) => {
@@ -39,63 +42,80 @@ class Weather extends Component {
             store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
-
+ 
     componentDidMount() {
         let options = {
             enableHighAccuracy: true,
             timeout: 3000,
             maximumAge: Infinity
         }
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                this.props.fetchWeather(
-                    position.coords.longitude,
-                    position.coords.latitude);
-                this.setState({ error: false });
-            },
-            (err) => {
-                this.setState({ error: true });
-            },
-            options
-        );
+        // navigator.geolocation.getCurrentPosition(
+        //     (position) => {
+        //         console.log(position.coords.longitude)
+        //         this.props.fetchWeather(
+        //             position.coords.longitude,
+        //             position.coords.latitude);
+        //         this.setState({ error: false });
+        //     },
+        //     (err) => {
+        //         this.setState({ error: true });
+        //     },
+        //     options
+        // );
 
     }
     
 
     render() {
-        if (this.state.error === true) {
-            return <Input />
-        } else if (this.state.error === false) {
+        if (this.state.error === false || store.getState().main.humidity > 0) {
             return (
-                <Div>
+
+                <Div >
+                    
+                   
                     <List>
-                        <h3>{store.getState().main.city}</h3>
-                        <Icon>
-                            <i className={store.getState().main.icon}></i>
-                        </Icon>
-                        <InfoList>
-                            <InfoItem >Wind {store.getState().main.wind}mph</InfoItem>
-                            <InfoItem >{store.getState().main.main}</InfoItem>
-                            <InfoItem >Humidity {store.getState().main.humidity}%</InfoItem>
-                        </InfoList>
-                        <button>toggle placeholder</button>
-                        <ListTemp>
+                    
+                  
+                      
+                        <ListItem>
+                         <TempBtnWrap>
                             <ItemTemp>
-                                {store.getState().temp.tempC}
-
+                              {store.getState().temp.tempC}
                             </ItemTemp>
-                            <ItemBtn>
-                                <TempButton
-                                    onClick={this.handleTempChange}
-                                    tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
-                            </ItemBtn>
-                        </ListTemp>
+                            <TempButton
+                               onClick={this.handleTempChange}
+                               tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                         </TempBtnWrap>
+                
 
+                        <InfoList>
+                            <InfoItem >wind: <ReturnedState>  {store.getState().main.wind}mph</ReturnedState></InfoItem>
+                            <InfoItem >conditions: <ReturnedState> {store.getState().main.main}</ReturnedState></InfoItem>
+                            <InfoItem >humidity: <ReturnedState> {store.getState().main.humidity}%</ReturnedState> </InfoItem>
+                        </InfoList>
+                        </ListItem>
+                       
+        
+           
+                       <ListItem>
+                           <MiddleWeather>
+                         
+                            <CityName>{store.getState().main.city}</CityName>
+                          </MiddleWeather>
+                        </ListItem>
+                       
+                        <ListItem>
+                            <Icon>
+                            <i className={store.getState().main.icon}></i>
+                            </Icon>
+                        </ListItem>
                     </List>
 
                 </Div>
             )
-        } else {
+      } else if (this.state.error === true) {
+            return <CitySearch />
+      } else {
             return null;
         }
     }

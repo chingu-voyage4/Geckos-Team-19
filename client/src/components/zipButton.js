@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { InputButton } from '../styles/--weather';
 
 
 
@@ -10,13 +11,13 @@ class ZipButton extends Component {
     render() {
         return (
             <div>
-                <button
-                    style={{ borderRadius: '5px'}}
+                <InputButton
+  
                     onClick={this.props.onClick}
                     tempkind={this.props.tempkind} >
                     <i className={this.props.tempkind}></i>
-                    Search
-                </button>
+                    search
+                </InputButton>
 
 
             </div>
