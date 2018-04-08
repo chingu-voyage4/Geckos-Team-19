@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from './card';
 import { DropTarget } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
+import { BoardWrap, InputStyle, FlexBtnInput, AddItemBtn } from './../styles/--board';
 
 
 
@@ -46,13 +47,22 @@ class Board extends Component {
     render() {
      const  {todo, connectDropTarget} = this.props;
         return connectDropTarget(
-            <div className='Board'>
-               <Card actions={this.props.actions} todo={todo}/>
-               <form>
-               <input value={this.state.todo} onChange={this.handleChange.bind(this)} type="text"/>
-               <button onClick={this.handleSubmit}>AddTodo</button>
+         <div className='Board'>
+            <BoardWrap>
+            <form>
+                <FlexBtnInput>
+                   <InputStyle  value={this.state.todo} onChange={this.handleChange.bind(this)} type="text"/>
+                   <AddItemBtn onClick={this.handleSubmit}>Add New</AddItemBtn>
+                </FlexBtnInput>
                </form>
+               {/* <p> drag here </p> */}
+               
+               <Card actions={this.props.actions} todo={todo}/>
+               
+              
+            </BoardWrap>
             </div>
+            
         );
     }
 }

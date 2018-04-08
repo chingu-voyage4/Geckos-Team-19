@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, CityName, FlexInfo, FlexInput, ReturnedState, FlexTemp } from '../styles/--weather';
+import { Div, ItemTemp,CityNameInputWrap,TempBtnWrap, ItemBtn, Icon, List, InfoList, InfoItem, CityName,  ReturnedState, FlexTemp, ListItem, MiddleWeather } from '../styles/--weather';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
-import Input from '../container/locationSearch';
+// import Input from '../container/locationSearch';
 import '../styles/weather-icons/css/weather-icons.css';
+import CitySearch from '../container/citySearch';
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
@@ -41,7 +42,7 @@ class Weather extends Component {
             store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
         }
     }
-
+ 
     componentDidMount() {
         let options = {
             enableHighAccuracy: true,
@@ -66,45 +67,55 @@ class Weather extends Component {
     
 
     render() {
-        if (this.state.error === true) {
-            return <Input />
-        } else if (this.state.error === false) {
+        if (this.state.error === false || store.getState().main.humidity > 0) {
             return (
-                <Div>
+
+                <Div >
                     
-                       <div>
-                        <CityName>{store.getState().main.city}</CityName>
-                    </div>
+                   
                     <List>
-                    <FlexInfo>
-                        <ListTemp>
-                            <FlexTemp>
-                          <ItemTemp>
-                            {store.getState().temp.tempC}
-                          </ItemTemp>
-                          <TempButton
-                             onClick={this.handleTempChange}
-                             tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
-                        </FlexTemp>
-                     </ListTemp>
+                    
+                  
+                      
+                        <ListItem>
+                         <TempBtnWrap>
+                            <ItemTemp>
+                              {store.getState().temp.tempC}
+                            </ItemTemp>
+                            <TempButton
+                               onClick={this.handleTempChange}
+                               tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                         </TempBtnWrap>
+                
 
                         <InfoList>
                             <InfoItem >wind: <ReturnedState>  {store.getState().main.wind}mph</ReturnedState></InfoItem>
                             <InfoItem >conditions: <ReturnedState> {store.getState().main.main}</ReturnedState></InfoItem>
                             <InfoItem >humidity: <ReturnedState> {store.getState().main.humidity}%</ReturnedState> </InfoItem>
                         </InfoList>
-                    </FlexInfo>
-           
-    
+                        </ListItem>
                        
-                        <Icon>
+        
+           
+                       <ListItem>
+                           <MiddleWeather>
+                         
+                            <CityName>{store.getState().main.city}</CityName>
+                          </MiddleWeather>
+                        </ListItem>
+                       
+                        <ListItem>
+                            <Icon>
                             <i className={store.getState().main.icon}></i>
-                        </Icon>
+                            </Icon>
+                        </ListItem>
                     </List>
 
                 </Div>
             )
-        } else {
+      } else if (this.state.error === true) {
+            return <CitySearch />
+      } else {
             return null;
         }
     }

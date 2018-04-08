@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CardTW from '../components/cardTW';
+import Time from './time';
 import { Link } from 'react-router-dom'
 import BackgroundImage from './backgroundImage';
 import { bindActionCreators } from 'redux'
@@ -7,8 +7,12 @@ import { connect } from 'react-redux'
 import HTML5Backend from 'react-dnd-html5-backend';
 import * as TodoActions from '../actions'
 import { DragDropContext} from 'react-dnd';
+import _ from 'lodash';
+import {WholeBoard} from '../styles/--board';
+import {AppWrap, Background} from '../styles/--main';
+import Weather from './weather';
 import Board from '../components/board';
-import _ from 'lodash'
+
 
 
 class Main extends Component {
@@ -28,15 +32,22 @@ class Main extends Component {
       )
     }
       return (
-        <div>
-              <CardTW />
-              <BackgroundImage />
-              <div>
-       <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='0'  todo={b0} />
-       <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='1'  todo={b1} />
-       <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
-       </div>
-        </div>
+        <Background >
+        <AppWrap>
+          
+          <Time/>
+
+        <Weather />  
+   
+        <WholeBoard>
+         <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='0'  todo={b0}/>
+         <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='1'  todo={b1} />
+         <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
+
+       </WholeBoard>
+ 
+        </AppWrap>
+        </Background>
     );
   }
 }

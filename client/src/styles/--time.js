@@ -2,33 +2,31 @@
 import styled from 'styled-components';
 
 
- const TimeSettingsWrap = styled.div`
+const TimeDateWrap = styled.div`
 // border:1px red solid;
 display:flex;
-justify-content:center;
-align-items:center;
+flex-direction:column;
+width:130px;
+height:70px;
 `
 
-const ClockWrap = styled.div`
-min-width: 300px;
-max-width: 20vw;
-max-height: 20vh;
-// background-color: rgba(225,225,225,0.4);
-// border-radius: 5px;
-color: rgba(0,0,0,.8);
-padding:7px 0 
-margin-bottom:10px;
-// box-shadow:1px 1px 5px rgba(0,0,0,0.4);
-border-bottom:2px rgb(255,255,255) solid;
+const TimeDateMadeByWrap = styled.div`
+// border:3px blue solid;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
 `
 
 const Clock = styled.h2`
 font-weight: 100;
-text-align: center;
-font-size:1.5rem;
+font-size:1rem;
 font-weight:bold;
 font-family: 'Helvetica', sans-serif;
 margin: auto 7px;
+margin-left:15px;
+margin-top:-5px;
+margin-bottom:40px;
 `
 
 const SettingsButton = styled.button`
@@ -60,13 +58,13 @@ box-shadow:2px 2px 3px rgba(0,0,0,.5);
   }
 `
 const D = styled.h1`
+margin-left:15px;
 font-family: 'Helvetica', sans-serif;
-text-align: center;
-// border:1px red solid;
-font-size:1.5rem;
+//  border:1px red solid;
+font-size:1rem;
 font-weight:100;
-padding-top:5px;
 font:"Helvetica", "sans-serif"
+margin-top:0;
 `
 const ClockButton = styled.button`
  font-family: Helvetica, sans-serif;
@@ -76,4 +74,4 @@ const ClockButton = styled.button`
 border: none;
 outline: none;
 `
-export { Clock, ClockWrap, ClockButton, D, TimeSettingsWrap, SettingsButton };
+export { Clock, TimeDateMadeByWrap, ClockButton, D, TimeDateWrap, SettingsButton };
