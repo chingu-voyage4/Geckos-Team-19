@@ -15,13 +15,12 @@ class Card extends Component {
         const { todo } = this.props;
         let cardTodo = _.map(todo, (todo, i) => {
            return(
-            <TodoStyle>
+            <TodoStyle key={i}>
                     <Todo
                     actions={this.props.actions}
                     text={todo.text}
                     index={i}
                     id={todo.id}
-                    key={i}
                     />
             </TodoStyle>
                     )
