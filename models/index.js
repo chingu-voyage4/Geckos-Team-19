@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mlabKey= require('.env')
 mongoose.set('debug', true);
 
 mongoose.Promise = Promise;
