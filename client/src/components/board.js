@@ -49,16 +49,17 @@ class Board extends Component {
         return connectDropTarget(
          <div className='Board'>
             <BoardWrap>
-               
-               <Card actions={this.props.actions} todo={todo}/>
-               
-               <form>
+            <form>
                 <FlexBtnInput>
-                   <InputStyle value={this.state.todo} onChange={this.handleChange.bind(this)} type="text"/>
+                   <InputStyle  value={this.state.todo} onChange={this.handleChange.bind(this)} type="text"/>
                    <AddItemBtn onClick={this.handleSubmit}>Add New</AddItemBtn>
                 </FlexBtnInput>
                </form>
-               <p> drag here </p>
+               {/* <p> drag here </p> */}
+               
+               <Card actions={this.props.actions} todo={todo}/>
+               
+              
             </BoardWrap>
             </div>
             

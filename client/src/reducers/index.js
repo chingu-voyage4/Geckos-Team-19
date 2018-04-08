@@ -6,6 +6,8 @@ import WeatherReducer from './reducer_weather';
 import TempReducer from './reducer_temp';
 import ZipReducer from './reducer_zip';
 import todos from './reducer_todos';
+import errors from './reducer_error';
+import currentUser from './reducer_currentUser';
 
 
 const reducers = combineReducers({
@@ -16,7 +18,9 @@ const reducers = combineReducers({
     temp: TempReducer,
     icon: WeatherReducer,
     input: ZipReducer,
-    todos:todos
+    todos,
+    errors,
+    currentUser
 });
 
 

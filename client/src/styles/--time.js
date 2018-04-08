@@ -6,7 +6,7 @@ const TimeDateWrap = styled.div`
 // border:1px red solid;
 display:flex;
 flex-direction:column;
-width:90px;
+width:130px;
 height:70px;
 `
 
@@ -15,7 +15,7 @@ const TimeDateMadeByWrap = styled.div`
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:40px;
+
 `
 
 const Clock = styled.h2`
