@@ -27,6 +27,8 @@ margin: auto 7px;
 margin-left:15px;
 margin-top:-5px;
 margin-bottom:40px;
+color:white;
+
 `
 
 
@@ -38,6 +40,7 @@ font-size:1rem;
 font-weight:100;
 font:"Helvetica", "sans-serif"
 margin-top:0;
+color:white;
 `
 const ClockButton = styled.button`
  font-family: Helvetica, sans-serif;

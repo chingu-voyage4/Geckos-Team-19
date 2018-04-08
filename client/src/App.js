@@ -10,7 +10,7 @@ import _ from 'lodash';
 import {WholeBoard} from './styles/--board';
 import {AppWrap, Background} from './styles/--main';
 import Weather from './container/weather';
-import BackgroundImage from'./container/backgroundImage'
+
 
 class App extends Component {
   render() {
@@ -21,11 +21,11 @@ class App extends Component {
     let b2 = _.filter(todos,(todos)=>{return todos.pos === 2 })
    
       return (
-       
-      
-        <AppWrap>
-          <BackgroundImage/>
-          <Background >
+        <Background >
+
+        <AppWrap >
+
+        
           <Time/>
 
         <Weather />  
@@ -38,8 +38,10 @@ class App extends Component {
        </WholeBoard>
        
            
-        </Background>
+    
         </AppWrap>
+        </Background>
+        
  
     );
   }
