@@ -49,19 +49,19 @@ class Weather extends Component {
             timeout: 3000,
             maximumAge: Infinity
         }
-        // navigator.geolocation.getCurrentPosition(
-        //     (position) => {
-        //         console.log(position.coords.longitude)
-        //         this.props.fetchWeather(
-        //             position.coords.longitude,
-        //             position.coords.latitude);
-        //         this.setState({ error: false });
-        //     },
-        //     (err) => {
-        //         this.setState({ error: true });
-        //     },
-        //     options
-        // );
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                console.log(position.coords.longitude)
+                this.props.fetchWeather(
+                    position.coords.longitude,
+                    position.coords.latitude);
+                this.setState({ error: false });
+            },
+            (err) => {
+                this.setState({ error: true });
+            },
+            options
+        );
 
     }
     
