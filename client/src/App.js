@@ -21,27 +21,27 @@ class App extends Component {
     let b2 = _.filter(todos,(todos)=>{return todos.pos === 2 })
    
       return (
-        <LandingPage/>
-      //   <Background >
+        // <LandingPage/>
+        <Background >
 
-      //   <AppWrap >
+        <AppWrap >
 
         
-      //     <Time/>
+          <Time/>
 
-      //   <Weather />  
+        <Weather />  
    
-      //   <WholeBoard>
-      //    <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='0'  todo={b0}/>
-      //    <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='1'  todo={b1} />
-      //    <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
+        <WholeBoard>
+         <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='0'  todo={b0}/>
+         <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='1'  todo={b1} />
+         <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
 
-      //  </WholeBoard>
+       </WholeBoard>
        
            
     
-      //   </AppWrap>
-      //   </Background>
+        </AppWrap>
+        </Background>
         
  
     );

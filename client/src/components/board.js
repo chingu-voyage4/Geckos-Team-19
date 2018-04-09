@@ -51,7 +51,7 @@ class Board extends Component {
             <BoardWrap>
             <form>
                 <FlexBtnInput>
-                   <InputStyle  value={this.state.todo} onChange={this.handleChange.bind(this)} type="text"/>
+                   <InputStyle keyUp={this.handleSumbit}  value={this.state.todo} onChange={this.handleChange.bind(this)} type="text"/>
                    <AddItemBtn onClick={this.handleSubmit}>Add New</AddItemBtn>
                 </FlexBtnInput>
                </form>
