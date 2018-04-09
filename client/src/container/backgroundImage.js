@@ -1,47 +1,28 @@
-import React, { Component } from 'react';
-import {Background} from '../styles/--main'
+// import React, { Component } from 'react';
+// import {Background} from '../styles/--main'
 
 
 
-class BackgroundImage extends Component {
-    constructor(props) {
-    super(props);
-        this.state = {
-            imageNum:"",
-            img:"",
-        }
-    }
+// class BackgroundImage extends Component {
+// componentDidMount() {
+//     backgroundStyle.backgroundImage = `url("../styles/default-image/default-image.jpg")`;
+//     // backgroundStyle.backgroundImage = `url("https://source.unsplash.com/collection/1851577/")`;
+//     backgroundStyle.backgroundRepeat = "no-repeat";
+//     backgroundStyle.backgroundSize = "cover";
+//     backgroundStyle.position = "absolute";
+//   }
 
-     componentDidMount() {
-         let randomNumber = Math.floor(Math.random()*22) + 1
-             this.setState({
-               imageNum: randomNumber,
-               image:"image-" + randomNumber + ".jpg",
-           });
-           console.log(this.state.imageNum);
-           console.log(this.state.image);
-        }
-    
-       consoleLog = ()=>{
-        console.log(this.state.imageNum);
-        console.log(this.state.image);
-       }
-       
-      
-      
+//    render() {
+//           return (
+//               <div>
+//                   <Background background={this.state.image}>
+//                   </Background>
+//                   {/* <p>{this.state.imageNum}</p>
+//                   <p onClick ={this.consoleLog}>Hello</p> */}
+//              </div>
+//           );
+//       }
 
+// }
 
-   render() {
-          return (
-              <div>
-                  <Background background={this.state.image}>
-                  </Background>
-                  {/* <p>{this.state.imageNum}</p>
-                  <p onClick ={this.consoleLog}>Hello</p> */}
-             </div>
-          );
-      }
-
-}
-
-export default BackgroundImage;
+// export default BackgroundImage;
