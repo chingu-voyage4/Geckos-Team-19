@@ -27,16 +27,15 @@ class Todo extends Component{
         super(props);
         this.state={}
     }
-handleDelete(e){
-    let todoId = e.target.id
-    this.props.actions.deleteTodo(todoId)
+handleDelete(id,e){
+    this.props.actions.deleteTodo(id)
 
 }
     render(){
    let {text,connectDragSource,id} = this.props;
     return connectDragSource(
         <div className="card" >
-        <p>{text}<i id={id} onClick={this.handleDelete.bind(this)} className="fa fa-trash"></i></p> 
+        <p>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></p> 
         </div>
     )
     };
