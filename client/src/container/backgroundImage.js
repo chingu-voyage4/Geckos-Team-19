@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import {Background} from '../styles/--main'
-
- let randomNumber = Math.floor(Math.random()*22) + 1;
-
-let divStyle = {
-    backgroundColor: 'pink',
-   backgroundImage:`url(${require("../styles/default-image/image-"+ randomNumber + ".jpg")})`,
-
-   width:"100%",
-   height:"100%",
-   margin:"auto",
-   backgroundSize:"cover",
-   backgroundAttachment: "fixed",
-   backgroundRepeat: "no-repeat",
-   backgroundPosition: "center",
-display: "block",
-overflow: "auto",
-    // WebkitTransition: 'all', // note the capital 'W' here
-    // msTransition: 'all' // 'ms' is the only lowercase vendor prefix
-  };
+// import React, { Component } from 'react';
+// import {Background} from '../styles/--main'
 
 
 
+// class BackgroundImage extends Component {
+// componentDidMount() {
+//     backgroundStyle.backgroundImage = `url("../styles/default-image/default-image.jpg")`;
+//     // backgroundStyle.backgroundImage = `url("https://source.unsplash.com/collection/1851577/")`;
+//     backgroundStyle.backgroundRepeat = "no-repeat";
+//     backgroundStyle.backgroundSize = "cover";
+//     backgroundStyle.position = "absolute";
+//   }
 
-export default divStyle;
+//    render() {
+//           return (
+//               <div>
+//                   <Background background={this.state.image}>
+//                   </Background>
+//                   {/* <p>{this.state.imageNum}</p>
+//                   <p onClick ={this.consoleLog}>Hello</p> */}
+//              </div>
+//           );
+//       }
+
+// }
+
+// export default BackgroundImage;
