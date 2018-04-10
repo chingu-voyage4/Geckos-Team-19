@@ -4,7 +4,7 @@ mongoose.set('debug', true);
 
 mongoose.Promise = Promise;
 
-mongoose.connect('',{
+mongoose.connect('mongodb://ladyv:BizzyBee135!@ds135619.mlab.com:35619/gecko19',{
     keepAlive:true
 });
 
