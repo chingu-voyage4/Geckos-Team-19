@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setTokenHeader } from '../services/api';
+import { jwtDecode } from 'jwt-decode';
  
 
 const API_KEY = "50bb5384466ccb470dc659a13dca555a";
@@ -28,7 +29,7 @@ export  function fetchWeather(lon, lat) {
 }
 
 export function dispatchWeather(data){
-    setTokenHeader(localStorage.jtwToken)
+    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.jwtToken}`;
     return{
         type:FETCH_WEATHER,
         payload:data
