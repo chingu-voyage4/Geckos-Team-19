@@ -25,9 +25,7 @@ class Main extends Component {
     let b2 = _.filter(todos,(todos)=>{return todos.pos === 2 })
     if(!currentUser.isAuthenticated){
       return(
-        
         <LandingPage/>
-        
       )
     }
       return (
