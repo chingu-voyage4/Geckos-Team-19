@@ -8,10 +8,11 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import * as TodoActions from '../actions'
 import { DragDropContext} from 'react-dnd';
 import _ from 'lodash';
-import {WholeBoard} from './styles/--board';
-import {AppWrap, Background} from './styles/--main';
-import Weather from './container/weather';
-import LandingPage from './components/landingPage';
+import {WholeBoard} from '../styles/--board';
+import {AppWrap, Background} from '../styles/--main';
+import Weather from '../container/weather';
+import LandingPage from '../components/landingPage';
+import Board from '../components/board';
 
 
 
@@ -48,15 +49,9 @@ class Main extends Component {
          <Board  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
 
        </WholeBoard>
-<<<<<<< HEAD:client/src/App.js
        
            
     
-=======
-       {/* <BackgroundImage/>
-            */}
-        {/* </Background> */}
->>>>>>> development:client/src/container/Main.js
         </AppWrap>
         </Background>
         
