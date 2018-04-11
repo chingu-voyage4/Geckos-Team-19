@@ -51,7 +51,6 @@ class Weather extends Component {
         }
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                console.log(position.coords.longitude)
                 this.props.fetchWeather(
                     position.coords.longitude,
                     position.coords.latitude);
