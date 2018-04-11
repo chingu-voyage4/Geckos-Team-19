@@ -4,7 +4,8 @@ const router = express.Router({ mergeParams: true });
 const {
   createTodo,
   getTodo,
-  deleteTodo
+  deleteTodo,
+  updateTodo
 } = require("../handlers/todos");
 
 // prefix - /api/users/:id/todos
@@ -14,6 +15,7 @@ router.route("/").post(createTodo);
 router
   .route("/:todo_id")
   .get(getTodo)
-  .delete(deleteTodo);
+  .delete(deleteTodo)
+  .put(updateTodo);
 
 module.exports = router;

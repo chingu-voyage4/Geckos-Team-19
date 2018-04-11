@@ -2,6 +2,7 @@ const db = require("../models");
 
 exports.createTodo = async function(req, res, next) {
   try {
+    console.log(req.body)
     let todo = await db.Todo.create({
       text: req.body.text,
       position:req.body.position,
@@ -41,3 +42,13 @@ exports.deleteTodo = async function(req, res, next) {
     return next(err);
   }
 };
+
+exports.updateTodo = async function(req,res, next){
+  try{
+    let foundTodo = await db.Todo.update({_id:req.params.todo_id},{$set:{position:req.body.position}})
+    .exec();
+    return res.status(200).json(foundTodo);
+  }catch(err){
+    return next(err);
+  }
+}
