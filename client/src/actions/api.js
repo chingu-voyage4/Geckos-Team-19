@@ -28,7 +28,7 @@ export  function fetchWeather(lon, lat) {
 }
 
 export function dispatchWeather(data){
-    setTokenHeader(localStorage.jtwToken)
+    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.jwtToken}`;
     return{
         type:FETCH_WEATHER,
         payload:data

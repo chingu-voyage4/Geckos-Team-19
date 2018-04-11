@@ -4,8 +4,8 @@ const User = require('./user');
 const todoSchema = new mongoose.Schema({
     text:{
         type:String,
-        required:true,
-        maxLength:160
+        required:true
+       
     },
     position:{
         type:Number

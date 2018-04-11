@@ -28,7 +28,9 @@ class Todo extends Component{
         this.state={}
     }
 handleDelete(id,e){
+    console.log(this.props)
     this.props.actions.deleteTodo(id)
+    this.props.actions.removeTodo(this.props.user.user.id,id)
 
 }
     render(){
