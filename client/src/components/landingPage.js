@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AppWrap} from '../styles/--main';
 import {Methodize , Background, Organize, PageWrap, ButtonWrap, Button } from '../styles/--landingPage';
 import Particles from 'react-particles-js';
+import {Link} from 'react-router-dom';
  
 
 class LandingPage extends Component {
@@ -23,8 +24,8 @@ class LandingPage extends Component {
                      <Methodize> METHODIZE </Methodize>
                      <Organize> organize your thoughts </Organize>
                      <ButtonWrap>
-                       <Button> sign in </Button>
-                       <Button> sign up </Button>
+                     <Link to='/signin'>  <Button>sign in </Button></Link>
+                     <Link to='/signup'> <Button>sign up </Button></Link>
                      </ButtonWrap>
                   </PageWrap>
                 

@@ -20,11 +20,10 @@ import _ from 'lodash';
         case MOVE_TODO:
         let newState = _.map(state,(todo)=>{
             if(todo._id === action.id){
-                console.log("its alive")
                 return {
                     text:todo.text,
                     completed:todo.completed,
-                    id:todo.id,
+                    _id:action.id,
                     position:parseInt(action.pos,10),
                     order:todo.order  
                 }

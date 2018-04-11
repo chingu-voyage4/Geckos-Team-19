@@ -13,7 +13,7 @@ const App = (props) => {
    const { authUser, errors, removeError, currentUser} = props;
         return (
             
-            <div className="container">
+            <div>
                 <Switch>
                         <Route exact path="/" render={props => <Main currentUser={currentUser}{...props} /> } />
                         <Route exact path="/signin" render={props=>{
