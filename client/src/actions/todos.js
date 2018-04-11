@@ -43,6 +43,7 @@ export const postNewTodo = (text,position) => (dispatch,getState)=>{
 }
 
 export const updateTodo = (todo_id,position)=>(dispatch,getState)=>{
+    moveTodo(todo_id,position)
     let {currentUser} = getState();
     const id = currentUser.user.id;
     return apiCall('put',`/api/users/${id}/todos/${todo_id}`,{position})
