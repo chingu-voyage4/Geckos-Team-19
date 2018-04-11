@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Time from './time';
 import { Link } from 'react-router-dom'
-import BackgroundImage from './backgroundImage';
+// import BackgroundImage from './backgroundImage';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -12,7 +12,8 @@ import _ from 'lodash';
 import {WholeBoard} from '../styles/--board';
 import {AppWrap, Background} from '../styles/--main';
 import Weather from './weather';
-import Board from '../components/board';
+import LandingPage from '../components/landingPage';
+import Board from '../components/board'
 
 
 
@@ -29,17 +30,18 @@ class Main extends Component {
     let b2 = _.filter(todo,(todos)=>{return todos.position === 2 })
     if(!currentUser.isAuthenticated){
       return(
-        <div>
-          <Link to='/signin' >signin</Link>
-           <span> or </span>
-          <Link to='/signup' >signup</Link>
-        </div>
+        
+        <LandingPage/>
+        
       )
     }
       return (
+      
         <Background >
-        <AppWrap>
-          
+
+        <AppWrap >
+
+        
           <Time/>
 
         <Weather />  
@@ -50,9 +52,13 @@ class Main extends Component {
          <Board user={this.props.currentUser} todoActions={this.props.todoActions}  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
 
        </WholeBoard>
- 
+       {/* <BackgroundImage/>
+            */}
+        {/* </Background> */}
         </AppWrap>
-        </Background>
+         </Background>
+        
+ 
     );
   }
 }

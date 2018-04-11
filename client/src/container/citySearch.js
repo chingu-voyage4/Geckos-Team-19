@@ -5,8 +5,7 @@ import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 import Weather from '../container/weather';
-import { Div, ItemTemp, ListTemp, ItemBtn, Icon, List, InfoList, InfoItem, CityName, FlexInfo,  FlexInput, ReturnedState, FlexTemp, InputBar } from '../styles/--weather';
-import TempButton from '../components/tempButton';
+ import {  InputBar } from '../styles/--weather';
 
 
 /* eslint-disable react/prop-types */

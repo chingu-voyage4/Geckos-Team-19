@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import { DragSource } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
-import FontAwesome from 'react-fontawesome';
-
 
 const TodoSource = {
     beginDrag(props, dnd, element){ 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Clock, TimeDateMadeByWrap, D, TimeDateWrap, SettingsButton } from '../styles/--time';
-import FontAwesome from 'react-fontawesome';
+import { Clock, TimeDateMadeByWrap, D, TimeDateWrap} from '../styles/--time';
+
 import MadeBy from './madeBy';
 
 
