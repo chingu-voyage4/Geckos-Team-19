@@ -17,10 +17,11 @@ class Card extends Component {
            return(
             <TodoStyle key={i}>
                     <Todo
+                    user = {this.props.user}
                     actions={this.props.actions}
                     text={todo.text}
                     index={i}
-                    id={todo.id}
+                    id={todo._id}
                     />
             </TodoStyle>
                     )
