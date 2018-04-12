@@ -3,14 +3,17 @@ import Card from './card';
 import { DropTarget } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
 import { BoardWrap, InputStyle, FlexBtnInput, AddItemBtn } from './../styles/--board';
+import { postNewTodo, moveTodo } from './../actions/todos';
 
 
 
 const BoardTarget= {
     drop(props,monitor,component){
         let {id} = monitor.getItem();
-       let { movetodo, bpos } = props
-       movetodo(id,bpos)
+        let {updateTodo,moveTodo} = props.todoActions;
+       let { bpos } = props
+       updateTodo(id,bpos)
+       moveTodo(id,bpos)
         return {}
     }
     
@@ -37,7 +40,8 @@ class Board extends Component {
         if(e.which === 13){
             let text = this.state.todo;
             let pos = this.props.bpos;
-            this.props.actions.addTodo(text,pos)
+            this.props.todoActions.addTodo(text,pos)
+            this.props.todoActions.postNewTodo(text,pos)
             this.setState({
                 todo:''
             })
@@ -67,7 +71,7 @@ class Board extends Component {
             
                {/* <p> drag here </p> */}
                
-               <Card actions={this.props.actions} todo={todo}/>
+               <Card user={this.props.user} actions={this.props.todoActions} todo={todo}/>
                
               
             </BoardWrap>

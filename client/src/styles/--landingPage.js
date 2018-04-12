@@ -61,7 +61,7 @@ width:100%;
 justify-content:center;
 `
 
-const Button = styled.a`
+const Button = styled.button`
 border-radius:5px;
 opacity:1;
 border:1.5px white solid;
@@ -91,8 +91,6 @@ outline:0;
        font-weight:400;
  }
 `
-const ButtonText = styled.div`
-color:white;
-`
 
-export {Methodize , Background, Organize , PageWrap, ButtonWrap, Button, ButtonText };
+
+export {Methodize , Background, Organize , PageWrap, ButtonWrap, Button};
