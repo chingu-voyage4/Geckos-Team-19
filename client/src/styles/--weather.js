@@ -100,18 +100,18 @@ const InfoItem = styled.div`
    color: rgba(0,0,0,0.8);
    font-size: 14px;
    font-family:"Helvetica", sans-serif;
-    padding:-12px 0;
+    // padding:-12px 0;
     justify-content:center;
     align-items:center;
     width:auto;
-   margin-top:-10px;
-   margin-botto:-10px;
+   margin-top:10px;
    margin-left:5px;
 `
 
 const ReturnedState = styled.p`
 font-weight:300;
-margin-left:5px;
+// margin-left:10px;
+padding-bottom;-9px;
 `
 
 //_______________________________________TEMP

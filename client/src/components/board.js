@@ -3,14 +3,17 @@ import Card from './card';
 import { DropTarget } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
 import { BoardWrap, InputStyle, FlexBtnInput, AddItemBtn } from './../styles/--board';
+import { postNewTodo, moveTodo } from './../actions/todos';
 
 
 
 const BoardTarget= {
     drop(props,monitor,component){
         let {id} = monitor.getItem();
-       let { movetodo, bpos } = props
-       movetodo(id,bpos)
+        let {updateTodo,moveTodo} = props.todoActions;
+       let { bpos } = props
+       updateTodo(id,bpos)
+       moveTodo(id,bpos)
         return {}
     }
     
@@ -28,36 +31,47 @@ class Board extends Component {
             todo:''
         }
     }
-    handleChange = e =>{
+    handleUpdate = e =>{
      this.setState({
-        todo: e.target.value
-    })
-}
-    handleSubmit = e =>{
-        e.preventDefault();
-        let text = this.state.todo;
-        let pos = this.props.bpos;
-        this.props.actions.addTodo(text,pos)
-        this.setState({
-            todo:''
-        })
-        
+         todo:e.target.value
+     })
     }
+    handleChange = e =>{
+        if(e.which === 13){
+            let text = this.state.todo;
+            let pos = this.props.bpos;
+            this.props.todoActions.addTodo(text,pos)
+            this.props.todoActions.postNewTodo(text,pos)
+            this.setState({
+                todo:''
+            })
+        }
+}
+    // handleSubmit = e =>{
+    //     e.preventDefault();
+    //     let text = this.state.todo;
+    //     let pos = this.props.bpos;
+    //     this.props.actions.addTodo(text,pos)
+    //     this.setState({
+    //         todo:''
+    //     })
+        
+    // }
 
     render() {
      const  {todo, connectDropTarget} = this.props;
         return connectDropTarget(
          <div className='Board'>
             <BoardWrap>
-            <form>
+            
                 <FlexBtnInput>
-                   <InputStyle  value={this.state.todo} onChange={this.handleChange.bind(this)} type="text"/>
-                   <AddItemBtn onClick={this.handleSubmit}>Add New</AddItemBtn>
+                   <InputStyle  value={this.state.todo} onChange={this.handleUpdate.bind(this)} onKeyUp={this.handleChange.bind(this)} type="text"/>
+                   {/* <AddItemBtn onClick={this.handleSubmit}>Add New</AddItemBtn> */}
                 </FlexBtnInput>
-               </form>
+            
                {/* <p> drag here </p> */}
                
-               <Card actions={this.props.actions} todo={todo}/>
+               <Card user={this.props.user} actions={this.props.todoActions} todo={todo}/>
                
               
             </BoardWrap>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, ItemTemp,CityNameInputWrap,TempBtnWrap, ItemBtn, Icon, List, InfoList, InfoItem, CityName,  ReturnedState, FlexTemp, ListItem, MiddleWeather } from '../styles/--weather';
+import { Div, ItemTemp,CityNameInputWrap,TempBtnWrap, Icon, List, InfoList, InfoItem, CityName,  ReturnedState, FlexTemp, ListItem, MiddleWeather } from '../styles/--weather';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
@@ -49,19 +49,18 @@ class Weather extends Component {
             timeout: 3000,
             maximumAge: Infinity
         }
-        // navigator.geolocation.getCurrentPosition(
-        //     (position) => {
-        //         console.log(position.coords.longitude)
-        //         this.props.fetchWeather(
-        //             position.coords.longitude,
-        //             position.coords.latitude);
-        //         this.setState({ error: false });
-        //     },
-        //     (err) => {
-        //         this.setState({ error: true });
-        //     },
-        //     options
-        // );
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                this.props.fetchWeather(
+                    position.coords.longitude,
+                    position.coords.latitude);
+                this.setState({ error: false });
+            },
+            (err) => {
+                this.setState({ error: true });
+            },
+            options
+        );
 
     }
     

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import { DragSource } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
-import FontAwesome from 'react-fontawesome';
-
 
 const TodoSource = {
     beginDrag(props, dnd, element){ 
@@ -27,16 +25,16 @@ class Todo extends Component{
         super(props);
         this.state={}
     }
-handleDelete(e){
-    let todoId = e.target.id
-    this.props.actions.deleteTodo(todoId)
+handleDelete(id,e){
+    this.props.actions.deleteTodo(id)
+    this.props.actions.removeTodo(this.props.user.user.id,id)
 
 }
     render(){
    let {text,connectDragSource,id} = this.props;
     return connectDragSource(
         <div className="card" >
-        <p>{text}<i id={id} onClick={this.handleDelete.bind(this)} className="fa fa-trash"></i></p> 
+        <p>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></p> 
         </div>
     )
     };

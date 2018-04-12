@@ -16,6 +16,7 @@ font-weight:100;
 box-shadow:2px 2px 3px rgba(0,0,0,0.4);
 transition: .2s all;
 outline:0;
+color:white;
 
 &:hover {
     ${MadeByBtn} {
