@@ -5,11 +5,30 @@ import img from '../styles/default-image/image-6.jpg';
 const PageWrap = styled.div`
 display:flex;
 flex-direction:column;
-//  border:1px red solid;
+// border:1px red solid;
 align-items:left
 height:100vh;
+width:100vw;
 justify-content:center;
 align-items:center;
+`
+
+const Background = styled.div`
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+margin:auto;
+
+background-image: url(${img});
+background-size:cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    display: block;
+overflow: auto;
 `
 
 const Methodize = styled.div `
@@ -44,7 +63,7 @@ justify-content:center;
 
 const Button = styled.button`
 border-radius:5px;
-opacity:.8;
+opacity:1;
 border:1.5px white solid;
 background-color:rgba(0,0,0,0);
 padding:12px;
@@ -61,6 +80,7 @@ outline:0;
         border:1px rgba(0,0,0,0.4) solid;
         // outline:0;
         cursor:pointer;
+        text-decoration:none;
     }
 
  &:active {    
@@ -72,20 +92,5 @@ outline:0;
  }
 `
 
-const Background = styled.div`
-width:100%;
-height:100%;
-margin:auto;
-background-image: url(${img});
-// background-image: url(${props => props.image})
-//background-image: url(${require("../styles/default-image/image-3.jpg")});
-background-size:cover;
-background-attachment: fixed;
-background-repeat: no-repeat;
-background-position: center;
-display: block;
-overflow: auto;
 
-`;
-
-export {Methodize , Background, Organize , PageWrap, ButtonWrap, Button };
+export {Methodize , Background, Organize , PageWrap, ButtonWrap, Button};

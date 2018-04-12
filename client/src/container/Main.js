@@ -11,9 +11,9 @@ import { DragDropContext} from 'react-dnd';
 import _ from 'lodash';
 import {WholeBoard} from '../styles/--board';
 import {AppWrap, Background} from '../styles/--main';
-import Weather from './weather';
+import Weather from '../container/weather';
 import LandingPage from '../components/landingPage';
-import Board from '../components/board'
+import Board from '../components/board';
 
 
 
@@ -30,7 +30,9 @@ class Main extends Component {
     let b2 = _.filter(todo,(todos)=>{return todos.position === 2 })
     if(!currentUser.isAuthenticated){
       return(
-        <LandingPage/>
+        <Background>
+         <LandingPage/>
+        </Background>
       )
     }
       return (
@@ -50,9 +52,9 @@ class Main extends Component {
          <Board user={this.props.currentUser} todoActions={this.props.todoActions}  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
 
        </WholeBoard>
-       {/* <BackgroundImage/>
-            */}
-        {/* </Background> */}
+       
+           
+    
         </AppWrap>
          </Background>
         

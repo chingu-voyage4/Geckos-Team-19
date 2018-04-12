@@ -22,8 +22,8 @@ const App = (props) => {
                                 removeError={removeError}
                                 errors={errors}
                                 onAuth={authUser} 
-                                buttonText="Log in" 
-                                heading="Welcome Back." 
+                                buttonText="sign in" 
+                                heading="welcome Back" 
                                 {...props}
                                 />
                             )
@@ -35,8 +35,8 @@ const App = (props) => {
                                 errors={errors}
                                 onAuth={authUser}
                                 signUp
-                                buttonText="Sign me up"
-                                heading="Sign up please" 
+                                buttonText="sign up"
+                                heading="sign up please" 
                                 {...props}
                                 />
                             )

@@ -6,8 +6,10 @@ import img from './default-image/image-7.jpg';
 const AppWrap = styled.div `
 display:flex;
 flex-direction:column;
-width:100%;
+width:100vw;
 height:100vh;
+// border:1px red solid;
+
 `
 
 let randomNumber = Math.floor(Math.random()*22) + 1;
