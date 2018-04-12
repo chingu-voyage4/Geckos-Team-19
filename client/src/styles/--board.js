@@ -2,17 +2,17 @@ import styled from 'styled-components';
 
 const BoardWrap = styled.div`
 display:flex;
-background-color:rgba(255,255,255,0.4);
+// background-color:rgba(255,255,255,0.4);
 flex-direction:column;
-// border:1px green solid;
+ border:2px rgba(0,0,0,0.3) solid;
 border-radius:10px;
 width:90%;
 height:auto;
-padding-top:20px;
-padding-bottom:20px;
+padding:20px;
+padding-bottom:60px;
  margin-right:9px;
  margin-left:9px
-box-shadow:1px 1px 5px rgba(0,0,0,0.4);
+ margin-top:10px;
 `
 
 const WholeBoard = styled.div`

@@ -27,12 +27,14 @@ const CityName = styled.h3`
 text-transform:uppercase;
 color:white;
 font-family:'Helvetica', sans-serif;
-font-size:20px;
-letter-spacing:4px;
+font-size:18px;
+letter-spacing:3px;
 padding: 12px;
 margin:0;
-color:rgba(0,0,0,.8);
+color:white;
+color:rgba(255,255,255,1);
  text-align:center;
+
 
 `
 
@@ -46,12 +48,16 @@ const InputBar = styled.div`
 
 
 
-const List = styled.div`
+const WeatherWrap = styled.div`
 list-style: none;
 display:flex;
 width:80%;
 justify-content:center;
 // border:1px blue solid;
+background-color:rgba(0,0,0,0.2);
+border-radius:10px;
+box-shadow:2px 2px 2px 2px rgba(0,0,0,0.3);
+padding;5px;
 `
 
 const ListItem = styled.div`
@@ -61,7 +67,7 @@ display:flex;
 max-width:300px;
 justify-content:center;
 align-items:center;
-margin-top:-30px;
+color:white;
 margin:0 10px;
 padding:0;
 `
@@ -90,41 +96,34 @@ text-align:center;
 const InfoList = styled.div`
 list-style-type: none;
 text-align: center;
-//  border:1px red solid;
+//  border:1px blue solid;
 padding:0;
 width:auto;
-line-height: 2px;
 `
 const InfoItem = styled.div`
    display: flex;
-   color: rgba(0,0,0,0.8);
+   color: rgba(255,255,255,1);
    font-size: 14px;
-   font-family:"Helvetica", sans-serif;
-    padding:-12px 0;
-    justify-content:center;
-    align-items:center;
-    width:auto;
-   margin-top:-10px;
-   margin-botto:-10px;
+   font-family:"Helvetica", sans-serif;    
+   justify-content:center;
+   align-items:center;
+   width:auto;
+   height:auto;
+   
+   margin-top:4px;
+   margin-bottom:4px;
    margin-left:5px;
+//    border:1px red solid;
 `
 
-const ReturnedState = styled.p`
+const ReturnedState = styled.div`
 font-weight:300;
 margin-left:5px;
 `
 
 //_______________________________________TEMP
 
-const FlexTemp = styled.div`
-display:flex;
-justify-content:center;
-align-items:center;
-align-content:center;
-width:100%;
-// border:1px red solid;
-text-align:center;
-`
+
 
 //li temp display
 const TempBtnWrap = styled.div`
@@ -134,39 +133,59 @@ font-size: 40px;
 // border:1px red solid;
 text-align:center;
 justify-content:center;
+align-content:center;
+align-items:center;
 margin-right:5px;
 `
-//li tempBtn display
-const ItemBtn = styled.li`
-// border:1px red solid;
+// tempBtn display
+const ItemBtn = styled.button`
+border:1px red solid;
 padding:0;
 margin:0;
 `
-//li button icon
-const ItemTemp = styled.li`
-font-size: 40px;
+//temp button icon
+const ItemTemp = styled.div`
+font-size: 20px;
 // border:1px red solid;
-color: rgba(0,0,0,0.8);
+color: rgba(0,0,0,0.1);
 margin-right: 4px;
 margin-left: 6px;
+color:white;
+text-align:center;
+
 `
 
 //style for tempButton.js:
 //wrapper
-const Button = styled.button`
+const Button = styled.div`
 border-radius: 3px;
 text-align: center;
 font-size: 15px;
 // border:3px red solid;
  margin-right: 7px;
 margin-left: 2px;
-margin-bottom:12px;
 background-color:rgba(255,255,255,.2);
-box-shadow:1px 1px 3px rgba(0,0,0,.3);
+box-shadow:1px 1px 3px rgba(0,0,0,.8);
 border:none;
-color:rgba(0,0,0,0.6);
+color:rgba(0,0,0,0.7);
 outline:0;
+width:100%;
+
+&:hover {
+    ${Button} {
+        background-color:rgba(255,255,255,1);
+        // outline:0;
+        cursor:pointer;
+        text-decoration:none;
+    }
+
+ &:active {    
+    ${Button} {
+       box-shadow:0 0 0 0;
+       top:2px;
+       font-weight:400;
+ }
 `
 
 
-export { Button, Div, ItemTemp, List, TempBtnWrap, CityNameInputWrap, ItemBtn, Icon, InfoList, InfoItem, InputBar, CityName,ReturnedState, FlexTemp, ListItem,MiddleWeather};
+export { Button, Div, ItemTemp, WeatherWrap, TempBtnWrap, CityNameInputWrap, ItemBtn, Icon, InfoList, InfoItem, InputBar, CityName,ReturnedState, ListItem,MiddleWeather};

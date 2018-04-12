@@ -4,10 +4,9 @@ const MadeByBtn = styled.button`
 background-color:rgba(255,255,255,.4);
 cursor:pointer;
 border:1px rgba(0,0,0,0.2) solid;
-margin-right:15px;
+ margin-top:14px;
 height:40px;
-padding-right: 12px;
-padding-left: 16px;
+
 border-radius:10px;
 font-family: 'Helvetica', sans-serif;
 letter-spacing:3px;
