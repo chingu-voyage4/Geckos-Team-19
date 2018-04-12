@@ -6,8 +6,10 @@ import img from './default-image/image-7.jpg';
 const AppWrap = styled.div `
 display:flex;
 flex-direction:column;
-width:100%;
+width:100vw;
 height:100vh;
+// border:1px red solid;
+
 `
 
 let randomNumber = Math.floor(Math.random()*22) + 1;
@@ -25,18 +27,11 @@ margin:auto;
 // background-image: url(${props => props.image})
 background-image: url(${require("../styles/default-image/image-"+ randomNumber + ".jpg")});
 background-size:cover;
-<<<<<<< HEAD
-background-attachment: fixed;
-background-repeat: no-repeat;
-background-position: center;
-display: block;
-=======
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
     display: block;
->>>>>>> 1f7bacbf384ccc930df760894d5e0ca17d2dca36
 overflow: auto;
 
 `;

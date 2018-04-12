@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { AppWrap} from '../styles/--main';
-import {Methodize , Background, Organize, PageWrap, ButtonWrap, Button } from '../styles/--landingPage';
+import {Methodize , Background, Organize,ButtonText, PageWrap, ButtonWrap, Button } from '../styles/--landingPage';
 import Particles from 'react-particles-js';
  
 
 class LandingPage extends Component {
 
     render(){
+  
         return(
          
             <Background>
@@ -14,7 +15,7 @@ class LandingPage extends Component {
                 <AppWrap>
                   
                    <PageWrap> 
-                   <Particles width={750} 
+                    <Particles width={750} 
                               height={100}
                               style={{
                                   marginTop:-180,
@@ -23,14 +24,15 @@ class LandingPage extends Component {
                      <Methodize> METHODIZE </Methodize>
                      <Organize> organize your thoughts </Organize>
                      <ButtonWrap>
-                       <Button> sign in </Button>
-                       <Button> sign up </Button>
+                       <Button href="http://localhost:3000/signin" ><ButtonText> sign in</ButtonText> </Button>
+                       <Button href="http://localhost:3000/signup"><ButtonText> sign up</ButtonText> </Button>
                      </ButtonWrap>
                   </PageWrap>
                 
                 </AppWrap>
                
             </Background>
+    
             
         )
     }

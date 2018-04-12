@@ -25,15 +25,13 @@ class Main extends Component {
     let b2 = _.filter(todos,(todos)=>{return todos.pos === 2 })
     if(!currentUser.isAuthenticated){
       return(
-        <div>
-          <Link to='/signin' >signin</Link>
-           <span> or </span>
-          <Link to='/signup' >signup</Link>
-        </div>
+        <Background>
+         <LandingPage/>
+        </Background>
       )
     }
       return (
-        // <LandingPage/>
+      
         <Background >
 
         <AppWrap >
@@ -53,7 +51,7 @@ class Main extends Component {
            
     
         </AppWrap>
-        </Background>
+         </Background>
         
  
     );
