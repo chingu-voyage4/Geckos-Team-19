@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Time from './time';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 // import BackgroundImage from './backgroundImage';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import img from '../styles/default-image/image-6.jpg';
-import Particles from 'react-particles-js';
+
 
 const PageWrap = styled.div`
 display:flex;
