@@ -20,7 +20,6 @@ import Board from '../components/board'
 class Main extends Component {
   componentWillMount(){
     this.props.todoActions.fetchTodos()
-    console.log(this.props)
   }
   render() {
     let { todo, currentUser } = this.props;

@@ -22,14 +22,10 @@ ensureCorrectUser,
  todoRoutes);
  
 
-app.get('/api/todos',loginRequired, async function(req,res,next){
+app.get('/api/user/:id/todos',loginRequired, async function(req,res,next){
     try{
-        let todos = await db.Todo.find()
-        .sort({createAt:'desc'})
-        .populate('user',{
-            username:true,
-            profileImageUrl:true
-        });
+        let id = req.params.id;
+         let todos = await db.Todo.find({user:id})
         return res.status(200).json(todos);
     }catch(err){
         return next(err);

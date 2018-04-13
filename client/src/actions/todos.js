@@ -24,15 +24,16 @@ export const removeTodo = (user_id, todo_id)=>{
  }
 }
 
-export const fetchTodos = () => {
-    return dispatch => {
-        return apiCall("get", '/api/todos')
+export const fetchTodos = () => (dispatch,getState)=> {
+    let { currentUser} = getState();
+    const id = currentUser.user.id;
+        return apiCall("get", `/api/user/${id}/todos`)
         .then(function(res){
             dispatch(loadTodos(res));
         })
             .catch(function(err){addError(err.message);
         });
-    }
+    
 }
 
 export const postNewTodo = (text,position) => (dispatch,getState)=>{
