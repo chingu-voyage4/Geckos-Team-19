@@ -14,6 +14,7 @@ import {AppWrap, Background} from '../styles/--main';
 import Weather from '../container/weather';
 import LandingPage from '../components/landingPage';
 import Board from '../components/board';
+import CitySearch from '../container/citySearch';
 
 
 
@@ -43,7 +44,6 @@ class Main extends Component {
 
         
           <Time/>
-
         <Weather />  
    
         <WholeBoard>
