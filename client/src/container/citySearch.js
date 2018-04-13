@@ -84,9 +84,8 @@ class CitySearch extends Component {
       this.props.fetchWeather(lng, lat);
       console.log(store.getState())
       return (
-          <div className="alert alert-success" role="alert">
-              <Weather />
-          </div>
+        <div>
+        </div>
     );
   }
 
