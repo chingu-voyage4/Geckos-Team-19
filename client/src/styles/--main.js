@@ -12,8 +12,13 @@ height:100vh;
 
 `
 
-let randomNumber = Math.floor(Math.random()*22) + 1;
-
+function randomNumber() {
+     let num = Math.floor(Math.random()*24) + 1;
+     if(num === 7 || num === 21){
+         num = num + 1
+     }
+     return num;
+}
 
 const Background = styled.div`
 position:absolute;
@@ -25,7 +30,7 @@ margin:auto;
 
 //background-image: url(${img});
 // background-image: url(${props => props.image})
-background-image: url(${require("../styles/default-image/image-"+ randomNumber + ".jpg")});
+background-image: url(${require("../styles/default-image/image-"+ randomNumber() + ".jpg")});
 background-size:cover;
     background-attachment: fixed;
     background-repeat: no-repeat;

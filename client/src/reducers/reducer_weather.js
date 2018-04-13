@@ -13,13 +13,11 @@ export function getIcon(action) {
             break;
         case "02d":
         case "02n":
+        case "03d":
+        case "03n":
         case "04n":
         case "04d":
             icon = "cloudy";
-            break;
-        case "03d":
-        case "03n":
-            icon = "cloudy-high";
             break;
         case "09n":
         case "09d":
@@ -36,7 +34,6 @@ export function getIcon(action) {
             icon = "snow";
             break;
         case "50d":
-        case "50n":
             icon = "windy";
             break;
         default:
