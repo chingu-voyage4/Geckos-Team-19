@@ -18,9 +18,9 @@ margin-bottom:20px;
 const CityNameInputWrap = styled.div`
 // /border:1px red solid;
 display:flex;
-flex-direction:column;
+//flex-direction:row;
+justify-content: center;
 align-items:center;
-
 `
 
 const CityName = styled.h3`
@@ -33,12 +33,7 @@ padding: 12px;
 margin:0;
 color:rgba(0,0,0,.8);
  text-align:center;
-
-`
-
-
-
-const InputBar = styled.div`
+align-self: flex-end;
 `
 
 
@@ -169,4 +164,4 @@ outline:0;
 `
 
 
-export { Button, Div, ItemTemp, List, TempBtnWrap, CityNameInputWrap, ItemBtn, Icon, InfoList, InfoItem, InputBar, CityName,ReturnedState, FlexTemp, ListItem,MiddleWeather};
+export { Button, Div, ItemTemp, List, TempBtnWrap, CityNameInputWrap, Icon, InfoList, InfoItem, CityName,ReturnedState, FlexTemp, ListItem,MiddleWeather};

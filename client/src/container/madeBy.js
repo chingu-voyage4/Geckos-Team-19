@@ -1,47 +1,56 @@
 import React, {Component} from 'react';
-import {MadeByBtn} from '../styles/--madeby';
+import {MadeByBtn,  DropdownContent, DropdownA, Show} from '../styles/--madeby';
 
-let mbButtons = [
-    {
-        name: 'Made By',
-        num: 1
-    },
-    {
-        name: 'Vera Butler',
-        num: 2
-    },
-    {
-        name: 'Lucas B',
-        num: 3
-    },
-    {
-        name: 'Inna',
-        num: 4
-    },
-];
+
 class MadeBy extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            toggle: false
+        }
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick() {
+        this.setState(prevState => ({
+            toggle: !prevState.toggle
+        }));
+    }
+
     render() {
-        return (
-            <div className="c-menu">
-                <ul className="c-list">
-                    {mbButtons.map((page, index) => <MenuItem key={index} page={page} />)}
-                </ul>
-            </div>
-        )
+        if(this.state.toggle === false){
+            return (
+                <MadeByBtn onClick = {this.handleClick} toggle = {this.state.toggle ? true : false}>
+                   <p>Made By</p>
+                </MadeByBtn>
+            )
+        } else if(this.state.toggle === true) {
+            return (
+                <div>
+                <MadeByBtn onClick = {this.handleClick} >
+                   <p>Made By</p>
+                </MadeByBtn>
+                <Show>
+                    <DropdownContent>
+                        <li>
+                        <DropdownA>Lucas Balboa</DropdownA>
+                        </li>
+                        <li>
+                        <DropdownA>Vera Butler</DropdownA>
+                        </li>
+                        <li>
+                        <DropdownA>Inna L</DropdownA>
+                        </li>
+                    </DropdownContent>
+                </Show>
+                </div>
+            )
+        }
     };
 };
 
 class MenuItem extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <li className={`c-list__item c-list__item--${this.props.page.num}`}>
-                <a className="c-list__link" href="#">{this.props.page.name}</a>
-            </li>
-        )
-    }
+    
 }
             
             

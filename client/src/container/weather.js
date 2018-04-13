@@ -87,7 +87,7 @@ class Weather extends Component {
                         </ListItem>
                        <ListItem>
                            <MiddleWeather>
-                            <CitySearch/>
+                            <CitySearch/>                          
                             <CityName>{store.getState().main.city}</CityName>
                           </MiddleWeather>
                         </ListItem>

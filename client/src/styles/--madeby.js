@@ -4,8 +4,9 @@ const MadeByBtn = styled.button`
 background-color:rgba(255,255,255,.4);
 cursor:pointer;
 border:1px rgba(0,0,0,0.2) solid;
-margin-right:15px;
+margin-right:5%;
 height:40px;
+min-width: 160px;
 padding-right: 12px;
 padding-left: 16px;
 border-radius:10px;
@@ -40,6 +41,30 @@ color:white;
 
     
 `
+const DropdownContent= styled.ul` {
+    list-style: none;
+    position: absolute;
+    background-color:rgba(255,255,255,.6);
+    border:1px rgba(0,0,0,0.4) solid;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: left;
+    padding: 0;
+    margin-right: 0;
+}`
 
-
-export {MadeByBtn};
+const DropdownA = styled.li`
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    &:hover {
+        ${DropdownA} {
+            {background-color: #ddd}
+        }
+`
+const Show = styled.div`
+display: block;
+`
+export {MadeByBtn, DropdownContent, DropdownA, Show};
