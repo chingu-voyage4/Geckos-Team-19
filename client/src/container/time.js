@@ -1,7 +1,8 @@
 import React from 'react';
 import { Clock, TimeDateMadeByWrap, D, TimeDateWrap, Methodize, Organize, NameWrap, Name} from '../styles/--time';
+import LogOut from '../components/logOut'
 
-import MadeBy from './madeBy';
+import MadeBy from '../components/madeBy';
 
 
 class Time extends React.Component {
@@ -47,8 +48,9 @@ class Time extends React.Component {
                       <Organize> organize your thoughts </Organize>
                    </Name>   
                  </NameWrap>   
-
-                 <MadeBy/>
+ 
+               <LogOut/>
+                
            </TimeDateMadeByWrap>
         );
     }

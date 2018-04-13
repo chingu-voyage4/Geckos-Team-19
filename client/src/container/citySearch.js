@@ -99,7 +99,9 @@ class CitySearch extends Component {
            
                },
       autocompleteContainer: { transition:".2s all`",
-                               zIndex:1 },
+                               zIndex:1 ,
+                               width:'50%',
+                              fontSize:13},
       autocompleteItem: { color: 'black',
                           backgroundColor: 'white' },
       autocompleteItemActive: { color: 'white',

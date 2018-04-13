@@ -60,28 +60,28 @@ margin-bottom:20px;
 justify-content:space-between;
 background-color:rgba(0,0,0,0.4);
 width:100%;
-justify-content:space-around;
+justify-content:left;
 `
 
 const Clock = styled.h2`
 font-weight: 100;
-font-size:1rem;
+font-size:10.5px;
 font-weight:bold;
 font-family: 'Helvetica', sans-serif;
 margin: auto 7px;
 margin-left:15px;
-margin-top:-5px;
+margin-top:0px;
 margin-bottom:40px;
 color:white;
 
 `
 
 
-const D = styled.h1`
+const D = styled.div`
 margin-left:15px;
 font-family: 'Helvetica', sans-serif;
 //  border:1px red solid;
-font-size:1rem;
+font-size:10.5px;
 font-weight:100;
 font:"Helvetica", "sans-serif"
 margin-top:0;
