@@ -16,11 +16,14 @@ import LandingPage from '../components/landingPage';
 import Board from '../components/board';
 import CitySearch from '../container/citySearch';
 
+import { logout } from './../actions/auth';
+
 
 
 class Main extends Component {
   componentWillMount(){
     this.props.todoActions.fetchTodos()
+    
   }
   render() {
     let { todo, currentUser } = this.props;
@@ -42,7 +45,7 @@ class Main extends Component {
         <AppWrap >
 
         
-          <Time/>
+          <Time logout={this.props.logout} history={this.props.history}/>
         <Weather />  
    
         <WholeBoard>
@@ -66,7 +69,8 @@ const mapStateToProps = state => state
 
 const mapDispatchToProps= dispatch =>({
  actions: bindActionCreators(TodoActions, dispatch),
- todoActions: bindActionCreators(TodosApi,dispatch)
+ todoActions: bindActionCreators(TodosApi,dispatch),
+ logout: bindActionCreators(logout,dispatch)
 })
       
 export default _.flow(connect(mapStateToProps,mapDispatchToProps),DragDropContext(HTML5Backend))(Main);

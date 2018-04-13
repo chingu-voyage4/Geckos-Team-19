@@ -1,7 +1,6 @@
 import React from 'react';
 import { Clock, TimeDateMadeByWrap, D, TimeDateWrap, Methodize, Organize, NameWrap, Name} from '../styles/--time';
 import LogOut from '../components/logOut'
-
 import MadeBy from '../components/madeBy';
 
 
@@ -19,6 +18,7 @@ class Time extends React.Component {
             () => this.tick(),
             10000
         );
+       
     }
     componentWillUnmount() {
         clearInterval(this.intervalID);
@@ -49,7 +49,7 @@ class Time extends React.Component {
                    </Name>   
                  </NameWrap>   
  
-               <LogOut/>
+               <LogOut logout={this.props.logout} history={this.props.history}/>
                 
            </TimeDateMadeByWrap>
         );
