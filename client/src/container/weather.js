@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { Div, ItemTemp,CityNameInputWrap,TempBtnWrap, Icon, List, InfoList, InfoItem, CityName,  ReturnedState, FlexTemp, ListItem, MiddleWeather } from '../styles/--weather';
+import { Div, ItemTemp,CityNameInputWrap,TempBtnWrap, Icon, WeatherWrap, InfoList, InfoItem, CityName,  ReturnedState,  ListItem, MiddleWeather } from '../styles/--weather';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
@@ -61,21 +61,15 @@ class Weather extends Component {
             },
             options
         );
-
+        
     }
     
 
     render() {
         if (this.state.error === false || store.getState().main.humidity > 0) {
             return (
-
                 <Div >
-                    
-                   
-                    <List>
-                    
-                  
-                      
+             
                         <ListItem>
                          <TempBtnWrap>
                             <ItemTemp>
@@ -85,20 +79,15 @@ class Weather extends Component {
                                onClick={this.handleTempChange}
                                tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
                          </TempBtnWrap>
-                
-
                         <InfoList>
                             <InfoItem >wind: <ReturnedState>  {store.getState().main.wind}mph</ReturnedState></InfoItem>
                             <InfoItem >conditions: <ReturnedState> {store.getState().main.main}</ReturnedState></InfoItem>
                             <InfoItem >humidity: <ReturnedState> {store.getState().main.humidity}%</ReturnedState> </InfoItem>
                         </InfoList>
                         </ListItem>
-                       
-        
-           
                        <ListItem>
                            <MiddleWeather>
-                         
+                            <CitySearch/>                          
                             <CityName>{store.getState().main.city}</CityName>
                           </MiddleWeather>
                         </ListItem>
@@ -108,12 +97,11 @@ class Weather extends Component {
                             <i className={store.getState().main.icon}></i>
                             </Icon>
                         </ListItem>
-                    </List>
-
+           
                 </Div>
             )
       } else if (this.state.error === true) {
-            return <CitySearch />
+            return <CitySearch/>
       } else {
             return null;
         }

@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 class LandingPage extends Component {
 
     render(){
+  
         return(
          
             <Background>
@@ -15,7 +16,7 @@ class LandingPage extends Component {
                 <AppWrap>
                   
                    <PageWrap> 
-                   <Particles width={750} 
+                    <Particles width={750} 
                               height={100}
                               style={{
                                   marginTop:-180,
@@ -24,14 +25,15 @@ class LandingPage extends Component {
                      <Methodize> METHODIZE </Methodize>
                      <Organize> organize your thoughts </Organize>
                      <ButtonWrap>
-                     <Link to='/signin'>  <Button>sign in </Button></Link>
-                     <Link to='/signup'> <Button>sign up </Button></Link>
+                     <Link to='/signin'>  <Button>sign in</Button></Link>
+                     <Link to='/signup'> <Button>sign up</Button></Link>
                      </ButtonWrap>
                   </PageWrap>
                 
                 </AppWrap>
                
             </Background>
+    
             
         )
     }

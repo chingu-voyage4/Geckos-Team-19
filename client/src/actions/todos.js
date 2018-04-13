@@ -1,6 +1,6 @@
 import { apiCall } from '../services/api';
 import { addError } from './error';
-import { REMOVE_TODO, LOAD_TODOS, MOVE_TODO,DELETE_TODO ,ADD_TODO} from '../constants/ActionTypes';
+import { REMOVE_TODO, LOAD_TODOS, MOVE_TODO ,ADD_TODO} from '../constants/ActionTypes';
 
 export const addTodo = (text,pos,order) => ({ type: ADD_TODO, text, pos, order })
 export const moveTodo = (id,pos) => ({ type: MOVE_TODO, id, pos})

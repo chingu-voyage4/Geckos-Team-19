@@ -36,4 +36,5 @@ import _ from 'lodash';
             return state;
     }
 }
+
 export default todos;

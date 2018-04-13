@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
 import Weather from '../container/weather';
- import {  InputBar } from '../styles/--weather';
+
 
 
 /* eslint-disable react/prop-types */
@@ -84,9 +84,8 @@ class CitySearch extends Component {
       this.props.fetchWeather(lng, lat);
       console.log(store.getState())
       return (
-          <div className="alert alert-success" role="alert">
-              <Weather />
-          </div>
+        <div>
+        </div>
     );
   }
 
@@ -96,10 +95,13 @@ class CitySearch extends Component {
       input: { width: '150',
                borderRadius:10,
                outline:0,
-           
+               margin: 'auto',
+               //alignSelf: 'flex-start'
                },
       autocompleteContainer: { transition:".2s all`",
-                               zIndex:1 },
+                               zIndex:1 ,
+                               width:'50%',
+                              fontSize:13},
       autocompleteItem: { color: 'black',
                           backgroundColor: 'white' },
       autocompleteItemActive: { color: 'white',
@@ -117,8 +119,7 @@ class CitySearch extends Component {
     };
 
     return (
-      <InputBar>
-     
+     <div>
         <PlacesAutocomplete 
           styles={myStyles}
           renderSuggestion={renderSuggestion}
@@ -138,7 +139,7 @@ class CitySearch extends Component {
         {this.state.geocodeResults && (
           <div>{this.state.geocodeResults}</div>
         )}
-      </InputBar>
+        </div>
     );
   }
 }
