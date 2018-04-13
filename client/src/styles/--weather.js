@@ -4,37 +4,25 @@ import styled from 'styled-components';
 //styling for Weather
 //container
 const Div = styled.div`
-max-width: 100%;
-max-height: 100vh;
-padding-top: 3px;
-border-radius: 5px;
-margin-top: 2px;
-display:flex;
-justify-content:center;
-// border:1px orange solid;
-margin-bottom:20px;
-`
-
-const CityNameInputWrap = styled.div`
-// /border:1px red solid;
-display:flex;
-//flex-direction:row;
-justify-content: center;
-align-items:center;
+//  border:1px orange solid;
+ z-index:1;
 `
 
 const CityName = styled.h3`
 text-transform:uppercase;
 color:white;
 font-family:'Helvetica', sans-serif;
-font-size:18px;
-letter-spacing:3px;
-padding: 12px;
+font-size:16px;
+letter-spacing:1px;
 margin:0;
 color:white;
 color:rgba(255,255,255,1);
- text-align:center;
-align-self: flex-end;
+// border:1px red solid;
+width:200px;
+line-height:1.2;
+height:auto;
+margin-top:10px
+margin-left:12px;
 `
 
 
@@ -56,33 +44,36 @@ padding;5px;
 
 const ListItem = styled.div`
 display:flex;
-//  border:1px brown solid;
- min-width:250px;
+// border:1px brown solid;
+ min-width:100px;
 max-width:300px;
-justify-content:center;
-align-items:center;
+// justify-content:center;
+// align-items:center;
 color:white;
-margin:0 10px;
+margin:0;
 padding:0;
 `
 const MiddleWeather = styled.div `
-    border-right:2px white solid;
-    border-left:2px white solid;
     height:100%;
-    width:100%;
     display:flex;
-    justify-content:center;
-    align-items:center;
-    align-content:center;
+    justify-content:left;
+    align-items:flex-start;
+    align-content:flex-start;
+    justify-items:left;
+    flex-direction:column;
+    //  border:1px red solid;
+    //  margin-left:10px;
+
 `
 
 //li icon size, position, anything that is not specific to the icon
 //might be overridden by the inline styling in --weatherIcons.js
 const Icon = styled.div`
-font-size: 5rem;
+font-size: 20px;
 color: white;
-width:100%;
-text-align:center;
+margin-left:25px;
+margin-right:25px;
+//text-align:center;
 // border:1px purple solid;
 `
 
@@ -99,11 +90,11 @@ const InfoItem = styled.div`
    color: rgba(255,255,255,1);
    font-size: 14px;
    font-family:"Helvetica", sans-serif;
-    // padding:-12px 0;
-    justify-content:center;
-    align-items:center;
-    width:auto;
-   margin-top:10px;
+  // padding:-12px 0;
+   justify-content:center;
+   align-items:center;
+   width:auto;
+   margin-top:3px;
    margin-left:5px;
 //    border:1px red solid;
 `
@@ -121,31 +112,23 @@ padding-bottom;-9px;
 //li temp display
 const TempBtnWrap = styled.div`
 display:flex;
-font-family: 'Helvetica', sans-serif;
-font-size: 40px;
 // border:1px red solid;
 text-align:center;
-justify-content:center;
+justify-content:flex-start;
 align-content:center;
 align-items:center;
-margin-right:5px;
+margin-left:10px;
 `
-// tempBtn display
-const ItemBtn = styled.button`
-border:1px red solid;
-padding:0;
-margin:0;
-`
+
 //temp button icon
 const ItemTemp = styled.div`
-font-size: 20px;
+font-size: 16px;
 // border:1px red solid;
 color: rgba(0,0,0,0.1);
 margin-right: 4px;
 margin-left: 6px;
 color:white;
 text-align:center;
-
 `
 
 //style for tempButton.js:
@@ -153,20 +136,21 @@ text-align:center;
 const Button = styled.div`
 border-radius: 3px;
 text-align: center;
-font-size: 15px;
-// border:3px red solid;
+font-size: 12px;
+height:14px;
+ border:1px white solid;
  margin-right: 7px;
 margin-left: 2px;
 background-color:rgba(255,255,255,.2);
 box-shadow:1px 1px 3px rgba(0,0,0,.8);
 border:none;
-color:rgba(0,0,0,0.7);
+color:white;
 outline:0;
 width:100%;
 
 &:hover {
     ${Button} {
-        background-color:rgba(255,255,255,1);
+        background-color:rgba(0,0,0,.8);
         // outline:0;
         cursor:pointer;
         text-decoration:none;
@@ -181,4 +165,4 @@ width:100%;
 `
 
 
-export { Button, Div, ItemTemp, TempBtnWrap, CityNameInputWrap, Icon, InfoList, InfoItem, CityName,ReturnedState, ListItem,MiddleWeather};
+export { Button, Div, ItemTemp, TempBtnWrap,  Icon, InfoList, InfoItem, CityName,ReturnedState, ListItem,MiddleWeather};

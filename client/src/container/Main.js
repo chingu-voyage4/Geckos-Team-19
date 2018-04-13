@@ -46,7 +46,7 @@ class Main extends Component {
 
         
           <Time logout={this.props.logout} history={this.props.history}/>
-        <Weather />  
+
    
         <WholeBoard>
          <Board user={this.props.currentUser} todoActions={this.props.todoActions}  actions={this.props.actions}  movetodo={moveTodo} bpos='0'  todo={b0}/>

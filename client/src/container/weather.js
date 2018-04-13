@@ -71,33 +71,34 @@ class Weather extends Component {
                 <Div >
              
                         <ListItem>
-                         <TempBtnWrap>
+                         
+                        
+                           <MiddleWeather>
+                            <CitySearch/>                          
+                            <CityName>{store.getState().main.city}</CityName>
+                          </MiddleWeather> 
+                        </ListItem>
+
+                        <TempBtnWrap>
                             <ItemTemp>
                               {store.getState().temp.tempC}
                             </ItemTemp>
                             <TempButton
                                onClick={this.handleTempChange}
                                tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
-                         </TempBtnWrap>
-                        <InfoList>
+                               <Icon>
+                            <i className={store.getState().main.icon}></i>
+                            </Icon>
+
+                          {/* <InfoList>
                             <InfoItem >wind: <ReturnedState>  {store.getState().main.wind}mph</ReturnedState></InfoItem>
                             <InfoItem >conditions: <ReturnedState> {store.getState().main.main}</ReturnedState></InfoItem>
                             <InfoItem >humidity: <ReturnedState> {store.getState().main.humidity}%</ReturnedState> </InfoItem>
-                        </InfoList>
-                        </ListItem>
-                       <ListItem>
-                           <MiddleWeather>
-                            <CitySearch/>                          
-                            <CityName>{store.getState().main.city}</CityName>
-                          </MiddleWeather>
-                        </ListItem>
+                          </InfoList> */}
+                      
+                         </TempBtnWrap>
                        
-                        <ListItem>
-                            <Icon>
-                            <i className={store.getState().main.icon}></i>
-                            </Icon>
-                        </ListItem>
-           
+            
                 </Div>
             )
       } else if (this.state.error === true) {

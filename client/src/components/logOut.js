@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {LogOutBtn, LogOutBtnWrap} from '../styles/--logOut';
+import {LogOutBtn} from '../styles/--logOut';
 import {Redirect } from 'react-router-dom';
 import {logout} from '../actions/auth';
 
@@ -12,9 +12,9 @@ class LogOut extends Component {
     }
     render() {
         return(
-        <LogOutBtnWrap>    
+  
           <LogOutBtn onClick={this.handleLogout.bind(this)}> Log Out </LogOutBtn>
-        </LogOutBtnWrap>    
+  
         )
     }
 

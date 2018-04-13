@@ -1,8 +1,9 @@
 import React from 'react';
-import { Clock, TimeDateMadeByWrap, D, TimeDateWrap, Methodize, Organize, NameWrap, Name} from '../styles/--time';
+import { Clock,TimeDateInputWrap, TimeDateMadeByWrap, D, TimeDateWrap, Methodize, Organize, NameWrap, Name} from '../styles/--time';
 import LogOut from '../components/logOut'
 import MadeBy from '../components/madeBy';
-
+import Particles from 'react-particles-js';
+import Weather from '../container/weather';
 
 class Time extends React.Component {
     constructor(props) {
@@ -36,17 +37,28 @@ class Time extends React.Component {
         return (
 
             <TimeDateMadeByWrap>
+                  <TimeDateInputWrap>
+                    <TimeDateWrap>
+                      <D> { this.state.date} </D>
+                      {/* <SettingsButton><i className="fa fa-gears fa-1x"></i></SettingsButton> */}
+                      <Clock> {this.state.time} </Clock>
                   
-                  <TimeDateWrap>
-                    <D> { this.state.date} </D>
-                    {/* <SettingsButton><i className="fa fa-gears fa-1x"></i></SettingsButton> */}
-                    <Clock> {this.state.time} </Clock>
-                 </TimeDateWrap>
+                    </TimeDateWrap>
+                   <Weather/>
+                 </TimeDateInputWrap>
+            
                  <NameWrap>
+                 
                    <Name>
                      <Methodize> METHODIZE</Methodize>
                       <Organize> organize your thoughts </Organize>
-                   </Name>   
+                   </Name>  
+                   <Particles   width={400} 
+                              height={50}
+                              style={{
+                                  marginTop:10,
+                                //   border:"1px red solid",
+                              }}/> 
                  </NameWrap>   
  
                <LogOut logout={this.props.logout} history={this.props.history}/>
