@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { DragSource } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
-
+import {TodoStyle} from '../styles/--board';
 const TodoSource = {
     beginDrag(props, dnd, element){ 
         return{
@@ -34,7 +34,7 @@ handleDelete(id,e){
    let {text,connectDragSource,id} = this.props;
     return connectDragSource(
         <div className="card" >
-        <p>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></p> 
+        <TodoStyle>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></TodoStyle>
         </div>
     )
     };

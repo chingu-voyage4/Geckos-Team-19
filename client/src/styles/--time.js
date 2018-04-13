@@ -101,4 +101,12 @@ const ClockButton = styled.button`
 border: none;
 outline: none;
 `
-export { Clock,TimeDateInputWrap, TimeDateMadeByWrap, ClockButton, D, TimeDateWrap, NameWrap, Name, Methodize, Organize };
+
+const LogoutMadeByWrap = styled.div`
+display:flex;
+flex-direction:column;
+// border:1px red solid;
+align-items:center;
+align-content:center;
+`
+export { Clock,TimeDateInputWrap, LogoutMadeByWrap, TimeDateMadeByWrap, ClockButton, D, TimeDateWrap, NameWrap, Name, Methodize, Organize };

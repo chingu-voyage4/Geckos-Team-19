@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock,TimeDateInputWrap, TimeDateMadeByWrap, D, TimeDateWrap, Methodize, Organize, NameWrap, Name} from '../styles/--time';
+import { Clock,TimeDateInputWrap, TimeDateMadeByWrap,LogoutMadeByWrap, D, TimeDateWrap, Methodize, Organize, NameWrap, Name} from '../styles/--time';
 import LogOut from '../components/logOut'
 import MadeBy from '../components/madeBy';
 import Particles from 'react-particles-js';
@@ -60,8 +60,10 @@ class Time extends React.Component {
                                 //   border:"1px red solid",
                               }}/> 
                  </NameWrap>   
- 
-               <LogOut logout={this.props.logout} history={this.props.history}/>
+                 <LogoutMadeByWrap>
+                   <LogOut logout={this.props.logout} history={this.props.history}/>
+                   <MadeBy/>
+                 </LogoutMadeByWrap>
                 
            </TimeDateMadeByWrap>
         );

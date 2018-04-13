@@ -27,13 +27,14 @@ const TodoStyle = styled.div`
 display:flex;
 flex-direction:column;
 width:100%;
-background-color:rgba(255,255,255,0.4);
+ background-color:rgba(255,255,255,0.4);
 margin:7px auto;
 border-radius:5px;
 text-align:center;
 box-shadow:1px 1px 5px rgba(0,0,0,0.4);
 font-family:Helvetica;
 overflow-wrap: break-word;
+cursor:pointer;
 }
 `
 
@@ -60,5 +61,25 @@ const FlexBtnInput = styled.div`
 display:flex;
 height:40px;
 `
+const CardTitle = styled.input`
+width: 100%;
+background-color: transparent;
+border: 0px;
+outline: none;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+color:white;
+cursor:default;
+text-align: center;
+font-size: 30px;
+font-weight: 900;
+&:focus {
+${CardTitle} {
+::placeholder{
+color: transparent;
+}
+}
+`
 
-export {BoardWrap, TodoStyle, WholeBoard, InputStyle, FlexBtnInput, AddItemBtn};
+export {BoardWrap, CardTitle, TodoStyle, WholeBoard, InputStyle, FlexBtnInput, AddItemBtn};
