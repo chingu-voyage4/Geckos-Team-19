@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { setTokenHeader } from '../services/api';
-import { jwtDecode } from 'jwt-decode';
+
  
 
 const API_KEY = "50bb5384466ccb470dc659a13dca555a";
-const url=''
+
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 

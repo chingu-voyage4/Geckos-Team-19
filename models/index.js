@@ -5,7 +5,7 @@ mongoose.set('debug', true);
 mongoose.Promise = Promise;
 
 mongoose.connect(process.env.MONGO_URL,{
-    keepAlive:true
+keepAlive:true
 });
 
 module.exports.User = require('./user');
