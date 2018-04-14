@@ -1,7 +1,7 @@
 import React from 'react';
 import { Clock,TimeDateInputWrap, TimeDateMadeByWrap,LogoutMadeByWrap, D, TimeDateWrap, Methodize, Organize, NameWrap, Name} from '../styles/--time';
 import LogOut from '../components/logOut'
-import MadeBy from '../components/madeBy';
+import MadeBy from '../components/madeByAnimation';
 import Particles from 'react-particles-js';
 import Weather from '../container/weather';
 
