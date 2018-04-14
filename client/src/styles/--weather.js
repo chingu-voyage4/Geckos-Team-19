@@ -103,6 +103,8 @@ const ReturnedState = styled.div`
 font-weight:300;
 // margin-left:10px;
 padding-bottom;-9px;
+color:white;
+margin-left:-5px;
 `
 
 //_______________________________________TEMP

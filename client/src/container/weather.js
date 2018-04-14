@@ -89,12 +89,10 @@ class Weather extends Component {
                                <Icon>
                             <i className={store.getState().main.icon}></i>
                             </Icon>
-
-                          {/* <InfoList>
-                            <InfoItem >wind: <ReturnedState>  {store.getState().main.wind}mph</ReturnedState></InfoItem>
-                            <InfoItem >conditions: <ReturnedState> {store.getState().main.main}</ReturnedState></InfoItem>
-                            <InfoItem >humidity: <ReturnedState> {store.getState().main.humidity}%</ReturnedState> </InfoItem>
-                          </InfoList> */}
+                            <ReturnedState> {store.getState().main.main}</ReturnedState>
+                         
+                         
+                            
                       
                          </TempBtnWrap>
                        

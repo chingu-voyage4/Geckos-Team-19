@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { DragSource } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
-import {TodoStyle} from '../styles/--board';
+import {TodoText, TrashCan} from '../styles/--todo';
 const TodoSource = {
     beginDrag(props, dnd, element){ 
         return{
@@ -32,9 +32,32 @@ handleDelete(id,e){
 }
     render(){
    let {text,connectDragSource,id} = this.props;
+   var styles = {
+    // border:"1px blue solid",
+    display:"flex",
+    width:"100%",
+    minHeight:"50px",
+    maxHeight:"auto",
+    backgroundColor:"rgba(255,255,255,0.4)",
+    borderRadius:"5px",
+    textAlign:"center",
+    boxShadow:"1px 1px 5px rgba(0,0,0,0.4)",
+    fontFamily:"Helvetica",
+    overflowWrap: "break-word",
+    cursor:"pointer",
+    justifyContent:"space-around",
+    alignItems:"center",
+
+   }
     return connectDragSource(
-        <div className="card" >
-        <TodoStyle>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></TodoStyle>
+        // <div style={styles} className="card">
+        // <TodoText> {text} </TodoText>
+        // <div  onClick={this.handleDelete.bind(this,id)} id={id} >
+        // <TrashCan  className="fa fa-trash"></TrashCan>
+        // </div>
+        // </div>
+        <div className="card" style={styles} >
+        <TodoText>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></TodoText> 
         </div>
     )
     };

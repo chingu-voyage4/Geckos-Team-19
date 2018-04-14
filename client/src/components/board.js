@@ -69,7 +69,7 @@ class Board extends Component {
                    {/* <AddItemBtn onClick={this.handleSubmit}>Add New</AddItemBtn> */}
                 </FlexBtnInput>
             
-               {/* <p> drag here </p> */}
+            
                
                <Card user={this.props.user} actions={this.props.todoActions} todo={todo}/>
                

@@ -15,7 +15,7 @@ transition: .2s all;
 outline:0;
 color:white;
 margin-top:5px;
-border:1px red solid;
+// border:1px red solid;
 
 // &:hover {
 //     ${MadeByBtn} {
