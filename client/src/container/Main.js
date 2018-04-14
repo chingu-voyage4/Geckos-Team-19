@@ -39,7 +39,7 @@ class Main extends Component {
       )
     }
       return (
-      
+
         <Background >
 
         <AppWrap >
@@ -59,7 +59,7 @@ class Main extends Component {
     
         </AppWrap>
          </Background>
-        
+
  
     );
   }

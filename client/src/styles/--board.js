@@ -12,14 +12,15 @@ padding:20px;
 padding-bottom:60px;
  margin-right:9px;
  margin-left:9px
- margin-top:10px;
+//  margin-top:10px;
 `
 
 const WholeBoard = styled.div`
-//  border:1px purple solid;
+ border:1px purple solid;
 display:flex;
-width:100%;
+width:90%;
 justify-content:center;
+margin-top:230px;
 `
 
 const TodoStyle = styled.div`
@@ -62,7 +63,7 @@ display:flex;
 height:40px;
 `
 const CardTitle = styled.input`
-width: 100%;
+width: 90%;
 background-color: transparent;
 border: 0px;
 outline: none;
@@ -70,6 +71,8 @@ outline: none;
 -moz-box-shadow: none;
 box-shadow: none;
 color:white;
+font-family:"Helvetica", sans-serif;
+text-shadow:2px 2px rgba(0,0,0,.3);
 cursor:default;
 text-align: center;
 font-size: 30px;

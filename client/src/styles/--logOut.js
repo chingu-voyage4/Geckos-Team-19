@@ -12,7 +12,7 @@ font-size:10px;
 letter-spacing:.2px;
 margin-top:10px;
 box-shadow:2px 2px 2px 2px rgba(0,0,0,0.3);
-// border:1px red solid;
+border:1px red solid;
 // position:absolute;
 right:0;
 margin-right:10px;

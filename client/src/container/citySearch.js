@@ -97,6 +97,7 @@ class CitySearch extends Component {
                outline:0,
                marginLeft: '10px',
                height:'10px',
+    
                //alignSelf: 'flex-start'
                },
       autocompleteContainer: { transition:".2s all`",

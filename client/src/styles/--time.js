@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 const Name = styled.div`
-// border:1px red solid;
+border:1px red solid;
 width:400px;
 margin-top:5px;
 `
@@ -16,7 +16,7 @@ margin-bottom:20px;
 // padding-top:23px;
 // padding-bottom:30px;
 align-items:center;
-//  border:1px red solid;
+border:1px red solid;
 //  width:60%;
 `
 
@@ -29,7 +29,7 @@ font-size:38px;
 font-family:"Helvetica";
 opacity:.9;
 text-align:center;
-// border:1px red solid;
+border:1px red solid;
 `
 
 const Organize = styled.div`
@@ -48,7 +48,7 @@ padding-left:20px;
 const TimeDateInputWrap = styled.div`
 display:flex;
 flex-direction:column;
-// border:1px red solid;
+border:1px red solid;
 `
 
 const TimeDateWrap = styled.div`
@@ -60,12 +60,17 @@ margin-top:10px;
 `
 
 const TimeDateMadeByWrap = styled.div`
-// border:1px blue solid;
+border:1px blue solid;
 display:flex;
-margin-bottom:20px;
+margin-bottom:40px;
 justify-content:space-between;
-background-color:rgba(0,0,0,0.4);
-width:100%;
+background-color:/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+98&0.57+32,0+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0.57) 1%, rgba(0,0,0,0.57) 32%, rgba(0,0,0,0.02) 98%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0.57) 1%,rgba(0,0,0,0.57) 32%,rgba(0,0,0,0.02) 98%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0.57) 1%,rgba(0,0,0,0.57) 32%,rgba(0,0,0,0.02) 98%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+width:90w;
+ position:absolute;
 
 `
 
@@ -105,7 +110,7 @@ outline: none;
 const LogoutMadeByWrap = styled.div`
 display:flex;
 flex-direction:column;
-// border:1px red solid;
+border:1px red solid;
 align-items:center;
 align-content:center;
 `

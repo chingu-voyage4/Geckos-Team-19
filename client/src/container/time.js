@@ -54,10 +54,11 @@ class Time extends React.Component {
                       <Organize> organize your thoughts </Organize>
                    </Name>  
                    <Particles   width={400} 
-                              height={50}
+                              height={55}
                               style={{
                                   marginTop:10,
                                 //   border:"1px red solid",
+                                //   paddingBottom:"30px",
                               }}/> 
                  </NameWrap>   
                  <LogoutMadeByWrap>
