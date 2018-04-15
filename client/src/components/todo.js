@@ -118,7 +118,7 @@ handleDelete(id,e){
     cursor:"pointer",
     justifyContent:"space-around",
     alignItems:"center",
-    opacity:${didDrop}?0:opacity
+    opacity:didDrop?0:opacity
    }
     return connectDragSource(connectDropTarget(
         <div  style={{styles}} >
