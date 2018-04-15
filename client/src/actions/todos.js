@@ -1,10 +1,12 @@
 import { apiCall } from '../services/api';
 import { addError } from './error';
-import { REMOVE_TODO, LOAD_TODOS, MOVE_TODO ,ADD_TODO} from '../constants/ActionTypes';
+import { REMOVE_TODO, LOAD_TODOS, MOVE_TODO ,ADD_TODO,DRAG_END,MOVE_POS} from '../constants/ActionTypes';
 
-export const addTodo = (text,pos,order) => ({ type: ADD_TODO, text, pos, order })
-export const moveTodo = (id,pos) => ({ type: MOVE_TODO, id, pos})
+export const addTodo = (text,pos,index) => ({ type: ADD_TODO, text, pos,index })
+export const moveTodo = (id,pos,index,hoverIndex,hoverId) => ({ type: MOVE_TODO, id, pos,index,hoverIndex,hoverId})
 export const deleteTodo = id => ({ type: REMOVE_TODO, id })
+export const dragEnd = id =>({type:DRAG_END,id})
+export const movePos = (id,pos,index)=>({type:MOVE_POS,id,pos})
 
 export const loadTodos = todos => ({
     type:LOAD_TODOS,
@@ -36,17 +38,24 @@ export const fetchTodos = () => (dispatch,getState)=> {
     
 }
 
-export const postNewTodo = (text,position) => (dispatch,getState)=>{
+export const postNewTodo = (text,position,index) => (dispatch,getState)=>{
     let { currentUser} = getState();
     const id = currentUser.user.id;
-    return apiCall('post', `/api/users/${id}/todos`, {text,position})
-    .then((res)=>{dispatch(fetchTodos())}).catch(err=>dispatch(addError(err.message)));
+    return apiCall('post', `/api/users/${id}/todos`, {text,position,index})
+    .then((res)=>{console.log(res)
+            dispatch(fetchTodos())}).catch(err=>dispatch(addError(err.message)));
 }
 
-export const updateTodo = (todo_id,position)=>(dispatch,getState)=>{
-    moveTodo(todo_id,position)
+export const updateTodo = (todo_id,position,index)=>(dispatch,getState)=>{
+    // moveTodo(todo_id,position)
     let {currentUser} = getState();
     const id = currentUser.user.id;
-    return apiCall('put',`/api/users/${id}/todos/${todo_id}`,{position})
+    return apiCall('put',`/api/users/${id}/todos/${todo_id}`,{position,index})
     .then(()=>{}).catch(err=>dispatch(addError(err.message)))
+}
+export const updateMoveTodo = (dragId,position,dragIndex,hoverIndex,hoverId)=>(dispatch,getState)=>{
+    let {currentUser} = getState();
+    const id = currentUser.user.id;
+    return apiCall('put',`/api/users/${id}/todos`,{dragId,position,dragIndex,hoverIndex,hoverId})
+    .then(e=>{}).catch(err=>dispatch(addError(err.message)))
 }

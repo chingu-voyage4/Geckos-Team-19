@@ -5,11 +5,15 @@ const {
   createTodo,
   getTodo,
   deleteTodo,
-  updateTodo
+  updateTodo,
+  updateMoveTodo
 } = require("../handlers/todos");
 
 // prefix - /api/users/:id/todos
-router.route("/").post(createTodo);
+router
+.route("/")
+.post(createTodo)
+.put(updateMoveTodo);
 
 // prefix - /api/users/:id/todos/:todo_id
 router
