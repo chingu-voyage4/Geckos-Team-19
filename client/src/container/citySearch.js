@@ -97,7 +97,7 @@ class CitySearch extends Component {
                outline:0,
                marginLeft: '10px',
                height:'10px',
-    
+               
                //alignSelf: 'flex-start'
                },
       autocompleteContainer: { transition:".2s all`",
@@ -117,7 +117,7 @@ class CitySearch extends Component {
       value: this.state.address,
       onChange: this.handleChange,
       autoFocus: true,
-      placeholder: 'Search Places',
+      placeholder: 'Get Weather',
     };
 
     return (
