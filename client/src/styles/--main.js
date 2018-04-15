@@ -38,8 +38,11 @@ background-size:cover;
     background-size: cover;
     display: block;
 overflow: auto;
+`
 
-`;
+
+
+
 
 
 export {AppWrap, Background};

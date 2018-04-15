@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Card from './card';
 import { DropTarget } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
-import { BoardWrap, InputStyle, FlexBtnInput, AddItemBtn } from './../styles/--board';
+
+import { BoardWrap, InputStyle, FlexBtnInput, AddItemBtn, CardTitle } from './../styles/--board';
 import { postNewTodo, moveTodo, movePos } from './../actions/todos';
-import update from 'immutability-helper';
 
 
 
@@ -61,13 +61,13 @@ class Board extends Component {
         return connectDropTarget(
          <div className='Board'>
             <BoardWrap>
-            
+            <CardTitle type="text" placeholder="Enter Title"/>
                 <FlexBtnInput>
                    <InputStyle  value={this.state.todo} onChange={this.handleUpdate.bind(this)} onKeyUp={this.handleChange.bind(this)} type="text"/>
                    {/* <AddItemBtn onClick={this.handleSubmit}>Add New</AddItemBtn> */}
                 </FlexBtnInput>
             
-               {/* <p> drag here </p> */}
+            
                
                <Card moveTodo={this.props.moveTodo} user={this.props.user} actions={this.props.todoActions} todo={todo}/>
                

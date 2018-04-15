@@ -16,6 +16,7 @@ margin-bottom:20px;
 // padding-top:23px;
 // padding-bottom:30px;
 align-items:center;
+// border:1px red solid;
 `
 
 
@@ -40,27 +41,36 @@ font-weight:light;
 margin-top:-10px;
 opacity:.9;
 width:100%;
-// text-align:center;
 padding-left:20px;
 `
 
-const TimeDateWrap = styled.div`
-// border:1px red solid;
+const TimeDateInputWrap = styled.div`
 display:flex;
 flex-direction:column;
-width:130px;
-height:70px;
+// border:1px red solid;
+`
+
+const TimeDateWrap = styled.div`
+//  border:1px red solid;
+display:flex;
+// flex-direction:column;
+ width:130px;
 margin-top:10px;
 `
 
 const TimeDateMadeByWrap = styled.div`
-// border:3px blue solid;
+//border:1px blue solid;
 display:flex;
-margin-bottom:20px;
+margin-bottom:40px;
 justify-content:space-between;
-background-color:rgba(0,0,0,0.4);
-width:100%;
-justify-content:left;
+background-color:/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+98&0.57+32,0+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0.57) 1%, rgba(0,0,0,0.57) 32%, rgba(0,0,0,0.02) 98%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0.57) 1%,rgba(0,0,0,0.57) 32%,rgba(0,0,0,0.02) 98%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0.57) 1%,rgba(0,0,0,0.57) 32%,rgba(0,0,0,0.02) 98%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+width:100vw;
+ position:absolute;
+
 `
 
 const Clock = styled.h2`
@@ -70,8 +80,8 @@ font-weight:bold;
 font-family: 'Helvetica', sans-serif;
 margin: auto 7px;
 margin-left:15px;
-margin-top:0px;
-margin-bottom:40px;
+margin-top:0px; 
+margin-bottom:10px;
 color:white;
 
 `
@@ -95,4 +105,12 @@ const ClockButton = styled.button`
 border: none;
 outline: none;
 `
-export { Clock, TimeDateMadeByWrap, ClockButton, D, TimeDateWrap, NameWrap, Name, Methodize, Organize };
+
+const LogoutMadeByWrap = styled.div`
+display:flex;
+flex-direction:column;
+//border:1px red solid;
+align-items:center;
+align-content:center;
+`
+export { Clock,TimeDateInputWrap, LogoutMadeByWrap, TimeDateMadeByWrap, ClockButton, D, TimeDateWrap, NameWrap, Name, Methodize, Organize };

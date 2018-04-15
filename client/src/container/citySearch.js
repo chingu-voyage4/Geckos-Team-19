@@ -92,15 +92,17 @@ class CitySearch extends Component {
   render() {
     const myStyles = {
       root: { position: 'relative' },
-      input: { width: '150',
-               borderRadius:10,
+      input: { width: '140px',
+               borderRadius:5,
                outline:0,
-               margin: 'auto',
+               marginLeft: '10px',
+               height:'10px',
+    
                //alignSelf: 'flex-start'
                },
       autocompleteContainer: { transition:".2s all`",
                                zIndex:1 ,
-                               width:'50%',
+                               width:'100%',
                               fontSize:13},
       autocompleteItem: { color: 'black',
                           backgroundColor: 'white' },

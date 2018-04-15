@@ -15,19 +15,31 @@ class Card extends Component {
    
     render() {
         const { todo } = this.props;
+        var styles = {
+            //border:"1px green solid",
+            width:"80%",
+            margin:"8px auto",
+             backgroundColor:"rgba(255,200,200,0.4)",
+              borderRadius:"5px",
+              fontFamily:"Helvetica",
+            overflowWrap: "break-word",
+            cursor:"pointer",
+        }
         let cardTodo = _.map(todo, (todo, i) => {
            return(
-            <TodoStyle key={i}>
-                    <Todo
+
+           
+            <div style={styles} key={i}>
+                    <Todo 
                     opacity={todo.opacity}
-					pos={todo.position}
+                      pos={todo.position}
                     user = {this.props.user}
                     actions={this.props.actions}
                     text={todo.text}
                     index={i}
                     id={todo._id}
                     />
-            </TodoStyle>
+            </div>
                     )
                 })
                 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { DragSource, DropTarget } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
+import {TodoText, TrashCan} from '../styles/--todo';
 import {findDOMNode} from 'react-dom';
 import _ from 'lodash';
 import update from 'immutability-helper';
@@ -64,6 +65,8 @@ function dropCollect(connect, monitor){
     }
 }
 
+
+
 const TodoSource = {
     beginDrag(props, dnd, element){ 
         return{
@@ -100,10 +103,27 @@ handleDelete(id,e){
     render(){
        
    let {text,connectDragSource,id,connectDropTarget,isDragging,opacity,didDrop} = this.props;
-
+   var styles = {
+    // border:"1px blue solid",
+    display:"flex",
+    width:"100%",
+    minHeight:"50px",
+    maxHeight:"auto",
+    backgroundColor:"rgba(255,255,255,0.4)",
+    borderRadius:"5px",
+    textAlign:"center",
+    boxShadow:"1px 1px 5px rgba(0,0,0,0.4)",
+    fontFamily:"Helvetica",
+    overflowWrap: "break-word",
+    cursor:"pointer",
+    justifyContent:"space-around",
+    alignItems:"center",
+    opacity:${didDrop}?0:opacity
+   }
     return connectDragSource(connectDropTarget(
-        <div  style={{opacity:didDrop?0:opacity}} >
+        <div  style={{styles}} >
         <p >{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></p> 
+
         </div>
     ))
     };
