@@ -117,12 +117,11 @@ handleDelete(id,e){
     overflowWrap: "break-word",
     cursor:"pointer",
     justifyContent:"space-around",
-    alignItems:"center",
-    opacity:didDrop?0:opacity
+    alignItems:"center"
    }
     return connectDragSource(connectDropTarget(
-        <div  style={{styles}} >
-        <p >{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></p> 
+        <div  style={{styles}} style={{opacity:didDrop?0:opacity}} >
+        <p>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></p> 
 
         </div>
     ))
