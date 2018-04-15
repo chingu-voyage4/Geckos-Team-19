@@ -10,3 +10,5 @@ export const REMOVE_ERROR = "REMOVE_ERROR";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const REMOVE_TODO = 'REMOVE_TODO';
 export const LOAD_TODOS = 'LOAD_TODOS';
+export const DRAG_END= 'DRAG_END';
+export const MOVE_POS = 'MOVE_POS';

@@ -1,6 +1,68 @@
 import React, {Component} from 'react';
-import { DragSource } from 'react-dnd';
+import { DragSource, DropTarget } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
+import {findDOMNode} from 'react-dom';
+import _ from 'lodash';
+import update from 'immutability-helper';
+
+
+const cardTarget = {
+	hover(props, monitor, component) {
+        const dragi = monitor.getItem();
+        const hoveri = props;
+		const dragIndex = monitor.getItem().index
+		const hoverIndex = props.index
+
+		// Don't replace items with themselves
+		if (dragIndex === hoverIndex) {
+			return
+		}
+
+		// Determine rectangle on screen
+		const hoverBoundingRect = findDOMNode(component).getBoundingClientRect()
+
+		// Get vertical middle
+		const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
+
+		// Determine mouse position
+		const clientOffset = monitor.getClientOffset()
+
+		// Get pixels to the top
+		const hoverClientY = clientOffset.y - hoverBoundingRect.top
+
+		// Only perform the move when the mouse has crossed half of the items height
+		// When dragging downwards, only move when the cursor is below 50%
+		// When dragging upwards, only move when the cursor is above 50%
+        let {id,index}= dragi;
+		// Dragging downwards
+		if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+			return 
+		}
+
+		// Dragging upwards
+		if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+			return 
+		}
+        // Time to actually perform the action
+        props.actions.moveTodo(id,hoveri.pos,index,hoveri.index,hoveri.id)
+        props.actions.updateMoveTodo(id,hoveri.pos,index,hoveri.index,hoveri.id)
+      
+        // id,pos,index,hoverIndex,hoverId
+
+		// Note: we're mutating the monitor item here!
+		// Generally it's better to avoid mutations,
+		// but it's good here for the sake of performance
+		// // to avoid expensive index searches.
+        // monitor.getItem().index = hoverIndex
+        monitor.getItem().index = hoverIndex
+	},
+}
+
+function dropCollect(connect, monitor){
+    return{
+    connectDropTarget: connect.dropTarget()
+    }
+}
 
 const TodoSource = {
     beginDrag(props, dnd, element){ 
@@ -9,14 +71,18 @@ const TodoSource = {
                 index:props.index}
     },
     endDrag(props,monitor,element){
-    
+       let item = monitor.getItem()
+       props.actions.dragEnd(item.id)
     }
 }
-function collect(connect, monitor){
+
+function dragCollect(connect, monitor){
     return{
     connectDragSource: connect.dragSource(),
     connectDragPreview: connect.dragPreview(),
-    isDragging: monitor.isDragging()
+    isDragging: monitor.isDragging(),
+    didDrop: monitor.didDrop()
+    
     }
 }
 
@@ -30,14 +96,17 @@ handleDelete(id,e){
     this.props.actions.removeTodo(this.props.user.user.id,id)
 
 }
+
     render(){
-   let {text,connectDragSource,id} = this.props;
-    return connectDragSource(
-        <div className="card" >
-        <p>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></p> 
+       
+   let {text,connectDragSource,id,connectDropTarget,isDragging,opacity,didDrop} = this.props;
+
+    return connectDragSource(connectDropTarget(
+        <div  style={{opacity:didDrop?0:opacity}} >
+        <p >{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></p> 
         </div>
-    )
+    ))
     };
 };
 
-export default DragSource(ItemType.Card, TodoSource, collect)(Todo);
+export default _.flow(DragSource(ItemType.Card, TodoSource, dragCollect),DropTarget(ItemType.Card,cardTarget,dropCollect))(Todo);

@@ -28,9 +28,9 @@ class Main extends Component {
   render() {
     let { todo, currentUser } = this.props;
     let { moveTodo } = this.props.actions
-    let b0 = _.filter(todo,(todos)=>{return todos.position === 0 })
-    let b1 = _.filter(todo,(todos)=>{return todos.position === 1 })
-    let b2 = _.filter(todo,(todos)=>{return todos.position === 2 })
+    let b0 = _.filter(todo,(todos)=>{return todos.position === 0 }).sort((a,b)=>{ return a.index - b.index})
+    let b1 = _.filter(todo,(todos)=>{return todos.position === 1 }).sort((a,b)=>{ return a.index - b.index})
+    let b2 = _.filter(todo,(todos)=>{return todos.position === 2 }).sort((a,b)=>{ return a.index - b.index})
     if(!currentUser.isAuthenticated){
       return(
         <Background>

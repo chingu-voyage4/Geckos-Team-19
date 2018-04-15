@@ -4,6 +4,7 @@ import Todo from './todo';
 import {TodoStyle} from './../styles/--board'
 
 
+
 class Card extends Component {
     constructor(props){
         super(props);
@@ -11,12 +12,15 @@ class Card extends Component {
             id:''
         }
     }
+   
     render() {
         const { todo } = this.props;
         let cardTodo = _.map(todo, (todo, i) => {
            return(
             <TodoStyle key={i}>
                     <Todo
+                    opacity={todo.opacity}
+					pos={todo.position}
                     user = {this.props.user}
                     actions={this.props.actions}
                     text={todo.text}
