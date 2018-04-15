@@ -50,14 +50,9 @@ handleDelete(id,e){
 
    }
     return connectDragSource(
-        // <div style={styles} className="card">
-        // <TodoText> {text} </TodoText>
-        // <div  onClick={this.handleDelete.bind(this,id)} id={id} >
-        // <TrashCan  className="fa fa-trash"></TrashCan>
-        // </div>
-        // </div>
+   
         <div className="card" style={styles} >
-        <TodoText>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></TodoText> 
+        <TodoText>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><TrashCan  className="fa fa-trash"></TrashCan></span></TodoText> 
         </div>
     )
     };
