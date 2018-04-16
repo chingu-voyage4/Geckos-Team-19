@@ -16,14 +16,17 @@ class Card extends Component {
     render() {
         const { todo } = this.props;
         var styles = {
-            //border:"1px green solid",
-            width:"80%",
-            margin:"8px auto",
-             backgroundColor:"rgba(255,200,200,0.4)",
-              borderRadius:"5px",
-              fontFamily:"Helvetica",
+            // border:"1px blue solid",
+            backgroundColor:"rgba(255,255,255,.8)",
+            borderRadius:"5px",
+            fontFamily:"Helvetica",
             overflowWrap: "break-word",
             cursor:"pointer",
+            alignItems:"center",
+            width:"80%",
+            margin:"8px auto",
+            boxShadow:"2px 2px 2px rgba(0,0,0,0.8)"
+
         }
         let cardTodo = _.map(todo, (todo, i) => {
            return(

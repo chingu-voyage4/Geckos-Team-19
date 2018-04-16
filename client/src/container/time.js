@@ -4,7 +4,7 @@ import LogOut from '../components/logOut'
 import MadeBy from '../components/madeByAnimation';
 import Particles from 'react-particles-js';
 import Weather from '../container/weather';
-import {Animation} from '../styles/--weather';
+import {Bounce} from '../styles/--weather';
 
 class Time extends React.Component {
     constructor(props) {
@@ -45,9 +45,9 @@ class Time extends React.Component {
                       <Clock> {this.state.time} </Clock>
                   
                     </TimeDateWrap>
-                    <Animation>
+                    <Bounce>
                    <Weather/>
-                   </Animation>
+                   </Bounce>
                  </TimeDateInputWrap>
             
                  <NameWrap>

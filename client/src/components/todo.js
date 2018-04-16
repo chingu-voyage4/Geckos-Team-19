@@ -103,24 +103,20 @@ handleDelete(id,e){
     render(){
        
    let {text,connectDragSource,id,connectDropTarget,isDragging,opacity,didDrop} = this.props;
+
    var styles = {
-    border:"1px blue solid",
-    display:"flex",
-    minHeight:"50px",
-    maxHeight:"auto",
-    backgroundColor:"rgba(255,255,255,1)",
-    borderRadius:"5px",
-    textAlign:"center",
-    boxShadow:"2px 2px 5px rgba(0,0,0,0.6)",
-    fontFamily:"Helvetica",
+    //border:"1px green solid",
+    width:"80%",
+    margin:"8px auto",
+     backgroundColor:"rgba(255,200,200,0.4)",
+      borderRadius:"5px",
+      fontFamily:"Helvetica",
     overflowWrap: "break-word",
     cursor:"pointer",
-    justifyContent:"space-around",
-    alignItems:"center"
-   }
+}
    return connectDragSource(connectDropTarget(
-    <div  style={{styles}} style={{opacity:didDrop?0:opacity}} >
-    <TodoAll><TodoText>{text}</TodoText><span onClick={this.handleDelete.bind(this,id)} id={id} ><TrashCan  className="fa fa-trash"></TrashCan></span></TodoAll> 
+    <div style={{styles}} style={{opacity:didDrop?0:opacity}}>
+    <TodoAll><TodoText>{text}</TodoText><span onClick={this.handleDelete.bind(this,id)} id={id}><TrashCan className="fa fa-trash"></TrashCan></span></TodoAll> 
 
     </div>
 ))

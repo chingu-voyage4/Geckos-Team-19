@@ -61,8 +61,11 @@ class Board extends Component {
         return connectDropTarget(
          <div className='Board'>
             <BoardWrap>
-            <CardTitle type="text" placeholder="Enter Title"/>
-                <FlexBtnInput>
+           
+              <CardTitle type="text" placeholder="Enter Title" />
+
+
+                 <FlexBtnInput>
                    <InputStyle  value={this.state.todo} onChange={this.handleUpdate.bind(this)} onKeyUp={this.handleChange.bind(this)} type="text"/>
                    {/* <AddItemBtn onClick={this.handleSubmit}>Add New</AddItemBtn> */}
                 </FlexBtnInput>

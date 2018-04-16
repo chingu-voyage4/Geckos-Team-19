@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const BoardWrap = styled.div`
 display:flex;
 flex-direction:column;
-border:2px rgba(255,255,255,0.6) solid;
+border:4px rgba(255,255,255,0.9) solid;
 border-radius:10px;
-width:220px;
+width:240px;
 height:auto;
 // align-items:center;
 padding-bottom:60px;
@@ -15,7 +15,7 @@ padding-bottom:60px;
 `
 
 const WholeBoard = styled.div`
-//  border:1px purple solid;
+ //border:1px purple solid;
 display:flex;
 width:100%;
 justify-content:center;
@@ -32,6 +32,9 @@ border-radius: 3px;
 overflow-wrap: break-word;
 border:2px white solid;
 outline:0;
+color:white;
+font-size:12px;
+padding:5px;
 }
 
 &:hover {
@@ -56,6 +59,7 @@ const FlexBtnInput = styled.div`
 display:flex;
 height:40px;
 `
+
 const CardTitle = styled.input`
 width: 90%;
 background-color: transparent;
@@ -71,12 +75,34 @@ cursor:default;
 text-align: center;
 font-size: 30px;
 font-weight: 900;
-&:focus {
-${CardTitle} {
-::placeholder{
-color: transparent;
+margin-top:20px;
+margin-bottom:20px;
+
+// &:focus{
+//     ${CardTitle}{
+//       border:2px rgba(255,255,255,.6) solid;
+//       margin:18px auto;
+//       color:rgba(0,0,0,0);
+//     //   box-shadow:none;
+//     }
+
+&::placeholder{
+    ${CardTitle} { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(255,255,255,.7);
+
 }
+
+&:-ms-input-placeholder{
+    ${CardTitle}
+ { /* Internet Explorer 10-11 */
+    color: rgba(255,255,255,.7);
+}
+
+&::-ms-input-placeholder{
+    ${CardTitle}
+ { /* Microsoft Edge */
+    color: rgba(255,255,255,.7);
 }
 `
 
-export {BoardWrap, CardTitle, WholeBoard, InputStyle, FlexBtnInput, AddItemBtn};
+export {BoardWrap, CardTitle, WholeBoard, InputStyle, FlexBtnInput, AddItemBtn, };
