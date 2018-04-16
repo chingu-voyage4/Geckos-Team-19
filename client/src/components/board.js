@@ -5,6 +5,7 @@ import { ItemType } from './../constants/itemType';
 
 import { BoardWrap, InputStyle, FlexBtnInput, AddItemBtn, CardTitle } from './../styles/--board';
 import { postNewTodo, moveTodo, movePos } from './../actions/todos';
+import { createBoardTitle, createBoardTitleCall, getBoardTitles } from './../actions/boardTitle';
 
 
 
@@ -24,6 +25,7 @@ const BoardTarget= {
     
 
 }
+
 function collect (connect, monitor){
   const info={connectDropTarget: connect.dropTarget() };
   return info;
@@ -32,8 +34,13 @@ function collect (connect, monitor){
 class Board extends Component {
     constructor(props){
         super(props);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleBlur = this.handleBlur.bind(this)
+        this.updateState = this.updateState.bind(this);
         this.state={
-            todo:''
+            todo:'',
+            cardTitle:'',
+            cardNextTitle:''
         }
     }
     handleUpdate = e =>{
@@ -54,23 +61,50 @@ class Board extends Component {
             })
         }
 }
+    handleTitleChange(e){
+        e.preventDefault();
+        this.setState({
+            cardTitle:e.target.value
+        })
+    }
+    handleBlur(e){
+        let text = e.target.value
+        
+        if(this.props.bt.length !== 0){
+        return this.props.titleActions.updateBoardTitleCall(text,this.props.bt[0]._id)
+        }else{
+        console.log(this.props)
+        let{bpos} = this.props
+        let boardPosition = parseInt(bpos,10)
+        this.props.titleActions.createBoardTitleCall(text,boardPosition)
+         }
+    }
+    updateState(){
+        if(this.props.bt.length === 1){
+            this.setState({
+                cardTitle:this.props.bt[0].text
+            })
+        }
+    }
    
-    render() {
+    render() {    
      const  {todo, connectDropTarget} = this.props;
      
         return connectDropTarget(
          <div className='Board'>
             <BoardWrap>
-            <CardTitle type="text" placeholder="Enter Title"/>
-                <FlexBtnInput>
+           
+              <CardTitle onBlur={this.handleBlur} value={this.state.cardTitle}  onChange={this.handleTitleChange} type="text" placeholder={this.props.bt.length === 1 ?this.props.bt[0].text :'Enter Title'  } />
+
+
+                 <FlexBtnInput>
                    <InputStyle  value={this.state.todo} onChange={this.handleUpdate.bind(this)} onKeyUp={this.handleChange.bind(this)} type="text"/>
                    {/* <AddItemBtn onClick={this.handleSubmit}>Add New</AddItemBtn> */}
                 </FlexBtnInput>
             
             
-               
-               <Card moveTodo={this.props.moveTodo} user={this.props.user} actions={this.props.todoActions} todo={todo}/>
-               
+                 <Card moveTodo={this.props.moveTodo} user={this.props.user} actions={this.props.todoActions} todo={todo}/>
+          
               
             </BoardWrap>
             </div>

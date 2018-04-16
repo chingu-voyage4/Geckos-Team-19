@@ -9,6 +9,7 @@ import todos from './reducer_todos';
 import errors from './reducer_error';
 import currentUser from './reducer_currentUser';
 import todo from './reducer_todo';
+import BoardTitle from './reducer_boardTitle';
 
 
 const reducers = combineReducers({
@@ -21,7 +22,8 @@ const reducers = combineReducers({
     input: ZipReducer,
     errors,
     currentUser,
-    todo
+    todo,
+    boardTitle:BoardTitle
 });
 
 

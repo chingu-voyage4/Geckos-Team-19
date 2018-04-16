@@ -8,6 +8,7 @@ import Weather from '../container/weather';
 
 
 
+
 /* eslint-disable react/prop-types */
 const renderSuggestion = ({ formattedSuggestion }) => (
   <div >
@@ -93,11 +94,14 @@ class CitySearch extends Component {
     const myStyles = {
       root: { position: 'relative' },
       input: { width: '140px',
-               borderRadius:5,
                outline:0,
                marginLeft: '10px',
                height:'10px',
-    
+               backgroundColor: "rgba(0,0,0,0)",
+               borderRadius: "3px",
+               border: "2px white solid",
+               color:"white",
+               
                //alignSelf: 'flex-start'
                },
       autocompleteContainer: { transition:".2s all`",
@@ -110,14 +114,25 @@ class CitySearch extends Component {
                                 backgroundColor: 'darkgray' }
     }
    
+    const wheelStyle = {
+      margin: '10px auto',
+      height: '30px',
+      width: '50%',
+   }
 
-    
+    const wheelColor= {
+      color:"white",
+      height: '30px',
+      width: '50%',
+    }
+
+
     const inputProps = {
       type: 'text',
       value: this.state.address,
       onChange: this.handleChange,
       autoFocus: true,
-      placeholder: 'Search Places',
+      placeholder: 'Get Weather',
     };
 
     return (
@@ -134,8 +149,8 @@ class CitySearch extends Component {
           shouldFetchSuggestions={shouldFetchSuggestions}
         />
         {this.state.loading && (
-          <div>
-            <i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" />
+          <div style={wheelStyle}>
+            <i style={wheelColor} className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" />
           </div>
         )}
         {this.state.geocodeResults && (

@@ -12,7 +12,7 @@ class MadeBy extends Component {
                 <Name> Inna <MadeBySocial href="https://github.com/innaleikina" target="_blank"><i class="fab fa-github-square"></i></MadeBySocial> <MadeBySocial href="https://www.linkedin.com/in/inna-leikina-1580542b/" target="_blank"><i class="fab fa-linkedin"></i></MadeBySocial></Name>
                 
                 
-                <Name> Lucas <MadeBySocial href="https://github.com/LucasTaboada" target="_blank"><i class="fab fa-github-square"></i></MadeBySocial><MadeBySocial  href="https://github.com/LucasTaboada" target="_blank"> <i class="fab fa-linkedin"></i></MadeBySocial> </Name>
+                <Name> Lucas <MadeBySocial href="https://github.com/LucasTaboada" target="_blank"><i class="fab fa-github-square"></i></MadeBySocial></Name>
             </MadeByNames>
             </MadeByTitle>
     }

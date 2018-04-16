@@ -48,10 +48,11 @@ const TimeDateInputWrap = styled.div`
 display:flex;
 flex-direction:column;
 // border:1px red solid;
+width:200px;
 `
 
 const TimeDateWrap = styled.div`
-//  border:1px red solid;
+//border:1px red solid;
 display:flex;
 // flex-direction:column;
  width:130px;
@@ -59,9 +60,9 @@ margin-top:10px;
 `
 
 const TimeDateMadeByWrap = styled.div`
-//border:1px blue solid;
+// border:1px blue solid;
 display:flex;
-margin-bottom:40px;
+margin-bottom:40px; 
 justify-content:space-between;
 background-color:/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+98&0.57+32,0+100 */
 background: -moz-linear-gradient(top, rgba(0,0,0,0.57) 1%, rgba(0,0,0,0.57) 32%, rgba(0,0,0,0.02) 98%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
@@ -109,7 +110,8 @@ outline: none;
 const LogoutMadeByWrap = styled.div`
 display:flex;
 flex-direction:column;
-//border:1px red solid;
+margin-right:15px;
+// border:1px red solid;
 align-items:center;
 align-content:center;
 `

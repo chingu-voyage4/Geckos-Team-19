@@ -1,11 +1,47 @@
 
 import styled from 'styled-components';
+import {keyframes} from 'styled-components';
 
 //styling for Weather
 //container
+
+const bounce = keyframes`
+0%, 100%, 20%, 50%, 80% {
+    -webkit-transform: translateY(0);
+    -ms-transform:     translateY(0);
+    transform:         translateY(0);
+}
+40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform:     translateY(-10px);
+    transform:         translateY(-10px);
+}
+60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform:     translateY(-5px);
+    transform:         translateY(-5px);
+}
+`
+const fadeIn = keyframes`
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`
+const Bounce = styled.div`
+animation: ${bounce} 2s linear; 
+`
+const FadeIn = styled.div`
+animation: ${fadeIn} 1s linear;
+`
 const Div = styled.div`
 //  border:1px orange solid;
  z-index:1;
+ transition: opacity .5s ease-in;
+ -moz-transition: opacity .5s ease-in;
+ -webkit-transition: opacity .5s ease-in;
 `
 
 const CityName = styled.h3`
@@ -29,7 +65,6 @@ margin-left:12px;
 //_____________________ul temp display and temp button_____________________________
 
 
-
 const WeatherWrap = styled.div`
 list-style: none;
 display:flex;
@@ -40,6 +75,10 @@ background-color:rgba(0,0,0,0.2);
 border-radius:10px;
 box-shadow:2px 2px 2px 2px rgba(0,0,0,0.3);
 padding;5px;
+//left: -100px;
+//-webkit-animation: slide 2s forwards;
+//-webkit-animation-delay: 2s;
+//animation:  2s linear 1s; 
 `
 
 const ListItem = styled.div`
@@ -126,7 +165,7 @@ margin-left:10px;
 const ItemTemp = styled.div`
 font-size: 16px;
 // border:1px red solid;
-color: rgba(0,0,0,0.1);
+color: rgba(0,0,0,0.9);
 margin-right: 4px;
 margin-left: 6px;
 color:white;
@@ -138,15 +177,17 @@ text-align:center;
 const Button = styled.div`
 border-radius: 3px;
 text-align: center;
-font-size: 12px;
+font-size: 13px;
+font-weight:bold;
 height:14px;
+line-height:14px;
  border:1px white solid;
  margin-right: 7px;
 margin-left: 2px;
-background-color:rgba(255,255,255,.2);
+background-color:rgba(255,255,255,.8);
 box-shadow:1px 1px 3px rgba(0,0,0,.8);
 border:none;
-color:white;
+color:rgba(0,0,0,0.9);
 outline:0;
 width:100%;
 
@@ -156,6 +197,7 @@ width:100%;
         // outline:0;
         cursor:pointer;
         text-decoration:none;
+        color:white;
     }
 
  &:active {    
@@ -167,4 +209,4 @@ width:100%;
 `
 
 
-export { Button, Div, ItemTemp, TempBtnWrap,  Icon, InfoList, InfoItem, CityName,ReturnedState, ListItem,MiddleWeather};
+export { FadeIn, Bounce, Button, Div, ItemTemp, TempBtnWrap,  Icon, InfoList, InfoItem, CityName,ReturnedState, ListItem,MiddleWeather};
