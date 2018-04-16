@@ -24,7 +24,7 @@ const bounce = keyframes`
 `
 const fadeIn = keyframes`
 0%{
-    opacity: .2;
+    opacity: 0;
 }
 100% {
     opacity: 1;
@@ -34,7 +34,7 @@ const Bounce = styled.div`
 animation: ${bounce} 2s linear; 
 `
 const FadeIn = styled.div`
-animation: ${fadeIn} 2s linear;
+animation: ${fadeIn} 1s linear;
 `
 const Div = styled.div`
 //  border:1px orange solid;
@@ -78,7 +78,7 @@ padding;5px;
 //left: -100px;
 //-webkit-animation: slide 2s forwards;
 //-webkit-animation-delay: 2s;
-//animation: ${weatherAnimation} 2s linear 1s; 
+//animation:  2s linear 1s; 
 `
 
 const ListItem = styled.div`
@@ -206,4 +206,4 @@ width:100%;
 `
 
 
-export { Bounce, Button, Div, ItemTemp, TempBtnWrap,  Icon, InfoList, InfoItem, CityName,ReturnedState, ListItem,MiddleWeather};
+export { FadeIn, Bounce, Button, Div, ItemTemp, TempBtnWrap,  Icon, InfoList, InfoItem, CityName,ReturnedState, ListItem,MiddleWeather};
