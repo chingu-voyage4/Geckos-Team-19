@@ -4,29 +4,44 @@ import {keyframes} from 'styled-components';
 
 //styling for Weather
 //container
-const weatherAnimation = keyframes`
+
+const bounce = keyframes`
 0%, 100%, 20%, 50%, 80% {
     -webkit-transform: translateY(0);
     -ms-transform:     translateY(0);
-    transform:         translateY(0)
+    transform:         translateY(0);
 }
 40% {
     -webkit-transform: translateY(-10px);
     -ms-transform:     translateY(-10px);
-    transform:         translateY(-10px)
+    transform:         translateY(-10px);
 }
 60% {
     -webkit-transform: translateY(-5px);
     -ms-transform:     translateY(-5px);
-    transform:         translateY(-5px)
+    transform:         translateY(-5px);
 }
 `
-const Animation = styled.div`
-animation: ${weatherAnimation} 2s linear; 
+const fadeIn = keyframes`
+0%{
+    opacity: .2;
+}
+100% {
+    opacity: 1;
+}
+`
+const Bounce = styled.div`
+animation: ${bounce} 2s linear; 
+`
+const FadeIn = styled.div`
+animation: ${fadeIn} 2s linear;
 `
 const Div = styled.div`
 //  border:1px orange solid;
  z-index:1;
+ transition: opacity .5s ease-in;
+ -moz-transition: opacity .5s ease-in;
+ -webkit-transition: opacity .5s ease-in;
 `
 
 const CityName = styled.h3`
@@ -63,7 +78,7 @@ padding;5px;
 //left: -100px;
 //-webkit-animation: slide 2s forwards;
 //-webkit-animation-delay: 2s;
-animation: ${weatherAnimation} 2s linear 1s; 
+//animation: ${weatherAnimation} 2s linear 1s; 
 `
 
 const ListItem = styled.div`
@@ -191,4 +206,4 @@ width:100%;
 `
 
 
-export { Animation, Button, Div, ItemTemp, TempBtnWrap,  Icon, InfoList, InfoItem, CityName,ReturnedState, ListItem,MiddleWeather};
+export { Bounce, Button, Div, ItemTemp, TempBtnWrap,  Icon, InfoList, InfoItem, CityName,ReturnedState, ListItem,MiddleWeather};
