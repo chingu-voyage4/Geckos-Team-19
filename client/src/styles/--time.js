@@ -110,6 +110,7 @@ outline: none;
 const LogoutMadeByWrap = styled.div`
 display:flex;
 flex-direction:column;
+margin-right:15px;
 // border:1px red solid;
 align-items:center;
 align-content:center;

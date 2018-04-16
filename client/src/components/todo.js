@@ -104,9 +104,8 @@ handleDelete(id,e){
        
    let {text,connectDragSource,id,connectDropTarget,isDragging,opacity,didDrop} = this.props;
    var styles = {
-    // border:"1px blue solid",
+    border:"1px blue solid",
     display:"flex",
-    width:"100%",
     minHeight:"50px",
     maxHeight:"auto",
     backgroundColor:"rgba(255,255,255,1)",

@@ -32,7 +32,7 @@ class Card extends Component {
             <div style={styles} key={i}>
                     <Todo 
                     opacity={todo.opacity}
-                      pos={todo.position}
+                    pos={todo.position}
                     user = {this.props.user}
                     actions={this.props.actions}
                     text={todo.text}

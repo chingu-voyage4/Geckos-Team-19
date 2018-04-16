@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const BoardWrap = styled.div`
 display:flex;
 flex-direction:column;
-border:2px rgba(0,0,0,0.3) solid;
+border:2px rgba(255,255,255,0.6) solid;
 border-radius:10px;
 width:220px;
 height:auto;
@@ -27,8 +27,17 @@ margin-top:230px;
 const InputStyle = styled.input`
 width:80%;
 margin:auto;
+background-color: rgba(0,0,0,0.3);
+border-radius: 3px;
 overflow-wrap: break-word;
+border:2px white solid;
+outline:0;
 }
+
+&:hover {
+    ${InputStyle}{
+        
+    }
 `
 
 const AddItemBtn = styled.button`

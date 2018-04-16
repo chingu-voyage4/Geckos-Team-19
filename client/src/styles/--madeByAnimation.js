@@ -52,7 +52,7 @@ font-weight:bolder;
 // box-shadow:2px 2px 3px rgba(0,0,0,0.4);
 outline:0;
 color: white;
-margin-top:5px;
+margin-top:15px;
 //  border:1px red solid;
 right: 5px;
 //transition: all 2s ease;
