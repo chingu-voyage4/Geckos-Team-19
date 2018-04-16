@@ -94,10 +94,13 @@ class CitySearch extends Component {
     const myStyles = {
       root: { position: 'relative' },
       input: { width: '140px',
-               borderRadius:5,
                outline:0,
                marginLeft: '10px',
                height:'10px',
+               backgroundColor: "rgba(0,0,0,0)",
+               borderRadius: "3px",
+               border: "2px white solid",
+               color:"white",
                
                //alignSelf: 'flex-start'
                },

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { DragSource, DropTarget } from 'react-dnd';
 import { ItemType } from './../constants/itemType';
-import {TodoText, TrashCan} from '../styles/--todo';
+import {TodoAll, TrashCan, TodoText} from '../styles/--todo';
 import {findDOMNode} from 'react-dom';
 import _ from 'lodash';
 import update from 'immutability-helper';
@@ -109,23 +109,24 @@ handleDelete(id,e){
     width:"100%",
     minHeight:"50px",
     maxHeight:"auto",
-    backgroundColor:"rgba(255,255,255,0.4)",
+    backgroundColor:"rgba(255,255,255,1)",
     borderRadius:"5px",
     textAlign:"center",
-    boxShadow:"1px 1px 5px rgba(0,0,0,0.4)",
+    boxShadow:"2px 2px 5px rgba(0,0,0,0.6)",
     fontFamily:"Helvetica",
     overflowWrap: "break-word",
     cursor:"pointer",
     justifyContent:"space-around",
     alignItems:"center"
    }
-    return connectDragSource(connectDropTarget(
-        <div  style={{styles}} style={{opacity:didDrop?0:opacity}} >
-        <p>{text}<span onClick={this.handleDelete.bind(this,id)} id={id} ><i  className="fa fa-trash"></i></span></p> 
+   return connectDragSource(connectDropTarget(
+    <div  style={{styles}} style={{opacity:didDrop?0:opacity}} >
+    <TodoAll><TodoText>{text}</TodoText><span onClick={this.handleDelete.bind(this,id)} id={id} ><TrashCan  className="fa fa-trash"></TrashCan></span></TodoAll> 
 
-        </div>
-    ))
-    };
+    </div>
+))
 };
+};
+
 
 export default _.flow(DragSource(ItemType.Card, TodoSource, dragCollect),DropTarget(ItemType.Card,cardTarget,dropCollect))(Todo);
