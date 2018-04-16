@@ -8,6 +8,7 @@ import Weather from '../container/weather';
 
 
 
+
 /* eslint-disable react/prop-types */
 const renderSuggestion = ({ formattedSuggestion }) => (
   <div >
@@ -113,7 +114,12 @@ class CitySearch extends Component {
                                 backgroundColor: 'darkgray' }
     }
    
-
+    const wheelStyle = {
+      margin: '10px auto',
+      height: '45px',
+      width: '50%',
+      color: 'white !important'
+    }
     
     const inputProps = {
       type: 'text',
@@ -137,7 +143,7 @@ class CitySearch extends Component {
           shouldFetchSuggestions={shouldFetchSuggestions}
         />
         {this.state.loading && (
-          <div>
+          <div style={wheelStyle}>
             <i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" />
           </div>
         )}
