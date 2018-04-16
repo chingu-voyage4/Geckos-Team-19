@@ -10,6 +10,13 @@ const todoSchema = new mongoose.Schema({
     position:{
         type:Number
     },
+    index:{
+        type:Number
+    }
+    ,
+    opacity:{
+        type:Number
+    },
     completed: {type:Boolean},
     user:{
         type:mongoose.Schema.Types.ObjectId,

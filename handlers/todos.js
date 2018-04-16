@@ -6,7 +6,9 @@ exports.createTodo = async function(req, res, next) {
     let todo = await db.Todo.create({
       text: req.body.text,
       position:req.body.position,
-      user: req.params.id
+      user: req.params.id,
+      index:req.body.index,
+      opacity:1
     });
     let foundUser = await db.User.findById(req.params.id);
     foundUser.todos.push(todo.id);
@@ -48,6 +50,27 @@ exports.updateTodo = async function(req,res, next){
     let foundTodo = await db.Todo.update({_id:req.params.todo_id},{$set:{position:req.body.position}})
     .exec();
     return res.status(200).json(foundTodo);
+  }catch(err){
+    return next(err);
+  }
+}
+exports.updateMoveTodo = async function(req,res,next){
+  try{
+    let updateTodo = await db.Todo.bulkWrite([
+      {updateOne:{
+        filter: {_id:req.body.dragId},
+        update:{index:req.body.hoverIndex,position:req.body.position}
+      }
+
+      },{
+        updateOne:{
+          filter: {_id:req.body.hoverId},
+          update: {index:req.body.dragIndex,position:req.body.position}
+        }
+      }
+    
+    ]);
+    return res.status(200).json(updateTodo)
   }catch(err){
     return next(err);
   }

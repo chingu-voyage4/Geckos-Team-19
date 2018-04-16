@@ -22,7 +22,7 @@ geocodeByAddress(address)
             loading: false,
         });
     });
-  }
+  
 let initialState = {
     lon: null,
     lat: null
