@@ -71,9 +71,8 @@ class Board extends Component {
                 </FlexBtnInput>
             
             
-               
-               <Card moveTodo={this.props.moveTodo} user={this.props.user} actions={this.props.todoActions} todo={todo}/>
-               
+                 <Card moveTodo={this.props.moveTodo} user={this.props.user} actions={this.props.todoActions} todo={todo}/>
+          
               
             </BoardWrap>
             </div>

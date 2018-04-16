@@ -116,7 +116,6 @@ class CitySearch extends Component {
    
     const wheelStyle = {
       margin: '10px auto',
-<<<<<<< HEAD
       height: '30px',
       width: '50%',
    }
@@ -128,13 +127,6 @@ class CitySearch extends Component {
     }
 
 
-=======
-      height: '45px',
-      width: '50%',
-      color: 'white !important'
-    }
-    
->>>>>>> 831e495b330f03fa5ac3eeda3388edcf11d50275
     const inputProps = {
       type: 'text',
       value: this.state.address,
@@ -158,11 +150,7 @@ class CitySearch extends Component {
         />
         {this.state.loading && (
           <div style={wheelStyle}>
-<<<<<<< HEAD
             <i style={wheelColor} className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" />
-=======
-            <i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" />
->>>>>>> 831e495b330f03fa5ac3eeda3388edcf11d50275
           </div>
         )}
         {this.state.geocodeResults && (
