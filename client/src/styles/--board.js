@@ -37,9 +37,10 @@ font-size:12px;
 padding:5px;
 }
 
-&:hover {
+&:focus {
     ${InputStyle}{
-        
+        background-color: rgba(0,0,0,0.4);
+        border:1px rgba(255,255,255,.6) solid;
     }
 `
 
@@ -85,6 +86,7 @@ margin-bottom:20px;
 &:focus:-ms-input-placeholder{
     ${CardTitle}{
         color: transparent;
+        // border:1px white solid;
     }
 }
 &:focus::-ms-input-placeholder{
