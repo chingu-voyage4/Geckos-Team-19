@@ -24,12 +24,16 @@ display:flex;
 justify-content:space-around;
 align-items:center;
 text-align:left;
+padding-top:14px;
+padding-bottom:14px;
+padding-left:10px;
 }
 `
 const TodoText = styled.span`
 width:90%;
-//border:1px red solid;
+// border:1px red solid;
 margin-right:15px;
+
 `
 
 const TrashCan = styled.i`
