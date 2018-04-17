@@ -44,14 +44,16 @@ app.use(function(req,res,next){
 });
 
 app.use(errorHandler);
-console.log(process.env.NODE_ENV);
-if(process.env.NODE_ENV == 'production'){
-    app.use(express.static('client/build'));
 
+if(process.env.NODE_ENV === 'production'){
+    console.log('this is working1')
+    app.use(express.static('client/build'));
+    console.log('this is working2')
     const path = require('path');
     app.get('*',(req,res)=>{
         res.sendFile(path.resolve(__dirname, 'client','build','index.html'));
     })
+    console.log('this is working3')
 }
 
 app.listen(PORT, function(){
