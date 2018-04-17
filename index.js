@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const errorHandler = require('./handlers/error');
 const authRoutes = require('./routes/auth');
 const todoRoutes = require('./routes/todos');
+const boardTitleRoutes = require('./routes/boardTitle');
 const { loginRequired, ensureCorrectUser } = require('./middleware/auth');
 const db = require('./models');
 const PORT = process.env.PORT || 8081;
@@ -14,7 +15,11 @@ const PORT = process.env.PORT || 8081;
 app.use(cors());
 app.use(bodyParser.json());
 
-
+app.use('/api/users/:id/board',
+loginRequired,
+ensureCorrectUser,
+boardTitleRoutes
+)
 app.use('/api/auth', authRoutes);
 app.use('/api/users/:id/todos',
 loginRequired,
@@ -22,7 +27,7 @@ ensureCorrectUser,
  todoRoutes);
  
 
-app.get('/api/user/:id/todos',loginRequired, async function(req,res,next){
+app.get('/api/user/:id/todos',loginRequired,ensureCorrectUser, async function(req,res,next){
     try{
         let id = req.params.id;
          let todos = await db.Todo.find({user:id})

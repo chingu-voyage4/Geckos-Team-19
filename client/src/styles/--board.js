@@ -104,13 +104,13 @@ margin-bottom:20px;
 &:-ms-input-placeholder{
     ${CardTitle}
  { /* Internet Explorer 10-11 */
-    color: rgba(255,255,255,.7);
+    color: white;
 }
 
 &::-ms-input-placeholder{
     ${CardTitle}
  { /* Microsoft Edge */
-    color: rgba(255,255,255,.7);
+    color: white;
 }
 
 `
