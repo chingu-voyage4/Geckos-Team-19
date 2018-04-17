@@ -37,9 +37,10 @@ font-size:12px;
 padding:5px;
 }
 
-&:hover {
+&:focus {
     ${InputStyle}{
-        
+        background-color: rgba(0,0,0,0.4);
+        border:1px rgba(255,255,255,.6) solid;
     }
 `
 
@@ -70,7 +71,6 @@ outline: none;
 box-shadow: none;
 color:white;
 font-family:"Helvetica", sans-serif;
-text-shadow:2px 2px rgba(0,0,0,.3);
 cursor:default;
 text-align: center;
 font-size: 30px;
@@ -78,18 +78,27 @@ font-weight: 900;
 margin-top:20px;
 margin-bottom:20px;
 
-// &:focus{
-//     ${CardTitle}{
-//       border:2px rgba(255,255,255,.6) solid;
-//       margin:18px auto;
-//       color:rgba(0,0,0,0);
-//     //   box-shadow:none;
-//     }
+&:focus::placeholder {
+    ${CardTitle}{
+        color: transparent;
+    }
+}
+&:focus:-ms-input-placeholder{
+    ${CardTitle}{
+        color: transparent;
+        // border:1px white solid;
+    }
+}
+&:focus::-ms-input-placeholder{
+    ${CardTitle}{
+        color: transparent;
+    }
+}
 
 &::placeholder{
     ${CardTitle} { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
-
+    color: rgba(255,255,255,.7);
+    text-shadow:2px 2px rgba(0,0,0,.3);
 }
 
 &:-ms-input-placeholder{
@@ -103,6 +112,7 @@ margin-bottom:20px;
  { /* Microsoft Edge */
     color: white;
 }
+
 `
 
 export {BoardWrap, CardTitle, WholeBoard, InputStyle, FlexBtnInput, AddItemBtn, };

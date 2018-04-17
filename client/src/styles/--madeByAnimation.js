@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 const MadeByNames = styled.p`
-margin-top: -60px;
+margin-top: -50px;
 transition: all 1s ease;
 color: transparent;
 height: 75px;
