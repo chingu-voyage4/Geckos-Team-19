@@ -36,6 +36,15 @@ app.get('/api/user/:id/todos',loginRequired,ensureCorrectUser, async function(re
         return next(err);
     }
 })
+if(process.env.NODE_ENV === 'production'){
+    
+    app.use(express.static('client/build'));
+    
+    const path = require('path');
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname, 'client','build','index.html'));
+    })
+}
 app.use(function(req,res,next){
     let err = new Error('NOT Found')
     err.status = 404;
@@ -45,16 +54,7 @@ app.use(function(req,res,next){
 
 app.use(errorHandler);
 
-if(process.env.NODE_ENV === 'production'){
-    console.log('this is working1')
-    app.use(express.static('client/build'));
-    console.log('this is working2')
-    const path = require('path');
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname, 'client','build','index.html'));
-    })
-    console.log('this is working3')
-}
+
 
 app.listen(PORT, function(){
     console.log(`Server is starting on ${PORT}`)
