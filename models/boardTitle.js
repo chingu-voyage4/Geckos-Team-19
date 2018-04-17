@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose');
-const User = require('./user');
+const User = require('./User.js');
 
 const BoardTitleSchema = new mongoose.Schema({
     text:{
