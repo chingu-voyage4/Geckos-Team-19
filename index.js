@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -8,7 +8,7 @@ const authRoutes = require('./routes/auth');
 const todoRoutes = require('./routes/todos');
 const { loginRequired, ensureCorrectUser } = require('./middleware/auth');
 const db = require('./models');
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 
 
 app.use(cors());
@@ -39,6 +39,14 @@ app.use(function(req,res,next){
 });
 
 app.use(errorHandler);
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'));
+
+    const path = require('path');
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname, 'client','build','index.html'));
+    })
+}
 
 app.listen(PORT, function(){
     console.log(`Server is starting on ${PORT}`)

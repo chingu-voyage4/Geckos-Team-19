@@ -3,9 +3,6 @@ dev.js
 .vs/VSWorkspaceState.json
 .vs/slnx.sqlite
 .vs/Geckos-Team-19/v15/.suo
-<<<<<<< HEAD
-/.vs
-=======
 .env
 .vs
->>>>>>> 05b8592bd2749e37f2875b105fd7dd4118e0fa2d
+dev.js
