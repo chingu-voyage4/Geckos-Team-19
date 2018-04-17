@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {keyframes} from 'styled-components';
 
 const Input = styled.input`
 background-color: rgba(0,0,0,0)
@@ -6,6 +7,21 @@ border-radius: 3px;
 border: 2px white solid;
 
 `
+
+const fadeIn = keyframes`
+0%{
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+`
+
+const FadeIn = styled.div`
+animation: ${fadeIn} .5s linear;
+`
+
+
 const TodoAll = styled.div`
 //  border:1px red solid;
 font-size:13px;
@@ -42,4 +58,4 @@ const TrashCanSpan = styled.span`
 width:100%;
 `
 
-export {  Input, TodoAll, TrashCan, TodoText};
+export {  Input, TodoAll, TrashCan, TodoText,FadeIn};
