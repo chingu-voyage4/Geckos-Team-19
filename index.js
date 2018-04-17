@@ -44,7 +44,8 @@ app.use(function(req,res,next){
 });
 
 app.use(errorHandler);
-if(process.env.NODE_ENV === 'production'){
+console.log(process.env.NODE_ENV);
+if(process.env.NODE_ENV == 'production'){
     app.use(express.static('client/build'));
 
     const path = require('path');
