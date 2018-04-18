@@ -2,7 +2,7 @@ import React from 'react';
 import { Clock, TimeDateInputWrap, TimeDateMadeByWrap,LogoutMadeByWrap, D, TimeDateWrap, Methodize, Organize, NameWrap, Name} from '../styles/--time';
 import LogOut from '../components/logOut'
 import MadeBy from '../components/madeByAnimation';
-import Particles from 'react-particles-js';
+import ParticlesMain from '../components/particles'
 import Weather from '../container/weather';
 import {Bounce} from '../styles/--weather';
 
@@ -56,13 +56,8 @@ class Time extends React.Component {
                      <Methodize> METHODIZE</Methodize>
                       <Organize> organize your thoughts </Organize>
                    </Name>  
-                   <Particles   width={400} 
-                              height={55}
-                              style={{
-                                  marginTop:10,
-                                //   border:"1px red solid",
-                                //   paddingBottom:"30px",
-                              }}/> 
+                   <ParticlesMain/>
+                
                  </NameWrap>   
                  <LogoutMadeByWrap>
                    <LogOut logout={this.props.logout} history={this.props.history}/>

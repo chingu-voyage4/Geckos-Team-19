@@ -23,7 +23,12 @@ const userSchema = new mongoose.Schema({
     todos:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Todo"
+    }],
+    boardTitles:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'BoardTitle'
     }]
+
 });
 
     userSchema.pre('save', async function(next){

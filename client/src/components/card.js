@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import Todo from './todo';
 import {TodoStyle} from './../styles/--board'
-import { FadeIn} from '../styles/--weather';
+import { FadeIn} from '../styles/--todo';
 
 
 class Card extends Component {
@@ -31,8 +31,9 @@ class Card extends Component {
         let cardTodo = _.map(todo, (todo, i) => {
            return(
 
-           <FadeIn>
+     
             <div style={styles} key={i}>
+                 <FadeIn>
                     <Todo 
                     opacity={todo.opacity}
                     pos={todo.position}
@@ -42,8 +43,9 @@ class Card extends Component {
                     index={i}
                     id={todo._id}
                     />
+               </FadeIn>
             </div>
-            </FadeIn>
+        
                     )
                 })
                 
