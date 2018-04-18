@@ -10,5 +10,5 @@ keepAlive:true
 });
 
 module.exports.BoardTitle = require('./boardTitle');
-module.exports.User = require('./user');
+module.exports.User = require('./User');
 module.exports.Todo = require('./todo');
