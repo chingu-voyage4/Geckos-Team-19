@@ -4,7 +4,7 @@ import { ItemType } from './../constants/itemType';
 import {TodoAll, TrashCan, TodoText} from '../styles/--todo';
 import {findDOMNode} from 'react-dom';
 import _ from 'lodash';
-import update from 'immutability-helper';
+
 
 
 const cardTarget = {
