@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Background,FormNameWrap, PageWrap, Form, Methodize, Organize, NameWrap, Name, Heading, Input, Label, Button,ButtonText, AllInputs}  from '../styles/--signIn'
+import { Background,FormNameWrap, PageWrap, Form, Methodize, Organize, NameWrap, Name, Heading, Input, Label, Button,ButtonText, AllInputs,ButtonsWrap,ButtonOther,ButtonOtherText}  from '../styles/--signIn'
 import { addError } from './../actions/error';
 
 
