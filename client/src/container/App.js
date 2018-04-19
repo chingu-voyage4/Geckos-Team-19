@@ -6,11 +6,12 @@ import Main from './Main';
 import AuthForm from '../components/AuthForm';
 import {authUser} from '../actions/auth';
 import { removeError } from '../actions/error';
+import { addError } from './../actions/error';
 
 
 
 const App = (props) => {
-   const { authUser, errors, removeError, currentUser} = props;
+   const { authUser, errors, removeError, currentUser,addError} = props;
         return (
             
             <div>
@@ -19,6 +20,7 @@ const App = (props) => {
                         <Route exact path="/signin" render={props=>{
                             return(
                                 <AuthForm 
+                                addError={addError}
                                 removeError={removeError}
                                 errors={errors}
                                 onAuth={authUser} 
@@ -33,6 +35,7 @@ const App = (props) => {
                         <Route exact path="/signup" render={props=>{
                             return(
                             <AuthForm
+                                addError={addError}
                                 removeError={removeError}
                                 errors={errors}
                                 onAuth={authUser}
@@ -59,4 +62,5 @@ function mapStateToProps(state){
     };
 }
 
-export default withRouter(connect(mapStateToProps,{ authUser, removeError })(App));
+
+export default withRouter(connect(mapStateToProps,{ authUser, removeError,addError })(App));
