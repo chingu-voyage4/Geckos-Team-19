@@ -46,7 +46,7 @@ class Time extends React.Component {
                   
                     </TimeDateWrap>
                     <Bounce>
-                   <Weather/>
+                   <Weather  />
                    </Bounce>
                  </TimeDateInputWrap>
             
