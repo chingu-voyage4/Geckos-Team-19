@@ -1,5 +1,6 @@
 const db = require("../models");
 const jwt = require("jsonwebtoken");
+const keys = require('../config/keys');
 
 exports.signin = async function(req, res, next) {
   // finding a user
@@ -16,7 +17,7 @@ exports.signin = async function(req, res, next) {
           username,
           profileImageUrl
         },
-        process.env.SECRET_KEY
+        keys.SECRET_KEY
       );
       return res.status(200).json({
         id,
@@ -45,7 +46,7 @@ exports.signup = async function(req, res, next) {
         username,
         profileImageUrl
       },
-      process.env.SECRET_KEY
+      keys.SECRET_KEY
     );
     return res.status(200).json({
       id,

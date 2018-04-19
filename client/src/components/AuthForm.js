@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Background,FormNameWrap, PageWrap, Form, Methodize, Organize, NameWrap, Name, Heading, Input, Label, Button,ButtonText, AllInputs}  from '../styles/--signIn'
+import { Background,FormNameWrap, PageWrap,ButtonsWrap, ButtonOther, ButtonOtherText, Form, Methodize, Organize, NameWrap, Name, Heading, Input, Label, Button,ButtonText, AllInputs}  from '../styles/--signIn'
 
 
 
@@ -88,10 +88,12 @@ class AuthForm extends Component {
                                 </div>
                             )}
                         </AllInputs> 
+                          <ButtonsWrap>
                             <Button type="submit" className='btn btn-primary btn-block btn-lg' onClick={this.handleSubmit}><ButtonText>
                             {buttonText}</ButtonText>
                             </Button>
-                     
+                            <ButtonOther href={this.props.href}><ButtonOtherText>{this.props.buttonOther}</ButtonOtherText></ButtonOther>
+                         </ButtonsWrap>
                       </Form>
                 </FormNameWrap>     
                    </PageWrap>

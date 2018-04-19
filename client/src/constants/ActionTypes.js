@@ -12,3 +12,6 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 export const LOAD_TODOS = 'LOAD_TODOS';
 export const DRAG_END= 'DRAG_END';
 export const MOVE_POS = 'MOVE_POS';
+export const CREATE_BOARD_TITLE = 'CREATE_BOARD_TITLE';
+export const UPDATE_BOARD_TITLE = 'UPDATE_BOARD_TITLE';
+export const GET_BOARD_TITLES = "GET_BOARD_TITLES";
