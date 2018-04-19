@@ -97,7 +97,7 @@ margin-bottom:20px;
 
 &::placeholder{
     ${CardTitle} { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgba(255,255,255,.7);
+    color: white;
     text-shadow:2px 2px rgba(0,0,0,.3);
 }
 

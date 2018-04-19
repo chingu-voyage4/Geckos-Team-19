@@ -73,7 +73,6 @@ class Board extends Component {
         if(this.props.bt.length !== 0){
         return this.props.titleActions.updateBoardTitleCall(text,this.props.bt[0]._id)
         }else{
-        console.log(this.props)
         let{bpos} = this.props
         let boardPosition = parseInt(bpos,10)
         this.props.titleActions.createBoardTitleCall(text,boardPosition)
