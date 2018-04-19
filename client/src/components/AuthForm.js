@@ -57,7 +57,7 @@ class AuthForm extends Component {
                         <Label htmlFor="email">Email:</Label>
                         <Input
                         required
-                        type="text" 
+                        type="email" 
                         className="form-control" 
                         id="email" 
                         name="email"
