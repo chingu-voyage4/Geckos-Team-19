@@ -1,4 +1,4 @@
-
+const helmet = require('helmet');
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 8081;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(helmet());
 
 app.use('/api/users/:id/board',
 loginRequired,
