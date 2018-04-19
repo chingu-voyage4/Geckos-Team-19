@@ -137,9 +137,10 @@ color:white;
 font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 font-size:12px;
 letter-spacing:.2rem;
-margin:50px auto;
+// margin:50px auto;
 outline:0;
 width:120px;
+margin-top:30px;
 &:hover {
     ${Button} {
         background-color:rgba(255,255,255,.4);
@@ -160,4 +161,30 @@ width:120px;
 const ButtonText = styled.div`
 color:white;
 `
-export {Background, PageWrap, Form, Methodize, Organize, FormNameWrap, NameWrap,Name, Heading, Input,Label, Button, ButtonText, AllInputs};
+
+const ButtonOther = styled.a `
+border:1px rgba(0,0,0,0) solid;
+color:white;
+font-family:"helvetica", sans-serif;
+font-size:11px;
+// border-bottom:1px white solid;
+cursor:pointer;
+margin-top:18px;
+`
+
+const ButtonOtherText = styled.span `
+border:1px rgba(0,0,0,0) solid;
+color:white;
+opacity:.8;
+font-family:"helvetica", sans-serif;
+font-size:11px;
+border-bottom:1px white solid;
+`
+
+const ButtonsWrap = styled.div`
+display:flex;
+// border:1px red solid;
+flex-direction:column;
+align-items:center;
+`
+export {Background, PageWrap, Form, Methodize,ButtonsWrap, ButtonOther,ButtonOtherText, Organize, FormNameWrap, NameWrap,Name, Heading, Input,Label, Button, ButtonText, AllInputs};

@@ -25,7 +25,9 @@ const App = (props) => {
                                 errors={errors}
                                 onAuth={authUser} 
                                 buttonText="sign in" 
-                                heading="welcome Back" 
+                                heading="welcome back" 
+                                buttonOther="take me to sign up"
+                                href="/signup"
                                 {...props}
                                 />
                             )
@@ -40,7 +42,10 @@ const App = (props) => {
                                 signUp
                                 buttonText="sign up"
                                 heading="sign up please" 
+                                buttonOther="take me to sign in"
+                                href="/signin"
                                 {...props}
+                                
                                 />
                             )
                         }}/>

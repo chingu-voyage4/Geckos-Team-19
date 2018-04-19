@@ -101,10 +101,12 @@ class AuthForm extends Component {
                                 </div>
                             )}
                         </AllInputs> 
+                          <ButtonsWrap>
                             <Button type="submit" className='btn btn-primary btn-block btn-lg' onClick={this.handleSubmit}><ButtonText>
                             {buttonText}</ButtonText>
                             </Button>
-                     
+                            <ButtonOther href={this.props.href}><ButtonOtherText>{this.props.buttonOther}</ButtonOtherText></ButtonOther>
+                         </ButtonsWrap>
                       </Form>
                 </FormNameWrap>     
                    </PageWrap>
