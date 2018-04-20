@@ -1,4 +1,4 @@
-# Methodize
+# [Methodize](https://methodize.herokuapp.com/)
 
 Methodize is mix of a two popular apps [Momentum](https://momentumdash.com/) and [Trello](https://trello.com/).
 ![homepage](Methodize.png)
