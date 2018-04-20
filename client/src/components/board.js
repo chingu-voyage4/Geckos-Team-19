@@ -69,7 +69,11 @@ class Board extends Component {
     }
     handleBlur(e){
         let text = e.target.value
-        
+        if(e.target.value === ''){
+            return this.setState({
+                cardTitle:this.props.bt[0].text
+            })
+        }
         if(this.props.bt.length !== 0){
         return this.props.titleActions.updateBoardTitleCall(text,this.props.bt[0]._id)
         }else{
