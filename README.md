@@ -8,7 +8,7 @@ to install locally run this command in your terminal
 ```
 git clone https://github.com/chingu-voyage4/Geckos-Team-19.git
 ```
-once inside the Geckos-Team-19 folder run npm install
+once inside the Geckos-Team-19 folder run 
 ```
 npm install
 ```
@@ -27,8 +27,6 @@ npm run dev
 ```
 
 ### Prerequisites
-
-You will need to install
 
 * [Nodejs](https://nodejs.org/)
 * [MongoDB](https://www.mongodb.com/)
