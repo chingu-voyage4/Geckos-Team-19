@@ -23,7 +23,7 @@ export function fetchWeather(lon, lat) {
             }).then((res) => {
             console.log(res);
 
-            return dispatch(dispatchWeather(res))})
+            return dispatch(dispatchWeather(res))}).catch(err=>console.log(err));
         }
     }
 }
