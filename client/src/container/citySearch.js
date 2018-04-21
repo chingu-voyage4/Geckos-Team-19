@@ -135,6 +135,12 @@ class CitySearch extends Component {
       placeholder: 'Get Weather',
     };
 
+    const searchOptions = {
+      // radius: 1000,
+      location: this.state.address,
+      types: ['establishment']
+    };
+
     return (
      <div>
         <PlacesAutocomplete 
@@ -147,6 +153,7 @@ class CitySearch extends Component {
           onEnterKeyDown={this.handleSelect}
           onError={onError}
           shouldFetchSuggestions={shouldFetchSuggestions}
+          searchOption={searchOptions}
         />
         {this.state.loading && (
           <div style={wheelStyle}>

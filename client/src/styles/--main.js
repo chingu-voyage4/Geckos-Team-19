@@ -28,8 +28,7 @@ right:0;
 bottom:0;
 margin:auto;
 
-//background-image: url(${img});
- // background-image: url(${props => props.image})
+
 background-image: url(${require("../styles/default-image/image-"+ randomNumber() + ".jpg")});
 background-size:cover;
     background-attachment: fixed;
