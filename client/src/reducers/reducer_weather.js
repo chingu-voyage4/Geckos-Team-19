@@ -42,7 +42,7 @@ export function getIcon(action) {
     // If we are not in the ranges mentioned above, add a day/night prefix.
     if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
         icon = 'day-' + icon;
-       
+
     }
     // Finally tack on the prefix.
     icon = prefix + icon;
@@ -58,15 +58,15 @@ let initialState = {
     icon: null
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
     switch (action.type) {
         case FETCH_WEATHER:
             return Object.assign({}, state, {
-                wind: action.payload.data.wind.speed,
-                humidity: action.payload.data.main.humidity,
-                main: action.payload.data.weather[0].main,
-                city: action.payload.data.name,
-                icon: getIcon(action.payload.data.weather[0])
+                wind: action.payload.data.list[0].wind.speed,
+                humidity: action.payload.data.list[0].main.humidity,
+                main: action.payload.data.list[0].weather[0].main,
+                city: action.payload.data.city.name,
+                icon: getIcon(action.payload.data.list[0].weather[0])
             });
         default:
             return state
