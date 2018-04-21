@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import img from '../styles/default-image/image-6.jpg';
 
 
-const PageWrap = styled.div`
+const PageWrap = styled.div `
 display:flex;
 flex-direction:column;
 // border:1px red solid;
@@ -13,7 +13,7 @@ justify-content:center;
 align-items:center;
 `
 
-const Background = styled.div`
+const Background = styled.div `
 position:absolute;
 top:0;
 left:0;
@@ -42,7 +42,7 @@ text-align:center;
 margin-top:20px;
 `
 
-const Organize = styled.div`
+const Organize = styled.div `
 color:white;
 font-size:14px;
 font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -52,16 +52,7 @@ font-weight:light;
 margin-right:145px;
 opacity:.6;
 `
-
-const ButtonWrap = styled.div`
-display:flex;
-// border:1px purple solid;
-margin-top:30px;
-width:100%;
-justify-content:center;
-`
-
-const Button = styled.button`
+const Button = styled.button `
 border-radius:5px;
 opacity:1;
 border:1.5px white solid;
@@ -89,8 +80,15 @@ outline:0;
        box-shadow:0 0 0 0;
        top:2px;
        font-weight:400;
- }
+ }`
+
+const ButtonWrap = styled.div `
+display: flex;
+// border:1px purple solid;
+margin - top: 30 px;
+width: 100 % ;
+justify - content: center;
 `
 
 
-export {Methodize , Background, Organize , PageWrap, ButtonWrap, Button};
+export { Methodize, Background, Organize, PageWrap, ButtonWrap, Button };

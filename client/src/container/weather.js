@@ -8,6 +8,7 @@ import { store } from '../actions/store';
 // import Input from '../container/locationSearch';
 import '../styles/weather-icons/css/weather-icons.css';
 import CitySearch from '../container/citySearch';
+import ThreeDayForecast from '../components/threeDayForcast';
 
 //put a timeout on a function that renders the display of the weather
 //outside of the main rendom method
@@ -19,7 +20,6 @@ class Weather extends Component {
         this.state = {
             error: null,
             tempKind: false,
-           
         }
         this.handleTempChange = this.handleTempChange.bind(this);
         
@@ -27,19 +27,18 @@ class Weather extends Component {
 
    
     
-
+    
     handleTempChange = (event) => {
         
         this.setState(prevState => ({
             tempKind: !prevState.tempKind
         }));
-        if (this.state.tempKind) {
-            // this.setState({
-            //     displayTemp: this.state.temp
-            // });
-            store.getState().temp.tempC =  store.getState().temp.temp
+    }
+    returnTemp = () => {
+        if(this.state.tempKind === false){
+            return store.getState().temp.day1F
         } else {
-            store.getState().temp.tempC = ((store.getState().temp.tempC - 32) * 5 / 9).toFixed(0);
+            return store.getState().temp.day1C;
         }
     }
  
@@ -66,6 +65,7 @@ class Weather extends Component {
     
 
     render() {
+        let passStore = store.getState();
         if (this.state.error === false || store.getState().main.humidity > 0) {
             return (
                 <Div>
@@ -80,7 +80,7 @@ class Weather extends Component {
                         <FadeIn>
                         <TempBtnWrap>
                             <ItemTemp>
-                              {store.getState().temp.tempC}
+                              {this.returnTemp()}
                             </ItemTemp>
                             <TempButton
                                onClick={this.handleTempChange}
@@ -91,6 +91,7 @@ class Weather extends Component {
                                 <ReturnedState> {store.getState().main.main}</ReturnedState>
                          </TempBtnWrap>
                          </FadeIn>
+                         <ThreeDayForecast/>
                 </Div>
             )
       } else if (this.state.error === true) {

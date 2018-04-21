@@ -4,41 +4,44 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
-import Weather from '../container/weather';
-
-
-
 
 /* eslint-disable react/prop-types */
 const renderSuggestion = ({ formattedSuggestion }) => (
-  <div >
-    <i  />
+  <div className="Demo__suggestion-item">
+    <i className="fa fa-map-marker Demo__suggestion-icon" />
     <strong>{formattedSuggestion.mainText}</strong>{' '}
-    <small >{formattedSuggestion.secondaryText}</small>
+    <small className="text-muted">{formattedSuggestion.secondaryText}</small>
   </div>
 );
 /* eslint-enable react/prop-types */
 
+const renderFooter = () => (
+  <div className="Demo__dropdown-footer">
+    <div>
+   
+    </div>
+  </div>
+);
 
-// const cssClasses = {
-//   root: 'form-group',
-//   input: 'Demo__search-input',
-//   autocompleteContainer: 'Demo__autocomplete-container',
-// };
+const cssClasses = {
+  root: 'form-group',
+  input: 'Demo__search-input',
+  autocompleteContainer: 'Demo__autocomplete-container',
+};
 
 const shouldFetchSuggestions = ({ value }) => value.length > 2;
 
 const onError = (status, clearSuggestions) => {
   /* eslint-disable no-console */
-  console.log(
-    'Error happened while fetching suggestions from Google Maps API',
-    status
-  );
+  //console.log(
+    //'Error happened while fetching suggestions from Google Maps API',
+   // status
+  //);
   /* eslint-enable no-console */
   clearSuggestions();
 };
 
-class CitySearch extends Component {
+class SimpleForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,12 +64,12 @@ class CitySearch extends Component {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        
+        //console.log('Geocode Success', { lat, lng }); 
         this.setState({
           geocodeResults: this.renderGeocodeSuccess(lat, lng),
-          lat: lat,
-          lng: lng,
-          loading: false
+          lat:lat,
+          lng:lng,
+          loading: false,
         });
       })
       
@@ -83,80 +86,46 @@ class CitySearch extends Component {
 
   renderGeocodeSuccess(lat, lng) {
       this.props.fetchWeather(lng, lat);
-      console.log(store.getState())
-      return (
-        <div>
-        </div>
-    );
   }
 
   render() {
-    const myStyles = {
-      root: { position: 'relative' },
-      input: { width: '140px',
-               outline:0,
-               marginLeft: '10px',
-               height:'10px',
-               backgroundColor: "rgba(0,0,0,0)",
-               borderRadius: "3px",
-               border: "2px white solid",
-               color:"white",
-               
-               //alignSelf: 'flex-start'
-               },
-      autocompleteContainer: { transition:".2s all`",
-                               zIndex:1 ,
-                               width:'100%',
-                              fontSize:13},
-      autocompleteItem: { color: 'black',
-                          backgroundColor: 'white' },
-      autocompleteItemActive: { color: 'white',
-                                backgroundColor: 'darkgray' }
-    }
-   
-    const wheelStyle = {
-      margin: '10px auto',
-      height: '30px',
-      width: '50%',
-   }
-
-    const wheelColor= {
-      color:"white",
-      height: '30px',
-      width: '50%',
-    }
-
-
     const inputProps = {
       type: 'text',
       value: this.state.address,
       onChange: this.handleChange,
+      onBlur: () => {
+        //blur event here
+      },
+      onFocus: () => {
+       //focus event here
+      },
       autoFocus: true,
-      placeholder: 'Get Weather',
+      placeholder: 'Search Places',
+      name: 'Demo__input',
+      id: 'my-input-id',
     };
 
     return (
-     <div>
-        <PlacesAutocomplete 
-          styles={myStyles}
+      <div>
+        <PlacesAutocomplete
           renderSuggestion={renderSuggestion}
-          // renderFooter={renderFooter}
+          renderFooter={renderFooter}
           inputProps={inputProps}
-          // classNames={cssClasses}
+          classNames={cssClasses}
           onSelect={this.handleSelect}
           onEnterKeyDown={this.handleSelect}
           onError={onError}
           shouldFetchSuggestions={shouldFetchSuggestions}
         />
         {this.state.loading && (
-          <div style={wheelStyle}>
-            <i style={wheelColor} className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" />
+          <div>
+            <i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" />
           </div>
         )}
         {this.state.geocodeResults && (
-          <div>{this.state.geocodeResults}</div>
+          <div className="geocoding-results">{this.state.geocodeResults}</div>
         )}
-        </div>
+      </div>
     );
   }
 }
@@ -166,7 +135,6 @@ function mapStateToProps(state) {
         lng: state.lng,
         geocodeResults: state.geocodeResults,
         loading: state.loading,
-        
     };
 }
 
@@ -174,5 +142,5 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({ fetchWeather }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CitySearch )
+export default connect(mapStateToProps, mapDispatchToProps)(SimpleForm)
 
