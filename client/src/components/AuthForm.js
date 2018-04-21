@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Background,FormNameWrap, PageWrap,ButtonsWrap, ButtonOther, ButtonOtherText, Form, Methodize, Organize, NameWrap, Name, Heading, Input, Label, Button,ButtonText, AllInputs}  from '../styles/--signIn'
+import { Background,FormNameWrap, PageWrap, Form, Methodize, Organize, NameWrap, Name, Heading, Input, Label, Button,ButtonText, AllInputs,ButtonsWrap,ButtonOther,ButtonOtherText}  from '../styles/--signIn'
+import { addError } from './../actions/error';
 
 
 
@@ -21,13 +22,25 @@ class AuthForm extends Component {
     handleSubmit= e=>{
         e.preventDefault();
         const authType = this.props.signUp ? 'signup': 'signin';
-        this.props.onAuth(authType, this.state)
-        .then(()=>{
-            this.props.history.push('/');
-        })
-        .catch(()=>{
-            return;
-        });
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+          }
+          if(validateEmail(this.state.email)){
+              return  this.props.onAuth(authType, this.state)
+              .then(()=>{
+                  this.props.history.push('/');
+              })
+              .catch((err)=>{
+                  return this.props.addError(err.message);
+              });
+          }else{
+              console.log(this.props)
+            this.props.addError(`Invalid Email please try again`)
+          }
+          
+        
+       
     }
     render() {
         const{ email, username} = this.state;

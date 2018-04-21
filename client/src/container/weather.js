@@ -25,7 +25,7 @@ class Weather extends Component {
         
     }
 
-   
+ 
     
     
     handleTempChange = (event) => {
@@ -43,6 +43,7 @@ class Weather extends Component {
     }
  
     componentDidMount() {
+        console.log(this.props);
         let options = {
             enableHighAccuracy: true,
             timeout: 3000,
