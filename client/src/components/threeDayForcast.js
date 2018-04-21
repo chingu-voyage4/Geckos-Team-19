@@ -1,6 +1,7 @@
 import React, {Component}  from 'react';
 import { connect } from 'react-redux';
 import { store } from '../actions/store';
+import {Hide} from '../styles/--threeDayForecast';
 
 var d = new Date();
 var weekday = new Array(7);
@@ -18,6 +19,7 @@ weekday[7] = "Sun";
 class ThreeDayForecast extends Component {
     render() {
         return(
+            <Hide>
             <div style={{color: "white"}}>
                 <div>
                 <h3>{weekday[d.getDay()]}</h3>
@@ -38,6 +40,7 @@ class ThreeDayForecast extends Component {
                 <i className={store.getState().main.icon}></i>
                 </div>
             </div>
+            </Hide>
         )
     }
 }
