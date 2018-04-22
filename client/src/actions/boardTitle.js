@@ -18,7 +18,7 @@ export const createBoardTitleCall = (text, position, ) => (dispatch, getState) =
     let { currentUser } = getState();
     const id = currentUser.user.id;
     return apiCall('post', `api/users/${id}/board`, { text, position })
-        .then((b) => dispatch(getBoardTitleCall())).catch(err => dispatch(addError(err.message)))
+        .then((b) => dispatch(getBoardTitles())).catch(err => dispatch(addError(err.message)))
 }
 
 export const updateBoardTitleCall = (text, _id) => (dispatch, getState) => {

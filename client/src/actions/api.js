@@ -21,9 +21,9 @@ export function fetchWeather(lon, lat) {
                 url: url,
                 params: { lat: lat, lon: lon, appid: API_KEY }
             }).then((res) => {
-            console.log(res);
-
-            return dispatch(dispatchWeather(res))}).catch(err=>console.log(err));
+                console.log(res)
+                return dispatch(dispatchWeather(res))
+            }).catch(err => console.log(err));
         }
     }
 }
