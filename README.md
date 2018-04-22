@@ -43,7 +43,7 @@ npm run dev
 * [React-Router](https://reacttraining.com/react-router/) - client side routing
 * [Expressjs](https://expressjs.com/) - nodejs server side framework
 * [Mongoose](http://mongoosejs.com/) - an object data modeling (ODM) library for MongoDB
-* [JWT](https://github.com/auth0/node-jsonwebtoken) - session storage and authentication
+* [JWT](https://github.com/auth0/node-jsonwebtoken) - Authentication
 
 ## Authors
 
