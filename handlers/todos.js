@@ -37,6 +37,7 @@ exports.getTodo = async function(req, res, next) {
 exports.deleteTodo = async function(req, res, next) {
   try {
     let foundTodo = await db.Todo.findById(req.params.todo_id);
+    console.log(foundTodo);
     await foundTodo.remove();
 
     return res.status(200).json(foundTodo);

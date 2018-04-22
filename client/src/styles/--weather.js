@@ -1,11 +1,10 @@
-
 import styled from 'styled-components';
-import {keyframes} from 'styled-components';
+import { keyframes } from 'styled-components';
 
 //styling for Weather
 //container
 
-const bounce = keyframes`
+const bounce = keyframes `
 0%, 100%, 20%, 50%, 80% {
     -webkit-transform: translateY(0);
     -ms-transform:     translateY(0);
@@ -22,7 +21,7 @@ const bounce = keyframes`
     transform:         translateY(-5px);
 }
 `
-const fadeIn = keyframes`
+const fadeIn = keyframes `
 0%{
     opacity: 0;
 }
@@ -30,13 +29,13 @@ const fadeIn = keyframes`
     opacity: 1;
 }
 `
-const Bounce = styled.div`
+const Bounce = styled.div `
 animation: ${bounce} 2s linear; 
 `
-const FadeIn = styled.div`
+const FadeIn = styled.div `
 animation: ${fadeIn} 1s linear;
 `
-const Div = styled.div`
+const Div = styled.div `
 //  border:1px orange solid;
  z-index:1;
  transition: opacity .5s ease-in;
@@ -44,7 +43,7 @@ const Div = styled.div`
  -webkit-transition: opacity .5s ease-in;
 `
 
-const CityName = styled.h3`
+const CityName = styled.h3 `
 text-transform:uppercase;
 color:white;
 font-family:'Helvetica', sans-serif;
@@ -65,7 +64,7 @@ margin-left:12px;
 //_____________________ul temp display and temp button_____________________________
 
 
-const WeatherWrap = styled.div`
+const WeatherWrap = styled.div `
 list-style: none;
 display:flex;
 width:80%;
@@ -81,7 +80,7 @@ padding;5px;
 //animation:  2s linear 1s; 
 `
 
-const ListItem = styled.div`
+const ListItems = styled.div `
 display:flex;
 // border:1px brown solid;
  min-width:100px;
@@ -107,7 +106,7 @@ const MiddleWeather = styled.div `
 
 //li icon size, position, anything that is not specific to the icon
 //might be overridden by the inline styling in --weatherIcons.js
-const Icon = styled.div`
+const Icon = styled.div `
 font-size: 20px;
 color: white;
 margin-left:25px;
@@ -117,14 +116,14 @@ margin-right:25px;
 `
 
 
-const InfoList = styled.div`
+const InfoList = styled.div `
 list-style-type: none;
 text-align: center;
 //  border:1px blue solid;
 padding:0;
 width:auto;
 `
-const InfoItem = styled.div`
+const InfoItem = styled.div `
    display: flex;
    color: rgba(255,255,255,1);
    font-size: 14px;
@@ -138,7 +137,7 @@ const InfoItem = styled.div`
 //    border:1px red solid;
 `
 
-const ReturnedState = styled.div`
+const ReturnedState = styled.div `
 font-weight:300;
 // margin-left:10px;
 padding-bottom;-9px;
@@ -151,7 +150,7 @@ margin-left:-5px;
 
 
 //li temp display
-const TempBtnWrap = styled.div`
+const TempBtnWrap = styled.div `
 display:flex;
 // border:1px red solid;
 text-align:center;
@@ -162,7 +161,7 @@ margin-left:10px;
 `
 
 //temp button icon
-const ItemTemp = styled.div`
+const ItemTemp = styled.div `
 font-size: 16px;
 // border:1px red solid;
 color: rgba(0,0,0,0.9);
@@ -174,7 +173,7 @@ text-align:center;
 
 //style for tempButton.js:
 //wrapper
-const Button = styled.div`
+const Button = styled.div `
 border-radius: 3px;
 text-align: center;
 font-size: 13px;
@@ -209,4 +208,4 @@ width:100%;
 `
 
 
-export { FadeIn, Bounce, Button, Div, ItemTemp, TempBtnWrap,  Icon, InfoList, InfoItem, CityName,ReturnedState, ListItem,MiddleWeather};
+export { FadeIn, Bounce, Button, Div, ItemTemp, TempBtnWrap, Icon, InfoList, InfoItem, CityName, ReturnedState, ListItems, MiddleWeather };

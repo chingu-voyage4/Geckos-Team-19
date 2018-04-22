@@ -35,7 +35,6 @@ class AuthForm extends Component {
                   return this.props.addError(err.message);
               });
           }else{
-              console.log(this.props)
             this.props.addError(`Invalid Email please try again`)
           }
           
