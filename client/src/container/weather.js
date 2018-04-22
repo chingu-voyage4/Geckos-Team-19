@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TempButton from '../components/tempButton';
-import { FadeIn, Bounce, Div, ItemTemp,CityNameInputWrap,TempBtnWrap, Icon, WeatherWrap, InfoList, InfoItem, CityName,  ReturnedState,  ListItem, MiddleWeather } from '../styles/--weather';
+import { FadeIn, Bounce, Div, ItemTemp, CityNameInputWrap, TempBtnWrap, Icon, WeatherWrap, InfoList, InfoItem, CityName,  ReturnedState,  ListItems, MiddleWeather } from '../styles/--weather';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
@@ -70,14 +70,14 @@ class Weather extends Component {
         if (this.state.error === false || store.getState().main.humidity > 0) {
             return (
                 <Div>
-                        <ListItem>
+                        <ListItems>
                            <MiddleWeather>
                             <CitySearch/>
                             <FadeIn>                        
                                 <CityName>{store.getState().main.city}</CityName>
                             </FadeIn>
                           </MiddleWeather>
-                        </ListItem>
+                        </ListItems>
                         <FadeIn>
                         <TempBtnWrap>
                             <ItemTemp>
