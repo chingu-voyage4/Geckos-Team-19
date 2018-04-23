@@ -4,6 +4,8 @@ import { store } from '../actions/store';
 import {Hide, Show, Day1, Day2, Day3, VertLine} from '../styles/--threeDayForecast';
 import {ListItems} from '../styles/--weather';
 import {Label, Slider, SliderCheckbox } from '../styles/--toggleSwitch';
+import ToggleSwitch from '@trendmicro/react-toggle-switch';
+import '@trendmicro/react-toggle-switch/dist/react-toggle-switch.css';
 
 var d = new Date();
 var weekday = new Array(8);
@@ -23,7 +25,9 @@ class ThreeDayForecast extends Component {
         super(props);
         this.state = {
             isToggleOn: false,
-            tempKind: false
+            tempKind: false,
+            checked:false,
+            showTemp:"F",
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -112,8 +116,18 @@ class ThreeDayForecast extends Component {
             3 Day Forcast
             </button>
             <Label>
-              <SliderCheckbox type="checkbox" onClick={this.handleTempChange}/>
-              <Slider/>
+              {/* <SliderCheckbox type="checkbox" onClick={this.handleTempChange}/>
+              <Slider/> */}
+              <ToggleSwitch
+              checked={this.state.checked}
+              onChange={(event) => {
+        this.setState({ checked: !this.state.checked,
+                        showTemp: this.state.checked ? "F" : "C" ,
+                       tempKind: this.state.checked ? false : true });
+                        console.log(this.state.showTemp)
+                        console.log(this.state.checked)
+    }}
+/>
             </Label>
           <div>
           {this.forecastToggle()}
