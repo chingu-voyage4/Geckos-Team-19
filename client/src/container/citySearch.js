@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/api';
 import { store } from '../actions/store';
+
 
 /* eslint-disable react/prop-types */
 const renderSuggestion = ({ formattedSuggestion }) => (
@@ -89,11 +90,11 @@ class SimpleForm extends Component {
   }
 
   render() {
-    const searchOptions = {
-      // radius: 1000,
-      location:map.setCenter(new google.maps.LatLng(-34, 151)),
-      types: ['library']
-      };
+    // const searchOptions = {
+    //   // radius: 1000,
+    //   location:map.setCenter(new google.maps.LatLng(-34, 151)),
+    //   types: ['library']
+    //   };
 
     const myStyles = {
       root: { position: 'relative' },
@@ -162,7 +163,7 @@ class SimpleForm extends Component {
           onEnterKeyDown={this.handleSelect}
           onError={onError}
           shouldFetchSuggestions={shouldFetchSuggestions}
-          searchOptions={searchOptions}
+          // searchOptions={searchOptions}
         />
         {this.state.loading && (
           <div>
