@@ -91,7 +91,7 @@ class SimpleForm extends Component {
   render() {
     const searchOptions = {
       // radius: 1000,
-      location:map.setCenter(new google.maps.LatLng(-34, 151)),
+      // location:map.setCenter(new google.maps.LatLng(-34, 151)),
       types: ['library']
       };
 
@@ -152,26 +152,25 @@ class SimpleForm extends Component {
 
     return (
       <div>
-        <PlacesAutocomplete
-          styles={myStyles}
-          renderSuggestion={renderSuggestion}
-          renderFooter={renderFooter}
-          inputProps={inputProps}
-          
-          onSelect={this.handleSelect}
-          onEnterKeyDown={this.handleSelect}
-          onError={onError}
-          shouldFetchSuggestions={shouldFetchSuggestions}
-          searchOptions={searchOptions}
-        />
-        {this.state.loading && (
-          <div>
-            <i className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" />
-          </div>
-        )}
-        {this.state.geocodeResults && (
-          <div className="geocoding-results">{this.state.geocodeResults}</div>
-        )}
+      <PlacesAutocomplete 
+        styles={myStyles}
+        renderSuggestion={renderSuggestion}
+        // renderFooter={renderFooter}
+        inputProps={inputProps}
+        // classNames={cssClasses}
+        onSelect={this.handleSelect}
+        onEnterKeyDown={this.handleSelect}
+        onError={onError}
+        shouldFetchSuggestions={shouldFetchSuggestions}
+      />
+      {this.state.loading && (
+        <div style={wheelStyle}>
+          <i style={wheelColor} className="fa fa-spinner fa-pulse fa-3x fa-fw Demo__spinner" />
+        </div>
+      )}
+      {this.state.geocodeResults && (
+        <div>{this.state.geocodeResults}</div>
+      )}
       </div>
     );
   }
