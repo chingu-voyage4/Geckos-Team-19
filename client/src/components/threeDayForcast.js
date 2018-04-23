@@ -42,7 +42,25 @@ class ThreeDayForecast extends Component {
             threeDayToggle: !prevState.threeDayToggle
           }));
       }
-
+      handleToggleSwitch(){
+          if(this.state.showTemp === 'F'){
+              return (
+                <ToggleSwitch
+                checked={this.state.checked}
+                onChange={this.handleTempChange}
+                round = {this.state.showTemp ? 'wi wi-fahrenheit': 'wi wi-celsius'}
+                >
+                </ToggleSwitch>
+              )
+          } else {
+              return(
+            <ToggleSwitch
+            checked={this.state.checked}
+            onChange={this.handleTempChange}>
+            <i className = 'wi wi-celsius'></i>
+            </ToggleSwitch>
+              )}
+      }
 
   
         returnTemp = (day) => {
@@ -117,11 +135,7 @@ class ThreeDayForecast extends Component {
             3 Day Forcast
             </button>
             <Label>
-              {/* <SliderCheckbox type="checkbox" onClick={this.handleTempChange}/>
-              <Slider/> */}
-              <ToggleSwitch
-              checked={this.state.checked}
-              onChange={this.handleTempChange}/>
+                {this.handleToggleSwitch()}
             </Label>
           <div>
           {this.forecastToggle()}

@@ -8,7 +8,7 @@ function getFahrenheit(action, day) {
 
 function getCelcius(action, day) {
     let temp = action.payload.data.list[day].main.temp;
-    temp = ((temp * (9 / 5) - (459.67)) - 32).toFixed(0);
+    temp = (temp - 273.15).toFixed(0);
     return temp;
 }
 let initialState = { temp: null, tempC: null };
