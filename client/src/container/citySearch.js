@@ -23,11 +23,11 @@ const renderFooter = () => (
   </div>
 );
 
-const cssClasses = {
-  root: 'form-group',
-  input: 'Demo__search-input',
-  autocompleteContainer: 'Demo__autocomplete-container',
-};
+// const cssClasses = {
+//   root: 'form-group',
+//   input: 'Demo__search-input',
+//   autocompleteContainer: 'Demo__autocomplete-container',
+// };
 
 const shouldFetchSuggestions = ({ value }) => value.length > 2;
 
@@ -89,6 +89,49 @@ class SimpleForm extends Component {
   }
 
   render() {
+    const searchOptions = {
+      // radius: 1000,
+      location:map.setCenter(new google.maps.LatLng(-34, 151)),
+      types: ['library']
+      };
+
+    const myStyles = {
+      root: { position: 'relative' },
+      input: { width: '140px',
+               outline:0,
+               marginLeft: '10px',
+               height:'10px',
+               backgroundColor: "rgba(0,0,0,0)",
+               borderRadius: "3px",
+               border: "2px white solid",
+               color:"white",
+               
+               //alignSelf: 'flex-start'
+               },
+      autocompleteContainer: { transition:".2s all`",
+                               zIndex:1 ,
+                               width:'100%',
+                              fontSize:13},
+      autocompleteItem: { color: 'black',
+                          backgroundColor: 'white' },
+      autocompleteItemActive: { color: 'white',
+                                backgroundColor: 'darkgray' }
+    }
+   
+    const wheelStyle = {
+      margin: '10px auto',
+      height: '30px',
+      width: '50%',
+   }
+
+    const wheelColor= {
+      color:"white",
+      height: '30px',
+      width: '50%',
+    }
+
+
+
     const inputProps = {
       type: 'text',
       value: this.state.address,
@@ -100,29 +143,26 @@ class SimpleForm extends Component {
        //focus event here
       },
       autoFocus: true,
-      placeholder: 'Search Places',
+      placeholder: 'Find Your City',
       name: 'Demo__input',
       id: 'my-input-id',
     };
 
-    const searchOptions = {
-      // radius: 1000,
-      location: this.state.address,
-      types: ['establishment']
-    };
+    
 
     return (
       <div>
         <PlacesAutocomplete
+          styles={myStyles}
           renderSuggestion={renderSuggestion}
           renderFooter={renderFooter}
           inputProps={inputProps}
-          classNames={cssClasses}
+          
           onSelect={this.handleSelect}
           onEnterKeyDown={this.handleSelect}
           onError={onError}
           shouldFetchSuggestions={shouldFetchSuggestions}
-          searchOption={searchOptions}
+          searchOptions={searchOptions}
         />
         {this.state.loading && (
           <div>
