@@ -31,119 +31,102 @@ class ThreeDayForecast extends Component {
         this.handleThreeDayToggle = this.handleThreeDayToggle.bind(this);
         this.handleTempChange = this.handleTempChange.bind(this);
       }
-      handleTempChange(){
-        this.setState(prevState => ({
-            checked: !this.state.checked,
-            showTemp: this.state.checked ? "F" : "C" 
-        }));
-      }
-      handleThreeDayToggle(){
-          this.setState(prevState =>({
-            threeDayToggle: !prevState.threeDayToggle
-          }));
-      }
-      handleToggleSwitch(){
-          if(this.state.showTemp === 'F'){
-              return (
-                <ToggleSwitch
-                checked={this.state.checked}
-                onChange={this.handleTempChange}
-                round = {this.state.showTemp ? 'wi wi-fahrenheit': 'wi wi-celsius'}
-                >
-                </ToggleSwitch>
-              )
-          } else {
-              return(
-            <ToggleSwitch
-            checked={this.state.checked}
-            onChange={this.handleTempChange}>
-            <i className = 'wi wi-celsius'></i>
-            </ToggleSwitch>
-              )}
-      }
-
-  
-        returnTemp = (day) => {
-            if(this.state.showTemp === 'F'){
-                switch(day){
-                   case 'day1':
-                   return store.getState().temp.day1F;
-                   break;
-                   case 'day2':
-                   return store.getState().temp.day2F;
-                   break;
-                   case 'day3':
-                   return store.getState().temp.day3F;
-                   break;
-                   default:
-                   return 'Temperature' +<br/>+ 'Unavailable';
-                }
-            } else {
-                switch(day){
-                case 'day1':
-                   return store.getState().temp.day1C;
-                   break;
-                   case 'day2':
-                   return store.getState().temp.day2C;
-                   break;
-                   case 'day3':
-                   return store.getState().temp.day3C;
-                   break;
-                   default:
-                   return 'Temperature' +<br/>+ 'Unavailable';
-            }}
-        }
-      
-      forecastToggle() {
-          if(this.state.threeDayToggle === false){
-              return(
-              <Hide>
-              </Hide>
-              )
-          } else {
-            return(
-            <Show>
-            <ListItems>
-                <Day1>
-                <h3>{weekday[d.getDay()]}</h3>
-                <p>{store.getState().main.main}</p>
-                <p>{this.returnTemp('day1')}</p>
-                <i className={store.getState().main.icon}></i>
-                </Day1>
-                <VertLine/>
-                <Day2>
-                <h3>{weekday[d.getDay()+1]}</h3>
-                <p>{store.getState().main.main}</p>
-                <p>{this.returnTemp('day2')}</p>
-                <i className={store.getState().main.icon}></i>
-                </Day2>
-                <VertLine/>
-                <Day3>
-                <h3>{weekday[d.getDay()+2]}</h3>
-                <p>{store.getState().main.main}</p>
-                <p>{this.returnTemp('day3')}</p>
-                <i className={store.getState().main.icon}></i>
-                </Day3>
-            </ListItems>
-            </Show>
-            )}
-      }
-      render() {
-        return (
-        <div>
-            <button onClick={this.handleThreeDayToggle}>
-            3 Day Forcast
-            </button>
-            <Label>
-                {this.handleToggleSwitch()}
-            </Label>
-          <div>
-          {this.forecastToggle()}
-          </div>
-        </div>
-        );
-      }
+    handleTempChange(){
+    this.setState(prevState => ({
+        checked: !this.state.checked,
+        showTemp: this.state.checked ? "F" : "C" 
+    }));
     }
+    handleThreeDayToggle(){
+        this.setState(prevState =>({
+        threeDayToggle: !prevState.threeDayToggle
+        }));
+    }
+    returnTemp = (day) => {
+        if(this.state.showTemp === 'F'){
+            switch(day){
+                case 'day1':
+                return store.getState().temp.day1F;
+                break;
+                case 'day2':
+                return store.getState().temp.day2F;
+                break;
+                case 'day3':
+                return store.getState().temp.day3F;
+                break;
+                default:
+                return 'Temperature' +<br/>+ 'Unavailable';
+            }
+        } else {
+            switch(day){
+            case 'day1':
+                return store.getState().temp.day1C;
+                break;
+                case 'day2':
+                return store.getState().temp.day2C;
+                break;
+                case 'day3':
+                return store.getState().temp.day3C;
+                break;
+                default:
+                return 'Temperature' +<br/>+ 'Unavailable';
+        }}
+    }
+    forecastToggle() {
+        if(this.state.threeDayToggle === false){
+            return(
+            <Hide>
+            </Hide>
+            )
+        } else {
+        return(
+        <Show>
+        <ListItems>
+            <Day1>
+            <h3>{weekday[d.getDay()]}</h3>
+            <p>{store.getState().main.main}</p>
+            <p>{this.returnTemp('day1')}</p>
+            <i className={store.getState().main.icon}></i>
+            </Day1>
+            <VertLine/>
+            <Day2>
+            <h3>{weekday[d.getDay()+1]}</h3>
+            <p>{store.getState().main.main}</p>
+            <p>{this.returnTemp('day2')}</p>
+            <i className={store.getState().main.icon}></i>
+            </Day2>
+            <VertLine/>
+            <Day3>
+            <h3>{weekday[d.getDay()+2]}</h3>
+            <p>{store.getState().main.main}</p>
+            <p>{this.returnTemp('day3')}</p>
+            <i className={store.getState().main.icon}></i>
+            </Day3>
+        </ListItems>
+        </Show>
+        )}
+    }
+    render() {
+    return (
+    <div>
+        <button onClick={this.handleThreeDayToggle}>
+        3 Day Forcast
+        </button>
+        <Label>
+        <ToggleSwitch
+            checked={this.state.checked}
+            onChange={this.handleTempChange}
+            temp = {this.state.showTemp ? 'wi wi-fahrenheit': 'wi wi-celsius'}
+            >
+            </ToggleSwitch>
+        </Label>
+        <div>
+        {this.forecastToggle()}
+        </div>
+    </div>
+    );
+    }
+}
 
 function mapStateToProps(state) {
     return {
