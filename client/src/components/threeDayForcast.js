@@ -24,28 +24,29 @@ class ThreeDayForecast extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isToggleOn: false,
-            tempKind: false,
+            threeDayToggle: false,
             checked:false,
-            showTemp:"F",
+            showTemp:"F"
         };
-
-        this.handleClick = this.handleClick.bind(this);
+        this.handleThreeDayToggle = this.handleThreeDayToggle.bind(this);
         this.handleTempChange = this.handleTempChange.bind(this);
       }
       handleTempChange(){
         this.setState(prevState => ({
-            tempKind: !prevState.tempKind
+            checked: !this.state.checked,
+            showTemp: this.state.checked ? "F" : "C" 
         }));
       }
-      handleClick() {
-        this.setState(prevState => ({
-          isToggleOn: !prevState.isToggleOn
-        }));
+      handleThreeDayToggle(){
+          this.setState(prevState =>({
+            threeDayToggle: !prevState.threeDayToggle
+          }));
       }
+
+
   
         returnTemp = (day) => {
-            if(this.state.tempKind === false){
+            if(this.state.showTemp === 'F'){
                 switch(day){
                    case 'day1':
                    return store.getState().temp.day1F;
@@ -76,7 +77,7 @@ class ThreeDayForecast extends Component {
         }
       
       forecastToggle() {
-          if(this.state.isToggleOn === false){
+          if(this.state.threeDayToggle === false){
               return(
               <Hide>
               </Hide>
@@ -112,7 +113,7 @@ class ThreeDayForecast extends Component {
       render() {
         return (
         <div>
-            <button onClick={this.handleClick}>
+            <button onClick={this.handleThreeDayToggle}>
             3 Day Forcast
             </button>
             <Label>
@@ -120,14 +121,7 @@ class ThreeDayForecast extends Component {
               <Slider/> */}
               <ToggleSwitch
               checked={this.state.checked}
-              onChange={(event) => {
-        this.setState({ checked: !this.state.checked,
-                        showTemp: this.state.checked ? "F" : "C" ,
-                       tempKind: this.state.checked ? false : true });
-                        console.log(this.state.showTemp)
-                        console.log(this.state.checked)
-    }}
-/>
+              onChange={this.handleTempChange}/>
             </Label>
           <div>
           {this.forecastToggle()}
