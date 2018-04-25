@@ -85,9 +85,9 @@ outline:0;
 const ButtonWrap = styled.div `
 display: flex;
 // border:1px purple solid;
-margin - top: 30 px;
-width: 100 % ;
-justify - content: center;
+margin-top: 30px;
+width:100%;
+justify-content:center;
 `
 
 

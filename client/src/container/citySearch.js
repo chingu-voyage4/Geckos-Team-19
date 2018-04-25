@@ -8,7 +8,7 @@ import { store } from '../actions/store';
 /* eslint-disable react/prop-types */
 const renderSuggestion = ({ formattedSuggestion }) => (
   <div className="Demo__suggestion-item">
-    <i className="fa fa-map-marker Demo__suggestion-icon" />
+    {/* <i className="fa fa-map-marker Demo__suggestion-icon" /> */}
     <strong>{formattedSuggestion.mainText}</strong>{' '}
     <small className="text-muted">{formattedSuggestion.secondaryText}</small>
   </div>
@@ -111,9 +111,13 @@ class SimpleForm extends Component {
       autocompleteContainer: { transition:".2s all`",
                                zIndex:1 ,
                                width:'100%',
-                              fontSize:13},
+                              fontSize:13,
+                              display:"flex",
+                               justifyContent:"space-between",
+                              flexDirection:"column"},
       autocompleteItem: { color: 'black',
-                          backgroundColor: 'white' },
+                          backgroundColor: 'white',
+                          },
       autocompleteItemActive: { color: 'white',
                                 backgroundColor: 'darkgray' }
     }

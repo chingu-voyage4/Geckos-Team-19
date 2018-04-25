@@ -1,10 +1,11 @@
 import React, {Component}  from 'react';
 import { connect } from 'react-redux';
 import { store } from '../actions/store';
-import {Hide, Show, Day1, Day2, Day3, VertLine} from '../styles/--threeDayForecast';
+import {Hide, Show,  VertLine, DayName, Days,BtnToggleWrap, Text,ThreeDayInfo , OneDay, BtnDaysContainer} from '../styles/--threeDayForecast';
 import {ListItems} from '../styles/--weather';
 import {Label, Slider, SliderCheckbox } from '../styles/--toggleSwitch';
 import ToggleSwitch from '@trendmicro/react-toggle-switch';
+import {More} from '../styles/--more';
 import '@trendmicro/react-toggle-switch/dist/react-toggle-switch.css';
 
 var d = new Date();
@@ -80,50 +81,71 @@ class ThreeDayForecast extends Component {
             )
         } else {
         return(
-        <Show>
-        <ListItems>
-            <Day1>
-            <h3>{weekday[d.getDay()]}</h3>
-            <p>{store.getState().main.main}</p>
-            <p>{this.returnTemp('day1')}</p>
-            <i className={store.getState().main.icon}></i>
-            </Day1>
-            <VertLine/>
-            <Day2>
-            <h3>{weekday[d.getDay()+1]}</h3>
-            <p>{store.getState().main.main}</p>
-            <p>{this.returnTemp('day2')}</p>
-            <i className={store.getState().main.icon}></i>
-            </Day2>
-            <VertLine/>
-            <Day3>
-            <h3>{weekday[d.getDay()+2]}</h3>
-            <p>{store.getState().main.main}</p>
-            <p>{this.returnTemp('day3')}</p>
-            <i className={store.getState().main.icon}></i>
-            </Day3>
-        </ListItems>
+    <Show>    
+  
+        <Days>
+            <OneDay>
+              <DayName>{weekday[d.getDay()]}</DayName>
+              
+                <Text>{store.getState().main.main}</Text>
+                <Text>{this.returnTemp('day1')}</Text>
+                 <i className={store.getState().main.icon}></i>
+               
+            </OneDay>
+
+           
+           
+            <OneDay>
+              <DayName>{weekday[d.getDay()+1]}</DayName>
+          
+                <Text>{store.getState().main.main}</Text>
+                <Text>{this.returnTemp('day2')}</Text>
+                <i className={store.getState().main.icon}></i>
+   
+            </OneDay>
+ 
+
+
+            <OneDay>
+              <DayName>{weekday[d.getDay()+2]}</DayName>
+
+                <Text>{store.getState().main.main}</Text>
+                <Text>{this.returnTemp('day3')}</Text>
+                <i className={store.getState().main.icon}></i>
+             
+            </OneDay>
+
+             <ToggleSwitch
+            size = "small"
+            checked={this.state.checked}
+            onChange={this.handleTempChange}
+            temp = {this.state.showTemp ? 'wi wi-fahrenheit': 'wi wi-celsius'}
+            />
+          
+        
+        </Days>
+        
         </Show>
         )}
     }
     render() {
+
+
     return (
-    <div>
-        <button onClick={this.handleThreeDayToggle}>
-        3 Day Forcast
-        </button>
-        <Label>
-        <ToggleSwitch
-            checked={this.state.checked}
-            onChange={this.handleTempChange}
-            temp = {this.state.showTemp ? 'wi wi-fahrenheit': 'wi wi-celsius'}
-            >
-            </ToggleSwitch>
-        </Label>
+    <BtnDaysContainer>
+        <BtnToggleWrap>
+          <More onClick={this.handleThreeDayToggle}>
+            MORE
+          </More>
+        
+         
+
+          </BtnToggleWrap>  
         <div>
+        
         {this.forecastToggle()}
         </div>
-    </div>
+    </BtnDaysContainer>
     );
     }
 }
