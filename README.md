@@ -21,7 +21,7 @@ module.exports = {
     MONGO_URL:'mongodb://localhost/methodize'
   };
 ```
-The last step is to make sure your mongo sever is running and and type this command in your termial
+The last step is to make sure your mongo sever is running and type this command in your termial
 ```
 npm run dev
 ```
