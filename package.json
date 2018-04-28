@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "8.1.1",
-    "npm": "5.0.3"
+    "node": "*",
+    "npm": "*"
   },
   "scripts": {
     "start": "node index.js",
@@ -14,22 +14,31 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "",
+  "author": "Methodize Team",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "@trendmicro/react-toggle-switch": "^0.5.7",
     "bcrypt": "^1.0.3",
+=======
+    "bcrypt": "^2.0.1",
+>>>>>>> 5e010a9c5f66fc10e321b7346b6d08b8ca02b985
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
-    "cookie-session": "^2.0.0-beta.3",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "helmet": "^3.12.0",
+<<<<<<< HEAD
     "jsonwebtoken": "^8.2.0",
     "mongoose": "^5.0.6",
     "nodemon": "^1.15.1",
     "react": "^16.3.2"
+=======
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.16",
+    "nodemon": "^1.17.3"
+>>>>>>> 5e010a9c5f66fc10e321b7346b6d08b8ca02b985
   },
   "devDependencies": {
     "case-sensitive-paths-webpack-plugin": "^2.1.2"
