@@ -1,6 +1,6 @@
 # [Methodize](https://methodize.herokuapp.com/)
 
-Methodize is mix of a two popular apps [Momentum](https://momentumdash.com/) and [Trello](https://trello.com/).
+Methodize is mix of two popular apps [Momentum](https://momentumdash.com/) and [Trello](https://trello.com/).
 ![homepage](Methodize.png)
 
 ## Getting Started
@@ -21,7 +21,7 @@ module.exports = {
     MONGO_URL:'mongodb://localhost/methodize'
   };
 ```
-The last step is to make sure your mongo sever is running and and type this command in your termial
+The last step is to make sure your mongo server is running and type this command in your termial
 ```
 npm run dev
 ```
