@@ -6,7 +6,8 @@ const {
   getTodo,
   deleteTodo,
   updateTodo,
-  updateMoveTodo
+  updateMoveTodo,
+  editTodo
 } = require("../handlers/todos");
 
 // prefix - /api/users/:id/todos
@@ -20,6 +21,7 @@ router
   .route("/:todo_id")
   .get(getTodo)
   .delete(deleteTodo)
-  .put(updateTodo);
+  .put(updateTodo)
+  .patch(editTodo);
 
 module.exports = router;

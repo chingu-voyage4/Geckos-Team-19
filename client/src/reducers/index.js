@@ -5,7 +5,6 @@ import YearReducer from './reducer_year';
 import WeatherReducer from './reducer_weather';
 import TempReducer from './reducer_temp';
 import ZipReducer from './reducer_zip';
-import todos from './reducer_todos';
 import errors from './reducer_error';
 import currentUser from './reducer_currentUser';
 import todo from './reducer_todo';

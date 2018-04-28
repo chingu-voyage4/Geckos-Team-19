@@ -45,7 +45,15 @@ exports.deleteTodo = async function(req, res, next) {
     return next(err);
   }
 };
-
+exports.editTodo = async function(req,res,next){
+  try{
+    const getTodo = await db.Todo.update({_id:req.params.todo_id},{$set:{text:req.body.text}})
+    .exec();
+    return res.status(200).json(getTodo);
+  }catch(err){
+    return next(err)
+  }
+}
 exports.updateTodo = async function(req,res, next){
   try{
     let foundTodo = await db.Todo.update({_id:req.params.todo_id},{$set:{position:req.body.position}})
