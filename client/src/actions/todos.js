@@ -1,8 +1,8 @@
 import { apiCall } from '../services/api';
 import { addError } from './error';
-import { REMOVE_TODO, LOAD_TODOS, MOVE_TODO ,ADD_TODO,DRAG_END,MOVE_POS} from '../constants/ActionTypes';
+import { REMOVE_TODO, LOAD_TODOS, MOVE_TODO ,ADD_TODO,DRAG_END,MOVE_POS,EDIT_TODO} from '../constants/ActionTypes';
 
-export const editTodo = (id, text) => ({ type: types.EDIT_TODO, id, text })
+export const editTodo = (id, text) => ({ type: EDIT_TODO, id, text })
 export const addTodo = (text,pos,index) => ({ type: ADD_TODO, text, pos,index })
 export const moveTodo = (id,pos,index,hoverIndex,hoverId) => ({ type: MOVE_TODO, id, pos,index,hoverIndex,hoverId})
 export const deleteTodo = id => ({ type: REMOVE_TODO, id })

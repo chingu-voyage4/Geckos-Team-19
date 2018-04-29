@@ -92,7 +92,9 @@ function dragCollect(connect, monitor){
 class Todo extends Component{
     constructor(props){
         super(props);
-        this.state={}
+        this.state={
+            todo:this.props.text === undefined?"":this.props.text
+        }
     }
 handleDelete(id,e){
     this.props.actions.deleteTodo(id)
@@ -100,12 +102,16 @@ handleDelete(id,e){
 
 }
 
-handleEdit = (event) => {
-
+handleEdit = (id,value) => {
+    
+    console.log(cat)
+this.setState({
+   
+})
 }
 
     render(){
-       
+       console.log(this.state.todo)
    let {text,connectDragSource,id,connectDropTarget,isDragging,opacity,didDrop} = this.props;
 
    var styles = {
@@ -120,7 +126,7 @@ handleEdit = (event) => {
 }
    return connectDragSource(connectDropTarget(
     <div style={{styles}} style={{opacity:didDrop?0:opacity}}>
-    <TodoAll><TodoText  contentEditable={true}>{text}</TodoText><span onClick={this.handleDelete.bind(this,id)} id={id}><TrashCan className="fa fa-trash"></TrashCan></span></TodoAll> 
+    <TodoAll><TodoText html={this.state.todo} contentEditable={true}  onBlur={this.handleEdit.bind(this.value,id)}>{this.state.todo ===''?"loading...":this.state.todo}</TodoText><span onClick={this.handleDelete.bind(this,id)} ><TrashCan className="fa fa-trash"></TrashCan></span></TodoAll> 
 
     </div>
 ))
