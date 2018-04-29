@@ -89,11 +89,7 @@ class SimpleForm extends Component {
   }
 
   render() {
-    const searchOptions = {
-      // radius: 1000,
-      // location:map.setCenter(new google.maps.LatLng(-34, 151)),
-      types: ['library']
-      };
+    
 
     const myStyles = {
       root: { position: 'relative' },
@@ -152,6 +148,11 @@ class SimpleForm extends Component {
       id: 'my-input-id',
     };
 
+    const searchOptions = {
+      // radius: 1000,
+      // location:map.setCenter(new google.maps.LatLng(-34, 151)),
+      types: ['(cities)'],
+      };
     
 
     return (
@@ -166,6 +167,7 @@ class SimpleForm extends Component {
         onEnterKeyDown={this.handleSelect}
         onError={onError}
         shouldFetchSuggestions={shouldFetchSuggestions}
+        searchOptions={searchOptions}
       />
       {this.state.loading && (
         <div style={wheelStyle}>

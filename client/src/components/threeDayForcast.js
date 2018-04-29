@@ -1,7 +1,7 @@
 import React, {Component}  from 'react';
 import { connect } from 'react-redux';
 import { store } from '../actions/store';
-import {Hide, Show,  VertLine, DayName, Days,BtnToggleWrap, Text,ThreeDayInfo , OneDay, BtnDaysContainer} from '../styles/--threeDayForecast';
+import {Hide, Show, ToggleContainer,  VertLine, DayName, FCToggle, Icon, Days,BtnToggleWrap,FadeIn, Text,ThreeDayInfo , OneDay, BtnDaysContainer} from '../styles/--threeDayForecast';
 import {ListItems} from '../styles/--weather';
 import {Label, Slider, SliderCheckbox } from '../styles/--toggleSwitch';
 import ToggleSwitch from '@trendmicro/react-toggle-switch';
@@ -73,24 +73,35 @@ class ThreeDayForecast extends Component {
                 return 'Temperature' +<br/>+ 'Unavailable';
         }}
     }
-    forecastToggle() {
-        if(this.state.threeDayToggle === false){
-            return(
-            <Hide>
-            </Hide>
-            )
-        } else {
-        return(
-    <Show>    
-  
+
+    render() {
+    
+        const ToggleStyle = {
+               marginLeft:"8px",
+               height:'14px',
+            //    color:"white",
+        }
+
+    return (
+           <FadeIn>
         <Days>
+        <ToggleContainer>
+                    <FCToggle>F</FCToggle>
+                    <ToggleSwitch
+                    style = {ToggleStyle}     
+                    size = "small"
+                    checked={this.state.checked}
+                    onChange={this.handleTempChange}
+                    temp = {this.state.showTemp ? 'wi wi-fahrenheit': 'wi wi-celsius'}
+                    />
+                    <FCToggle>C</FCToggle>
+                </ToggleContainer>    
+
             <OneDay>
               <DayName>{weekday[d.getDay()]}</DayName>
-              
                 <Text>{store.getState().main.main}</Text>
                 <Text>{this.returnTemp('day1')}</Text>
-                 <i className={store.getState().main.icon}></i>
-               
+                 <Icon className={store.getState().main.icon}></Icon>
             </OneDay>
 
            
@@ -100,7 +111,7 @@ class ThreeDayForecast extends Component {
           
                 <Text>{store.getState().main.main}</Text>
                 <Text>{this.returnTemp('day2')}</Text>
-                <i className={store.getState().main.icon}></i>
+                <Icon className={store.getState().main.icon}></Icon>
    
             </OneDay>
  
@@ -111,42 +122,17 @@ class ThreeDayForecast extends Component {
 
                 <Text>{store.getState().main.main}</Text>
                 <Text>{this.returnTemp('day3')}</Text>
-                <i className={store.getState().main.icon}></i>
+                <Icon className={store.getState().main.icon}></Icon>
              
             </OneDay>
 
-             <ToggleSwitch
-            size = "small"
-            checked={this.state.checked}
-            onChange={this.handleTempChange}
-            temp = {this.state.showTemp ? 'wi wi-fahrenheit': 'wi wi-celsius'}
-            />
+            
           
-        
-        </Days>
-        
-        </Show>
-        )}
-    }
-    render() {
-
-
-    return (
-    <BtnDaysContainer>
-        <BtnToggleWrap>
-          <More onClick={this.handleThreeDayToggle}>
-            MORE
-          </More>
-        
-         
-
-          </BtnToggleWrap>  
-        <div>
-        
-        {this.forecastToggle()}
-        </div>
-    </BtnDaysContainer>
-    );
+           
+           </Days>
+          </FadeIn>
+    
+        );
     }
 }
 

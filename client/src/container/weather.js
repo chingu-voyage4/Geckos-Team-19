@@ -78,7 +78,7 @@ class Weather extends Component {
                             </FadeIn>
                           </MiddleWeather>
                         </ListItems>
-                        <FadeIn>
+                        {/* <FadeIn>
                         <TempBtnWrap>
                             <ItemTemp>
                               {this.returnTemp()}
@@ -91,7 +91,7 @@ class Weather extends Component {
                                 </Icon>
                                 <ReturnedState> {store.getState().main.main}</ReturnedState>
                          </TempBtnWrap>
-                         </FadeIn>
+                         </FadeIn> */}
                          <ThreeDayForecast/>
                 </Div>
             )

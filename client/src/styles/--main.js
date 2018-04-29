@@ -1,7 +1,20 @@
 import styled from 'styled-components';
 import img from './default-image/image-7.jpg';
+import { keyframes } from 'styled-components';
 
 
+const fadeIn = keyframes `
+0%{
+    opacity: 0;
+}
+
+20%{
+    opacity:0;
+}
+100% {
+    opacity: 1;
+}
+`
 
 const AppWrap = styled.div `
 display:flex;
@@ -21,23 +34,24 @@ function randomNumber() {
 }
 
 const Background = styled.div`
+animation: ${fadeIn} 2s linear;
 position:absolute;
 top:0;
 left:0;
 right:0;
 bottom:0;
 margin:auto;
-
-
 background-image: url(${require("../styles/default-image/image-"+ randomNumber() + ".jpg")});
 background-size:cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: cover;
-    display: block;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: bottom center;
+background-size: cover;
+display: block;
 overflow: auto;
+
 `
+
 
 
 

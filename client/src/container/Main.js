@@ -39,32 +39,26 @@ class Main extends Component {
     
     if(!currentUser.isAuthenticated){
       return(
-        <Background>
-         <LandingPage/>
-        </Background>
+
+          <Background>
+            <LandingPage/>
+          </Background>
+  
       )
     }
       return (
 
         <Background >
-
-        <AppWrap >
-
-        
-          <Time logout={this.props.logout} history={this.props.history}/>
-
-   
-        <WholeBoard>
-         <Board bt={bt0} titleActions={this.props.titleActions} user={this.props.currentUser} todoActions={this.props.todoActions}  actions={this.props.actions}  movetodo={moveTodo} bpos='0'  todo={b0}/>
-         <Board bt={bt1} titleActions={this.props.titleActions}  user={this.props.currentUser} todoActions={this.props.todoActions}  actions={this.props.actions}  movetodo={moveTodo} bpos='1'  todo={b1} />
-         <Board bt={bt2} titleActions={this.props.titleActions}  user={this.props.currentUser} todoActions={this.props.todoActions}  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
-
-       </WholeBoard>
-       
-           
-    
-        </AppWrap>
+          <AppWrap >
+            <Time logout={this.props.logout} history={this.props.history}/>
+            <WholeBoard>
+              <Board bt={bt0} titleActions={this.props.titleActions} user={this.props.currentUser} todoActions={this.props.todoActions}  actions={this.props.actions}  movetodo={moveTodo} bpos='0'  todo={b0}/>
+              <Board bt={bt1} titleActions={this.props.titleActions}  user={this.props.currentUser} todoActions={this.props.todoActions}  actions={this.props.actions}  movetodo={moveTodo} bpos='1'  todo={b1} />
+              <Board bt={bt2} titleActions={this.props.titleActions}  user={this.props.currentUser} todoActions={this.props.todoActions}  actions={this.props.actions}  movetodo={moveTodo} bpos='2' todo={b2} />
+            </WholeBoard>
+           </AppWrap>
          </Background>
+
 
  
     );
