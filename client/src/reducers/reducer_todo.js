@@ -1,4 +1,4 @@
-import { REMOVE_TODO, LOAD_TODOS,MOVE_TODO,ADD_TODO,DRAG_END,MOVE_POS } from '../constants/ActionTypes';
+import { REMOVE_TODO, LOAD_TODOS,MOVE_TODO,ADD_TODO,DRAG_END,MOVE_POS,EDIT_TODO } from '../constants/ActionTypes';
 import _ from 'lodash';
 
  const todos = (state = [], action)=>{
@@ -48,6 +48,13 @@ import _ from 'lodash';
             }
             return todo
         })
+       case EDIT_TODO:
+       return state.map(todo=>{
+           if(todo._id === acton.id){
+               return {...todo,text:action.text}
+           }
+           return todo
+       }) 
         default:
             return state;
     }
