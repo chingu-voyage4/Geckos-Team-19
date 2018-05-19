@@ -14,7 +14,7 @@ background-image: url(${img});
 background-size:cover;
 background-attachment: fixed;
 background-repeat: no-repeat;
- background-position:  center;
+background-position:  center;
 background-size: cover;
 display: block;
 overflow: auto;

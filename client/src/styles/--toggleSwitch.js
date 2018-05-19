@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 
 export const Label = styled.label `
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+position: relative;
+display: inline-block;
+width: 60px;
+height: 34px;
 `
 export const SliderCheckbox = styled.input `
 display: none;

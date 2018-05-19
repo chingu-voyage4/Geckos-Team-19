@@ -15,29 +15,6 @@ transition: .2s all;
 outline:0;
 color:white;
 margin-top:3px;
-// border:1px red solid;
-
-// &:hover {
-//     ${MadeByBtn} {
-//         background-color:rgba(255,255,255,.6);
-//         border:1px rgba(0,0,0,0.4) solid;
-//         // outline:0;
-//     }
-
-//  &:active {    
-//     ${MadeByBtn} {
-//     //    outline:0;
-//        box-shadow:0 0 0 0;
-//        top:2px;
-//        font-weight:400;
-//  }
-    
-//  &:focus {   
-//    ${MadeByBtn} {
-//      outline:0;
-//   }
-
-    
 `
 const DropdownContent= styled.ul` {
     list-style: none;

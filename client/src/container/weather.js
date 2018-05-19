@@ -43,7 +43,6 @@ class Weather extends Component {
     }
  
     componentDidMount() {
-        console.log(this.props);
         let options = {
             enableHighAccuracy: true,
             timeout: 3000,
@@ -70,29 +69,29 @@ class Weather extends Component {
         if (this.state.error === false || store.getState().main.humidity > 0) {
             return (
                 <Div>
-                        <ListItems>
-                           <MiddleWeather>
-                            <CitySearch/>
-                            <FadeIn>                        
-                                <CityName>{store.getState().main.city}</CityName>
-                            </FadeIn>
-                          </MiddleWeather>
-                        </ListItems>
-                        <FadeIn>
-                        <TempBtnWrap>
-                            <ItemTemp>
-                              {this.returnTemp()}
-                            </ItemTemp>
-                            <TempButton
-                               onClick={this.handleTempChange}
-                               tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
-                                <Icon>
-                                <i className={store.getState().main.icon}></i>
-                                </Icon>
-                                <ReturnedState> {store.getState().main.main}</ReturnedState>
-                         </TempBtnWrap>
-                         </FadeIn>
-                         <ThreeDayForecast/>
+                    <ListItems>
+                        <MiddleWeather>
+                        <CitySearch/>
+                        <FadeIn>                        
+                            <CityName>{store.getState().main.city}</CityName>
+                        </FadeIn>
+                        </MiddleWeather>
+                    </ListItems>
+                    <FadeIn>
+                    <TempBtnWrap>
+                        <ItemTemp>
+                            {this.returnTemp()}
+                        </ItemTemp>
+                        <TempButton
+                            onClick={this.handleTempChange}
+                            tempkind={this.state.tempKind ? 'wi wi-celsius' : 'wi wi-fahrenheit'} />
+                            <Icon>
+                            <i className={store.getState().main.icon}></i>
+                            </Icon>
+                            <ReturnedState> {store.getState().main.main}</ReturnedState>
+                        </TempBtnWrap>
+                        </FadeIn>
+                    <ThreeDayForecast/>
                 </Div>
             )
       } else if (this.state.error === true) {

@@ -30,8 +30,6 @@ class Card extends Component {
         }
         let cardTodo = _.map(todo, (todo, i) => {
            return(
-
-     
             <div style={styles} key={i}>
                  <FadeIn>
                     <Todo 
@@ -45,10 +43,8 @@ class Card extends Component {
                     />
                </FadeIn>
             </div>
-        
                     )
                 })
-                
         return( 
         <div>
             {cardTodo}

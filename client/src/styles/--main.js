@@ -14,6 +14,7 @@ height:100vh;
 
 function randomNumber() {
      let num = Math.floor(Math.random()*24) + 1;
+     //fix for default background not appearing on refresh
      if(num === 7 || num === 21){
          num = num + 1
      }
@@ -31,11 +32,11 @@ margin:auto;
 
 background-image: url(${require("../styles/default-image/image-"+ randomNumber() + ".jpg")});
 background-size:cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: cover;
-    display: block;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: bottom center;
+background-size: cover;
+display: block;
 overflow: auto;
 `
 

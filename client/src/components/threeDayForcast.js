@@ -32,56 +32,56 @@ class ThreeDayForecast extends Component {
 
         this.handleClick = this.handleClick.bind(this);
         this.handleTempChange = this.handleTempChange.bind(this);
-      }
-      handleTempChange(){
+        }
+    handleTempChange(){
         this.setState(prevState => ({
             tempKind: !prevState.tempKind
         }));
-      }
-      handleClick() {
+    }
+    handleClick() {
         this.setState(prevState => ({
-          isToggleOn: !prevState.isToggleOn
+        isToggleOn: !prevState.isToggleOn
         }));
-      }
-  
-        returnTemp = (day) => {
-            if(this.state.tempKind === false){
-                switch(day){
-                   case 'day1':
-                   return store.getState().temp.day1F;
-                   break;
-                   case 'day2':
-                   return store.getState().temp.day2F;
-                   break;
-                   case 'day3':
-                   return store.getState().temp.day3F;
-                   break;
-                   default:
-                   return 'Temperature' +<br/>+ 'Unavailable';
-                }
-            } else {
-                switch(day){
+    }
+
+    returnTemp = (day) => {
+        if(this.state.tempKind === false){
+            switch(day){
                 case 'day1':
-                   return store.getState().temp.day1C;
-                   break;
-                   case 'day2':
-                   return store.getState().temp.day2C;
-                   break;
-                   case 'day3':
-                   return store.getState().temp.day3C;
-                   break;
-                   default:
-                   return 'Temperature' +<br/>+ 'Unavailable';
-            }}
-        }
-      
-      forecastToggle() {
-          if(this.state.isToggleOn === false){
-              return(
-              <Hide>
-              </Hide>
-              )
-          } else {
+                return store.getState().temp.day1F;
+                break;
+                case 'day2':
+                return store.getState().temp.day2F;
+                break;
+                case 'day3':
+                return store.getState().temp.day3F;
+                break;
+                default:
+                return 'Temperature' +<br/>+ 'Unavailable';
+            }
+        } else {
+            switch(day){
+            case 'day1':
+                return store.getState().temp.day1C;
+                break;
+                case 'day2':
+                return store.getState().temp.day2C;
+                break;
+                case 'day3':
+                return store.getState().temp.day3C;
+                break;
+                default:
+                return 'Temperature' +<br/>+ 'Unavailable';
+        }}
+    }
+    
+    forecastToggle() {
+        if(this.state.isToggleOn === false){
+            return(
+            <Hide>
+            </Hide>
+            )
+        } else {
             return(
             <Show>
             <ListItems>
@@ -108,33 +108,32 @@ class ThreeDayForecast extends Component {
             </ListItems>
             </Show>
             )}
-      }
-      render() {
+    }
+    render() {
         return (
         <div>
             <button onClick={this.handleClick}>
             3 Day Forcast
             </button>
             <Label>
-              {/* <SliderCheckbox type="checkbox" onClick={this.handleTempChange}/>
-              <Slider/> */}
-              <ToggleSwitch
-              checked={this.state.checked}
-              onChange={(event) => {
-        this.setState({ checked: !this.state.checked,
-                        showTemp: this.state.checked ? "F" : "C" ,
-                       tempKind: this.state.checked ? false : true });
-                        console.log(this.state.showTemp)
-                        console.log(this.state.checked)
-    }}
+                {/* <SliderCheckbox type="checkbox" onClick={this.handleTempChange}/>
+                <Slider/> */}
+                <ToggleSwitch
+                checked={this.state.checked}
+                onChange={(event) => {
+                this.setState({ checked: !this.state.checked,
+                                showTemp: this.state.checked ? "F" : "C" ,
+                                tempKind: this.state.checked ? false : true });
+                                }
+                        }
 />
             </Label>
-          <div>
-          {this.forecastToggle()}
-          </div>
+        <div>
+            {this.forecastToggle()}
+        </div>
         </div>
         );
-      }
+    }
     }
 
 function mapStateToProps(state) {

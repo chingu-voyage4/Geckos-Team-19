@@ -13,7 +13,6 @@ import { addError } from './../actions/error';
 const App = (props) => {
    const { authUser, errors, removeError, currentUser,addError} = props;
         return (
-            
             <div>
                 <Switch>
                         <Route exact path="/" render={props => <Main currentUser={currentUser}{...props} /> } />

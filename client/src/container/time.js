@@ -36,39 +36,32 @@ class Time extends React.Component {
 
     render() {
         return (
-
             <TimeDateMadeByWrap>
                   <TimeDateInputWrap>
                     <TimeDateWrap>
                       <D> { this.state.date} </D>
                       {/* <SettingsButton><i className="fa fa-gears fa-1x"></i></SettingsButton> */}
                       <Clock> {this.state.time} </Clock>
-                  
                     </TimeDateWrap>
                     <Bounce>
                    <Weather  />
                    </Bounce>
                  </TimeDateInputWrap>
-            
                  <NameWrap>
-                 
                    <Name>
                      <Methodize> METHODIZE</Methodize>
                       <Organize> organize your thoughts </Organize>
                    </Name>  
+                    {/*particles animation*/}
                    <ParticlesMain/>
-                
                  </NameWrap>   
                  <LogoutMadeByWrap>
                    <LogOut logout={this.props.logout} history={this.props.history}/>
                    <MadeBy/>
                  </LogoutMadeByWrap>
-                
            </TimeDateMadeByWrap>
         );
     }
 }
-
-
 
 export default Time; 

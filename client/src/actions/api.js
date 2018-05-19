@@ -11,7 +11,7 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 export function fetchWeather(lon, lat) {
     if (lon === null || lat === null) {
-        console.log("not finding log or lat")
+        console.log("not finding coordinates")
     } else {
         delete axios.defaults.headers.common['Authorization'];
         return (dispatch) => {
@@ -21,8 +21,6 @@ export function fetchWeather(lon, lat) {
                 url: url,
                 params: { lat: lat, lon: lon, appid: API_KEY }
             }).then((res) => {
-            console.log(res);
-
             return dispatch(dispatchWeather(res))}).catch(err=>console.log(err));
         }
     }

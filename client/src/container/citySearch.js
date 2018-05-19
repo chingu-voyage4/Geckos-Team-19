@@ -64,8 +64,7 @@ class SimpleForm extends Component {
 
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
-      .then(({ lat, lng }) => {
-        //console.log('Geocode Success', { lat, lng }); 
+      .then(({ lat, lng }) => { 
         this.setState({
           geocodeResults: this.renderGeocodeSuccess(lat, lng),
           lat:lat,
