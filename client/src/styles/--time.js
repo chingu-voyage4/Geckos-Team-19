@@ -16,7 +16,7 @@ margin-bottom:20px;
 // padding-top:23px;
 // padding-bottom:30px;
 align-items:center;
-// border:1px red solid;
+//border:1px red solid;
 `
 
 
@@ -60,7 +60,7 @@ margin-top:10px;
 `
 
 const TimeDateMadeByWrap = styled.div`
-// border:1px blue solid;
+//border:1px blue solid;
 display:flex;
 margin-bottom:40px; 
 justify-content:space-between;
@@ -111,7 +111,7 @@ const LogoutMadeByWrap = styled.div`
 display:flex;
 flex-direction:column;
 margin-right:15px;
-// border:1px red solid;
+//border:1px red solid;
 align-items:center;
 align-content:center;
 `

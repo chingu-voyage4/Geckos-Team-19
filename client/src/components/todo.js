@@ -120,7 +120,12 @@ handleEdit = (event) => {
 }
    return connectDragSource(connectDropTarget(
     <div style={{styles}} style={{opacity:didDrop?0:opacity}}>
-    <TodoAll><TodoText  contentEditable={true}>{text}</TodoText><span onClick={this.handleDelete.bind(this,id)} id={id}><TrashCan className="fa fa-trash"></TrashCan></span></TodoAll> 
+    <TodoAll>
+        <TodoText  contentEditable={true}>{text}</TodoText>
+        <span onClick={this.handleDelete.bind(this,id)} id={id}>
+          <TrashCan className="fa fa-trash"></TrashCan>
+        </span>
+    </TodoAll> 
 
     </div>
 ))

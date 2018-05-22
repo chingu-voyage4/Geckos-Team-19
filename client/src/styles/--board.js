@@ -77,6 +77,7 @@ font-size: 30px;
 font-weight: 900;
 margin-top:20px;
 margin-bottom:20px;
+word-break : break-word
 
 &:focus::placeholder {
     ${CardTitle}{
