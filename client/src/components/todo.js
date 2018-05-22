@@ -126,7 +126,16 @@ this.setState({
 }
    return connectDragSource(connectDropTarget(
     <div style={{styles}} style={{opacity:didDrop?0:opacity}}>
+<<<<<<< HEAD
     <TodoAll><TodoText html={this.state.todo} contentEditable={true}  onBlur={this.handleEdit.bind(this.value,id)}>{this.state.todo ===''?"loading...":this.state.todo}</TodoText><span onClick={this.handleDelete.bind(this,id)} ><TrashCan className="fa fa-trash"></TrashCan></span></TodoAll> 
+=======
+    <TodoAll>
+        <TodoText  contentEditable={true}>{text}</TodoText>
+        <span onClick={this.handleDelete.bind(this,id)} id={id}>
+          <TrashCan className="fa fa-trash"></TrashCan>
+        </span>
+    </TodoAll> 
+>>>>>>> new-test
 
     </div>
 ))
