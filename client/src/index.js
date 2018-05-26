@@ -6,7 +6,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 // import './styles/font-awesome/css/font-awesome.min.css';
 import { setAuthorizationToken, setCurrentUser } from '../src/actions/auth';
 import jwtDecode from 'jwt-decode';
-
+ 
 import App from '../src/container/App';
 
 if(localStorage.jwtToken){
