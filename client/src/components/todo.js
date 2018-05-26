@@ -127,7 +127,7 @@ this.setState({
    return connectDragSource(connectDropTarget(
     <div style={{styles}} style={{opacity:didDrop?0:opacity}}>
     <TodoAll>
-        <TodoText  contentEditable={true}>{text}</TodoText>
+        <TodoText  >{text}</TodoText>
         <span onClick={this.handleDelete.bind(this,id)} id={id}>
           <TrashCan className="fa fa-trash"></TrashCan>
         </span>
