@@ -49,7 +49,6 @@ border-radius: 5px;
 color: white;
 margin-left:10px;
 `
-<<<<<<< HEAD
 const Day1 = styled.div`
 height:100%;
 display:flex;
@@ -74,8 +73,7 @@ align-items:flex-end;
 align-content:flex-end;
 justify-items:right;
 flex-direction:column;
-padding: 5px;
-=======
+padding: 5px;`
 
 const DayName = styled.div`
 font-size:10px;
@@ -87,7 +85,6 @@ const Text = styled.div`
 font-size:10px;
 margin-right:4px;
 margin-left:4px;
->>>>>>> new-test
 `
 
 const VertLine = styled.div`

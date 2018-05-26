@@ -1,17 +1,9 @@
 import { apiCall } from '../services/api';
 import { addError } from './error';
-<<<<<<< HEAD
-import { REMOVE_TODO, LOAD_TODOS, MOVE_TODO ,ADD_TODO,DRAG_END,MOVE_POS,EDIT_TODO} from '../constants/ActionTypes';
-
-export const editTodo = (id, text) => ({ type: EDIT_TODO, id, text })
-export const addTodo = (text,pos,index) => ({ type: ADD_TODO, text, pos,index })
-export const moveTodo = (id,pos,index,hoverIndex,hoverId) => ({ type: MOVE_TODO, id, pos,index,hoverIndex,hoverId})
-=======
 import { REMOVE_TODO, LOAD_TODOS, MOVE_TODO, ADD_TODO, DRAG_END, MOVE_POS } from '../constants/ActionTypes';
 
 export const addTodo = (text, pos, index) => ({ type: ADD_TODO, text, pos, index })
 export const moveTodo = (id, pos, index, hoverIndex, hoverId) => ({ type: MOVE_TODO, id, pos, index, hoverIndex, hoverId })
->>>>>>> new-test
 export const deleteTodo = id => ({ type: REMOVE_TODO, id })
 export const dragEnd = id => ({ type: DRAG_END, id })
 export const movePos = (id, pos, index) => ({ type: MOVE_POS, id, pos })
@@ -67,17 +59,6 @@ export const updateTodo = (todo_id, position, index) => (dispatch, getState) => 
 export const updateMoveTodo = (dragId, position, dragIndex, hoverIndex, hoverId) => (dispatch, getState) => {
     let { currentUser } = getState();
     const id = currentUser.user.id;
-<<<<<<< HEAD
-    return apiCall('put',`/api/users/${id}/todos`,{dragId,position,dragIndex,hoverIndex,hoverId})
-    .then(e=>{}).catch(err=>dispatch(addError(err.message)))
-}
-export const editTodoCall = (todo_id,text)=>(dispatch,getState)=>{
-    let {currentUser} = getState();
-    const id = currentUser.user.id;
-    return apiCall("patch",`/api/users/${id}/todos/${todo_id}`,{text})
-    .then(e=>{console.log(e)}).catch(err=>dispatch(addError(err.message)))
-=======
     return apiCall('put', `/api/users/${id}/todos`, { dragId, position, dragIndex, hoverIndex, hoverId })
         .then(e => {}).catch(err => dispatch(addError(err.message)))
->>>>>>> new-test
 }

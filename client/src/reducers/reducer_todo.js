@@ -50,7 +50,7 @@ import _ from 'lodash';
         })
        case EDIT_TODO:
        return state.map(todo=>{
-           if(todo._id === acton.id){
+           if(todo._id === action.id){
                return {...todo,text:action.text}
            }
            return todo
