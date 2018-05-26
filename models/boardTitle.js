@@ -15,7 +15,7 @@ const BoardTitleSchema = new mongoose.Schema({
     }
 })
 
-
+ 
 
 const BoardTitle = mongoose.model('BoardTitle',BoardTitleSchema);
 

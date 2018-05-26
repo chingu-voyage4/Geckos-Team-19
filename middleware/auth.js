@@ -28,7 +28,7 @@ exports.loginRequired = function(req,res,next){
     }
     
 }
-
+ 
 // make sure we get the correct user - Authorization
 
 exports.ensureCorrectUser = function(req,res,next){

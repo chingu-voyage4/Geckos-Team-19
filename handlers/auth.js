@@ -33,7 +33,7 @@ exports.signin = async function(req, res, next) {
     return next({ status: 400, message: "Invalid Email/Password." });
   }
 };
-
+ 
 exports.signup = async function(req, res, next) {
   try {
     let user = await db.User.create(req.body);
