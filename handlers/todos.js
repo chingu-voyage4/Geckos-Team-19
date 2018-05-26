@@ -32,7 +32,7 @@ exports.getTodo = async function(req, res, next) {
         return next(err);
     }
 };
-
+ 
 // DELETE /api/users/:id/todo/:todo_id
 exports.deleteTodo = async function(req, res, next) {
     try {

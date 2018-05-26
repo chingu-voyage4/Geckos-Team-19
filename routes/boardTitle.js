@@ -14,7 +14,7 @@ router
 .get(getBoardTitles)
 .post(createBoardTitle);
 router
-.route('/:board_id')
+.route('/:board_id') 
 .put(updateboardTilte);
 
 module.exports = router;

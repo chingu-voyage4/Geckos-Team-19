@@ -18,7 +18,7 @@ exports.createBoardTitle = async function(req, res, next) {
       return next(err);
     }
   };
-
+ 
   exports.getBoardTitles = async function(req, res, next){
     try{
         let id = req.params.id;
