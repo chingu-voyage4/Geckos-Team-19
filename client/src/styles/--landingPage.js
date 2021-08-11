@@ -6,7 +6,7 @@ const PageWrap = styled.div `
 display:flex;
 flex-direction:column;
 // border:1px red solid;
-align-items:left
+align-items:left;
 height:100vh;
 width:100vw;
 justify-content:center;
@@ -65,7 +65,7 @@ margin:auto 20px;
 outline:0;
 
 &:hover {
-    ${Button} {
+   
         background-color:rgba(255,255,255,.4);
         border:1px rgba(0,0,0,0.4) solid;
         // outline:0;
@@ -74,12 +74,13 @@ outline:0;
     }
 
  &:active {    
-    ${Button} {
+     
     //    outline:0;
        box-shadow:0 0 0 0;
        top:2px;
        font-weight:400;
- }`
+ }
+`
 
 const ButtonWrap = styled.div `
 display: flex;

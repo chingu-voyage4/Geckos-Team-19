@@ -24,7 +24,7 @@ const PageWrap = styled.div`
 display:flex;
 flex-direction:column;
 //  border:1px red solid;
-align-items:left
+align-items:left;
 height:100vh;
 width:auto;
 align-items:center;
@@ -142,7 +142,7 @@ outline:0;
 width:120px;
 margin-top:30px;
 &:hover {
-    ${Button} {
+     
         background-color:rgba(255,255,255,.4);
         border:1px rgba(0,0,0,0.4) solid;
         // outline:0;
@@ -151,8 +151,8 @@ margin-top:30px;
     }
 
  &:active {    
-    ${Button} {
-    //    outline:0;
+     
+    // outline:0;
        box-shadow:0 0 0 0;
        top:2px;
        font-weight:400;

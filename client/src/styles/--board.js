@@ -10,7 +10,7 @@ height:auto;
 // align-items:center;
 padding-bottom:60px;
  margin-right:9px;
- margin-left:9px
+ margin-left:9px;
 
 `
 
@@ -35,10 +35,10 @@ outline:0;
 color:white;
 font-size:12px;
 padding:5px;
-}
+
 
 &:focus {
-    ${InputStyle}{
+    
         background-color: rgba(0,0,0,0.4);
         border:1px rgba(255,255,255,.6) solid;
     }
@@ -77,40 +77,40 @@ font-size: 30px;
 font-weight: 900;
 margin-top:20px;
 margin-bottom:20px;
-word-break : break-word
+word-break : break-word;
 
 &:focus::placeholder {
-    ${CardTitle}{
+    
         color: transparent;
-    }
+    
 }
 &:focus:-ms-input-placeholder{
-    ${CardTitle}{
+    
         color: transparent;
         // border:1px white solid;
     }
-}
+
 &:focus::-ms-input-placeholder{
-    ${CardTitle}{
+    
         color: transparent;
-    }
+    
 }
 
 &::placeholder{
-    ${CardTitle} { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     text-shadow:2px 2px rgba(0,0,0,.3);
 }
 
 &:-ms-input-placeholder{
-    ${CardTitle}
- { /* Internet Explorer 10-11 */
+
+ //* Internet Explorer 10-11 */
     color: white;
 }
 
 &::-ms-input-placeholder{
-    ${CardTitle}
- { /* Microsoft Edge */
+    
+ /* Microsoft Edge */
     color: white;
 }
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import img from './default-image/image-7.jpg';
+import img from './default-image/image-5.jpg';
 import { keyframes } from 'styled-components';
 
 
@@ -42,7 +42,7 @@ left:0;
 right:0;
 bottom:0;
 margin:auto;
-background-image: url(${require("../styles/default-image/image-"+ randomNumber() + ".jpg")});
+background-image: url(${img});
 background-size:cover;
 background-attachment: fixed;
 background-repeat: no-repeat;

@@ -88,7 +88,7 @@ margin-left:4px;
 `
 
 const VertLine = styled.div`
-marign: auto;
+margin: auto;
 padding: 0;
 border-left: 3px solid rgba(255, 255, 255, .5);
 border-radius: 3px;

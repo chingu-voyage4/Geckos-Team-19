@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {keyframes} from 'styled-components';
 
 const Input = styled.input`
-background-color: rgba(0,0,0,0)
+background-color: rgba(0,0,0,0);
 border-radius: 3px;
 border: 2px white solid;
 
@@ -36,14 +36,14 @@ padding-top:14px;
 padding-bottom:14px;
 // padding-left:10px;
 position:relative;
-}
+
 `
 const TodoText = styled.div`
 width:80%;
 // border:1px red solid;
 margin-left:10px;
 margin-right:20px;
-word-break : break-word
+word-break : break-word;
 font-size:12px;
 `
 

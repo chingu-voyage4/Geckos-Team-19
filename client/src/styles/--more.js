@@ -23,14 +23,14 @@ transition:.2s all;
 
 
 &:hover {
-    ${More} {
+     
         background-color:rgba(255,255,255,.6);
         border:1px rgba(0,0,0,0.4) solid;
          outline:0;
     }
 
  &:active {    
-    ${More} {
+     
       outline:0;
        box-shadow:0 0 0 0;
        top:2px;
@@ -38,13 +38,13 @@ transition:.2s all;
     }
 
     &:focus {    
-        ${More} {
+         
           outline:0;
          }
 
 
     &:blur {    
-        ${More} {
+         
           outline:0;
          }
 `

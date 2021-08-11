@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 
 
-const MadeByNames = styled.p`
+const MadeByNames = styled.div`
 margin-top: -50px;
 transition: all 1s ease;
 color: transparent;
@@ -15,7 +15,7 @@ padding-top: 30px;
 ;
 
 &:hover {
-  ${MadeByNames}{
+  
     display:flex;
     flex-direction:column;
     transform: translate(0px, 30px);
@@ -29,7 +29,7 @@ color:inherit;
 // border:1px red solid;
 
 &:hover {
-  ${MadeBySocial}{
+  
     color: white;
 }
 
@@ -54,9 +54,9 @@ right: 5px;
 text-align:center;
 
  &:hover {
-    ${MadeByTitle} {
+     
       
-  }}
+  }
 `
 
 const Name = styled.div`

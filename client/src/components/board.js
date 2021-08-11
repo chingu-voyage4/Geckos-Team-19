@@ -68,10 +68,10 @@ class Board extends Component {
         })
     }
     handleBlur(e){
-        let text = e.target.value
+        let text = e.target.value;
         if(e.target.value === ''){
             return this.setState({
-                cardTitle:this.props.bt[0].text
+                cardTitle:''
             })
         }
         if(this.props.bt.length !== 0){

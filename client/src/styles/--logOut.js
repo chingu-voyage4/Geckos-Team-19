@@ -22,18 +22,19 @@ outline:0;
 transition:.2s all;
 
 &:hover {
-    ${LogOutBtn} {
+     
         background-color:rgba(255,255,255,.6);
         border:1px rgba(0,0,0,0.4) solid;
         // outline:0;
     }
 
  &:active {    
-    ${LogOutBtn} {
+     
     //    outline:0;
        box-shadow:0 0 0 0;
        top:2px;
        font-weight:400;
+    }
 `
 
 

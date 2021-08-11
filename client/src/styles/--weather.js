@@ -56,7 +56,7 @@ color:rgba(255,255,255,1);
 width:200px;
 line-height:1.2;
 height:auto;
-margin-top:10px
+margin-top:10px;
 margin-left:12px;
 `
 
@@ -73,7 +73,7 @@ justify-content:center;
 background-color:rgba(0,0,0,0.2);
 border-radius:10px;
 box-shadow:2px 2px 2px 2px rgba(0,0,0,0.3);
-padding;5px;
+padding:5px;
 //left: -100px;
 //-webkit-animation: slide 2s forwards;
 //-webkit-animation-delay: 2s;
@@ -140,7 +140,7 @@ const InfoItem = styled.div `
 const ReturnedState = styled.div `
 font-weight:300;
 // margin-left:10px;
-padding-bottom;-9px;
+padding-bottom:-9px;
 color:white;
 margin-left:-5px;
 `
@@ -191,7 +191,7 @@ outline:0;
 width:100%;
 
 &:hover {
-    ${Button} {
+    
         background-color:rgba(0,0,0,.8);
         // outline:0;
         cursor:pointer;
@@ -200,7 +200,7 @@ width:100%;
     }
 
  &:active {    
-    ${Button} {
+     
        box-shadow:0 0 0 0;
        top:2px;
        font-weight:400;

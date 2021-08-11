@@ -48,7 +48,7 @@ class Main extends Component {
     }
       return (
 
-        <Background >
+        <Background>
           <AppWrap >
             <Time logout={this.props.logout} history={this.props.history}/>
             <WholeBoard>

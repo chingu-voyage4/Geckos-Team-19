@@ -64,7 +64,7 @@ const TimeDateMadeByWrap = styled.div`
 display:flex;
 margin-bottom:40px; 
 justify-content:space-between;
-background-color:/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+98&0.57+32,0+100 */
+//background-color:/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+98&0.57+32,0+100 */
 background: -moz-linear-gradient(top, rgba(0,0,0,0.57) 1%, rgba(0,0,0,0.57) 32%, rgba(0,0,0,0.02) 98%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(top, rgba(0,0,0,0.57) 1%,rgba(0,0,0,0.57) 32%,rgba(0,0,0,0.02) 98%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom, rgba(0,0,0,0.57) 1%,rgba(0,0,0,0.57) 32%,rgba(0,0,0,0.02) 98%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -94,7 +94,7 @@ font-family: 'Helvetica', sans-serif;
 //  border:1px red solid;
 font-size:10.5px;
 font-weight:100;
-font:"Helvetica", "sans-serif"
+font:"Helvetica", "sans-serif";
 margin-top:0;
 color:white;
 `

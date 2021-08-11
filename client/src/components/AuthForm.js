@@ -32,7 +32,7 @@ class AuthForm extends Component {
                   this.props.history.push('/');
               })
               .catch((err)=>{
-                  return this.props.addError(err.message);
+                  return this.props.addError("Email and password don't match our records");
               });
           }else{
             this.props.addError(`Invalid Email please try again`)
